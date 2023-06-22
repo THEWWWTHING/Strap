@@ -5,16 +5,13 @@
  */
 
 import React, { useState } from 'react';
-
-import { Box, Button, Flex, Option, Popover, Select } from '@strapi/design-system';
-import { Plus } from '@strapi/icons';
 import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 import styled from 'styled-components';
-
-import { useTracking } from '../../features/Tracking';
+import { Button, Flex, Box, Popover, Select, Option } from '@strapi/design-system';
+import { Plus } from '@strapi/icons';
+import { useIntl } from 'react-intl';
 import useQueryParams from '../../hooks/useQueryParams';
-
+import { useTracking } from '../../features/Tracking';
 import DefaultInputs from './Inputs';
 import getFilterList from './utils/getFilterList';
 

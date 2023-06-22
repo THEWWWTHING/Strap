@@ -6,7 +6,6 @@
  */
 
 import React, { memo, useMemo } from 'react';
-
 import PropTypes from 'prop-types';
 
 import md from './utils/mdRenderer';

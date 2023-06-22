@@ -1,12 +1,10 @@
 import produce, { current } from 'immer';
 import get from 'lodash/get';
 import set from 'lodash/set';
-
-import getRelationType from '../../utils/getRelationType';
 import makeUnique from '../../utils/makeUnique';
-
-import * as actions from './constants';
+import getRelationType from '../../utils/getRelationType';
 import retrieveComponentsFromSchema from './utils/retrieveComponentsFromSchema';
+import * as actions from './constants';
 
 const initialState = {
   components: {},

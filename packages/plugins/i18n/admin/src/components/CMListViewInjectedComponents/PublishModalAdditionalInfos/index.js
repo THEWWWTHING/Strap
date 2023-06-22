@@ -1,10 +1,8 @@
 import React from 'react';
-
-import { Typography } from '@strapi/design-system';
 import { useIntl } from 'react-intl';
-
-import useHasI18n from '../../../hooks/useHasI18n';
+import { Typography } from '@strapi/design-system';
 import { getTrad } from '../../../utils';
+import useHasI18n from '../../../hooks/useHasI18n';
 
 const Emphasis = (chunks) => {
   return (

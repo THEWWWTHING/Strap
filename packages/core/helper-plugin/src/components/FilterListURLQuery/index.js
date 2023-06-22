@@ -5,11 +5,8 @@
  */
 
 import React from 'react';
-
 import PropTypes from 'prop-types';
-
 import useQueryParams from '../../hooks/useQueryParams';
-
 import AttributeTag from './AttributeTag';
 
 const FilterListURLQuery = ({ filtersSchema }) => {

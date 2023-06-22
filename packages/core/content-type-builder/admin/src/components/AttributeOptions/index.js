@@ -5,24 +5,21 @@
  */
 
 import React from 'react';
-
+import { useIntl } from 'react-intl';
+import PropTypes from 'prop-types';
 import {
   Box,
   Divider,
-  Flex,
   ModalBody,
+  Flex,
+  Typography,
+  Tabs,
   Tab,
   TabGroup,
-  TabPanel,
   TabPanels,
-  Tabs,
-  Typography,
+  TabPanel,
 } from '@strapi/design-system';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
-
 import { getTrad } from '../../utils';
-
 import AttributeList from './AttributeList';
 import CustomFieldsList from './CustomFieldsList';
 

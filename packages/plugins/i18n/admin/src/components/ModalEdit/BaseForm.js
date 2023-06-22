@@ -1,12 +1,10 @@
 import React from 'react';
-
-import { Grid, GridItem, Option, Select, TextInput } from '@strapi/design-system';
-import { useFormikContext } from 'formik';
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
-import useDefaultLocales from '../../hooks/useDefaultLocales';
+import PropTypes from 'prop-types';
+import { useFormikContext } from 'formik';
+import { Grid, GridItem, TextInput, Select, Option } from '@strapi/design-system';
 import { getTrad } from '../../utils';
+import useDefaultLocales from '../../hooks/useDefaultLocales';
 
 const BaseForm = ({ locale }) => {
   const { formatMessage } = useIntl();

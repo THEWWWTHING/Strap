@@ -1,6 +1,5 @@
-import { useNotification } from '@strapi/helper-plugin';
 import { useQuery } from 'react-query';
-
+import { useNotification } from '@strapi/helper-plugin';
 import { fetchEnabledPlugins } from './utils/api';
 
 const useFetchEnabledPlugins = (notifyLoad) => {

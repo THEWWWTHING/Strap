@@ -1,9 +1,7 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
 import { render, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
-
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import ContentBox from '../index';
 
 const App = (

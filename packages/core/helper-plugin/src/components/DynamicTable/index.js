@@ -1,15 +1,13 @@
 import React, { Children, cloneElement, useState } from 'react';
-
-import { Box, Button, Flex, Table as TableCompo, Typography } from '@strapi/design-system';
-import { Trash } from '@strapi/icons';
 import PropTypes from 'prop-types';
+import { Box, Flex, Button, Typography, Table as TableCompo } from '@strapi/design-system';
 import { useIntl } from 'react-intl';
+import { Trash } from '@strapi/icons';
 
-import { useTracking } from '../../features/Tracking';
 import useQueryParams from '../../hooks/useQueryParams';
+import { useTracking } from '../../features/Tracking';
 import ConfirmDialog from '../ConfirmDialog';
 import EmptyBodyTable from '../EmptyBodyTable';
-
 import TableHead from './TableHead';
 
 const Table = ({

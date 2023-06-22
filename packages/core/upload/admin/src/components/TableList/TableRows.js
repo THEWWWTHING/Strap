@@ -1,16 +1,14 @@
 import React from 'react';
-
-import { BaseCheckbox, Flex, IconButton, Tbody, Td, Tr } from '@strapi/design-system';
-import { onRowClick, stopPropagation } from '@strapi/helper-plugin';
-import { Eye, Pencil } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
-
-import { AssetDefinition, FolderDefinition, tableHeaders as cells } from '../../constants';
-import { getTrad } from '../../utils';
+import { onRowClick, stopPropagation } from '@strapi/helper-plugin';
+import { BaseCheckbox, Flex, IconButton, Tbody, Td, Tr } from '@strapi/design-system';
+import { Pencil, Eye } from '@strapi/icons';
 
 import { CellContent } from './CellContent';
+import { AssetDefinition, FolderDefinition, tableHeaders as cells } from '../../constants';
+import { getTrad } from '../../utils';
 
 export const TableRows = ({
   onChangeFolder,

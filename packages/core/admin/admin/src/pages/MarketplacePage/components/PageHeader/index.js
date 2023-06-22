@@ -1,11 +1,10 @@
 import React from 'react';
-
-import { HeaderLayout } from '@strapi/design-system';
-import { LinkButton } from '@strapi/design-system/v2';
-import { useTracking } from '@strapi/helper-plugin';
-import { Upload } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
+import { HeaderLayout } from '@strapi/design-system';
+import { LinkButton } from '@strapi/design-system/v2';
+import { Upload } from '@strapi/icons';
+import { useTracking } from '@strapi/helper-plugin';
 
 const PageHeader = ({ isOnline, npmPackageType }) => {
   const { formatMessage } = useIntl();

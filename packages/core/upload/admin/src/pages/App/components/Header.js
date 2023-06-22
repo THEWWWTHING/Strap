@@ -1,16 +1,14 @@
 import React from 'react';
-
-import { Button, Flex, HeaderLayout, Link } from '@strapi/design-system';
-import { useQueryParams } from '@strapi/helper-plugin';
-import { ArrowLeft, Plus } from '@strapi/icons';
 import PropTypes from 'prop-types';
-import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
+import { stringify } from 'qs';
 import { useLocation } from 'react-router-dom';
-
-import { Breadcrumbs } from '../../../components/Breadcrumbs';
-import { BreadcrumbsDefinition, FolderDefinition } from '../../../constants';
+import { useQueryParams } from '@strapi/helper-plugin';
+import { HeaderLayout, Button, Flex, Link } from '@strapi/design-system';
+import { ArrowLeft, Plus } from '@strapi/icons';
 import { getTrad } from '../../../utils';
+import { FolderDefinition, BreadcrumbsDefinition } from '../../../constants';
+import { Breadcrumbs } from '../../../components/Breadcrumbs';
 
 export const Header = ({
   breadcrumbs,

@@ -1,7 +1,5 @@
 import { getFetchClient } from '@strapi/helper-plugin';
-
 import { AssetSource } from '../constants';
-
 import { typeFromMime } from './typeFromMime';
 
 function getFilenameFromURL(url) {

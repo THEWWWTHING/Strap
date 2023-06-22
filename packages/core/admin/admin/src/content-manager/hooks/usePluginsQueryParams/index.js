@@ -1,5 +1,5 @@
-import { parse, stringify } from 'qs';
 import { useLocation } from 'react-router-dom';
+import { parse, stringify } from 'qs';
 
 const usePluginsQueryParams = () => {
   const { search } = useLocation();

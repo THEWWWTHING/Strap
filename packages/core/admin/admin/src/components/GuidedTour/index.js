@@ -1,14 +1,12 @@
 import React, { useReducer } from 'react';
-
-import { GuidedTourProvider } from '@strapi/helper-plugin';
-import get from 'lodash/get';
 import PropTypes from 'prop-types';
-
-import init from './init';
-import reducer, { initialState } from './reducer';
+import get from 'lodash/get';
+import { GuidedTourProvider } from '@strapi/helper-plugin';
+import persistStateToLocaleStorage from './utils/persistStateToLocaleStorage';
 import arePreviousSectionsDone from './utils/arePreviousSectionsDone';
 import arePreviousStepsDone from './utils/arePreviousStepsDone';
-import persistStateToLocaleStorage from './utils/persistStateToLocaleStorage';
+import reducer, { initialState } from './reducer';
+import init from './init';
 
 const GuidedTour = ({ children }) => {
   const [{ currentStep, guidedTourState, isGuidedTourVisible, isSkipped }, dispatch] = useReducer(

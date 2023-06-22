@@ -1,33 +1,38 @@
-import type { Common, Attribute, Utils } from '@strapi/strapi';
+import { Attribute, ConfigurableOption, MinMaxOption, PrivateOption, RequiredOption } from './base';
+import { GetAttributesValues } from './utils';
 
-export interface ComponentProperties<
-  TComponentUID extends Common.UID.Component,
-  TRepeatable extends Utils.Expression.BooleanValue = Utils.Expression.False
+export interface ComponentAttributeProperties<
+  // Targeted component
+  T extends Strapi.ComponentUIDs,
+  // Repeatable
+  R extends boolean = false
 > {
-  component: TComponentUID;
-  repeatable?: TRepeatable;
+  component: T;
+  repeatable?: R;
 }
 
-export type Component<
-  TComponentUID extends Common.UID.Component = Common.UID.Component,
-  TRepeatable extends Utils.Expression.BooleanValue = Utils.Expression.False
-> = Attribute.OfType<'component'> &
+export type ComponentAttribute<
+  // Targeted component
+  T extends Strapi.ComponentUIDs,
+  // Repeatable
+  R extends boolean = false
+> = Attribute<'component'> &
   // Component Properties
-  ComponentProperties<TComponentUID, TRepeatable> &
+  ComponentAttributeProperties<T, R> &
   // Options
-  Attribute.ConfigurableOption &
-  Attribute.MinMaxOption &
-  Attribute.PrivateOption &
-  Attribute.RequiredOption;
+  ConfigurableOption &
+  MinMaxOption &
+  PrivateOption &
+  RequiredOption;
 
 export type ComponentValue<
-  TComponentUID extends Common.UID.Component,
-  TRepeatable extends Utils.Expression.BooleanValue
-> = Attribute.GetValues<TComponentUID> extends infer TValues
-  ? Utils.Expression.If<TRepeatable, TValues[], TValues>
-  : never;
+  T extends Strapi.ComponentUIDs,
+  R extends boolean
+> = GetAttributesValues<T> extends infer V ? (R extends true ? V[] : V) : never;
 
-export type GetComponentValue<TAttribute extends Attribute.Attribute> =
-  TAttribute extends Component<infer TComponentUID, infer TRepeatable>
-    ? ComponentValue<TComponentUID, TRepeatable>
-    : never;
+export type GetComponentAttributeValue<T extends Attribute> = T extends ComponentAttribute<
+  infer U,
+  infer R
+>
+  ? ComponentValue<U, R>
+  : never;

@@ -1,5 +1,4 @@
 import { getFetchClient } from '@strapi/helper-plugin';
-
 import getRequestUrl from './getRequestUrl';
 
 export const deleteRequest = (type, id) => {

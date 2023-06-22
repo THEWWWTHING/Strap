@@ -1,15 +1,22 @@
-import type { Attribute } from '@strapi/strapi';
+import {
+  Attribute,
+  ConfigurableOption,
+  DefaultOption,
+  MinMaxLengthOption,
+  PrivateOption,
+  RequiredOption,
+} from './base';
 
-export type RichText = Attribute.OfType<'richtext'> &
+export type RichTextAttribute = Attribute<'richtext'> &
   // Options
-  Attribute.ConfigurableOption &
-  Attribute.DefaultOption<RichTextValue> &
-  Attribute.MinMaxLengthOption &
-  Attribute.PrivateOption &
-  Attribute.RequiredOption;
+  ConfigurableOption &
+  DefaultOption<RichTextValue> &
+  MinMaxLengthOption &
+  PrivateOption &
+  RequiredOption;
 
 export type RichTextValue = string;
 
-export type GetRichTextValue<T extends Attribute.Attribute> = T extends RichText
+export type GetRichTextAttributeValue<T extends Attribute> = T extends RichTextAttribute
   ? RichTextValue
   : never;

@@ -1,15 +1,15 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { NotificationsProvider, useFetchClient, useNotification } from '@strapi/helper-plugin';
-import { act, renderHook, waitFor } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
-import { QueryClient, QueryClientProvider, useQueryClient } from 'react-query';
+import { QueryClientProvider, QueryClient, useQueryClient } from 'react-query';
+import { renderHook, act, waitFor } from '@testing-library/react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import { pageSizes, sortOptions } from '../../constants';
-import pluginId from '../../pluginId';
+import { NotificationsProvider, useNotification, useFetchClient } from '@strapi/helper-plugin';
+
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
+import { sortOptions, pageSizes } from '../../constants';
 import { useConfig } from '../useConfig';
+import pluginId from '../../pluginId';
 
 const mockGetResponse = {
   data: {

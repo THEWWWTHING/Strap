@@ -5,10 +5,8 @@
 // Also the strapi-generate-plugins/files/admin/src/index.js needs to be updated
 // IF THE DOC IS NOT UPDATED THE PULL REQUEST WILL NOT BE MERGED
 import { prefixPluginTranslations } from '@strapi/helper-plugin';
-
 import pluginPkg from '../../package.json';
-
-import { PERMISSIONS } from './constants';
+import pluginPermissions from './permissions';
 import pluginId from './pluginId';
 import getTrad from './utils/getTrad';
 
@@ -40,7 +38,7 @@ export default {
 
             return component;
           },
-          permissions: PERMISSIONS.accessRoles,
+          permissions: pluginPermissions.accessRoles,
         },
         {
           intlLabel: {
@@ -56,7 +54,7 @@ export default {
 
             return component;
           },
-          permissions: PERMISSIONS.readProviders,
+          permissions: pluginPermissions.readProviders,
         },
         {
           intlLabel: {
@@ -72,7 +70,7 @@ export default {
 
             return component;
           },
-          permissions: PERMISSIONS.readEmailTemplates,
+          permissions: pluginPermissions.readEmailTemplates,
         },
         {
           intlLabel: {
@@ -88,7 +86,7 @@ export default {
 
             return component;
           },
-          permissions: PERMISSIONS.readAdvancedSettings,
+          permissions: pluginPermissions.readAdvancedSettings,
         },
       ]
     );

@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import { render as renderRTL, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { IntlProvider } from 'react-intl';

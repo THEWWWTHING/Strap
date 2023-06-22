@@ -1,20 +1,30 @@
-import type { Attribute } from '@strapi/strapi';
+import {
+  Attribute,
+  ConfigurableOption,
+  DefaultOption,
+  MinMaxLengthOption,
+  PrivateOption,
+  RequiredOption,
+  UniqueOption,
+} from './base';
 
-export interface TextProperties {
+export interface TextAttributeProperties {
   regex?: RegExp;
 }
 
-export type Text = Attribute.OfType<'text'> &
+export type TextAttribute = Attribute<'text'> &
   // Properties
-  TextProperties &
+  TextAttributeProperties &
   // Options
-  Attribute.ConfigurableOption &
-  Attribute.DefaultOption<TextValue> &
-  Attribute.MinMaxLengthOption &
-  Attribute.PrivateOption &
-  Attribute.UniqueOption &
-  Attribute.RequiredOption;
+  ConfigurableOption &
+  DefaultOption<TextValue> &
+  MinMaxLengthOption &
+  PrivateOption &
+  UniqueOption &
+  RequiredOption;
 
 export type TextValue = string;
 
-export type GetTextValue<T extends Attribute.Attribute> = T extends Text ? TextValue : never;
+export type GetTextAttributeValue<T extends Attribute> = T extends TextAttribute
+  ? TextValue
+  : never;

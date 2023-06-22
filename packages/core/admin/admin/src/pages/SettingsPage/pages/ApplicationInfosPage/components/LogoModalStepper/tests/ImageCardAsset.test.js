@@ -1,8 +1,7 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { render as renderTL } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
+import { render as renderTL } from '@testing-library/react';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 
 import ImageCardAsset from '../ImageCardAsset';
 

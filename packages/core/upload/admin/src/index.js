@@ -5,13 +5,11 @@
 // Also the strapi-generate-plugins/files/admin/src/index.js needs to be updated
 // IF THE DOC IS NOT UPDATED THE PULL REQUEST WILL NOT BE MERGED
 import { prefixPluginTranslations } from '@strapi/helper-plugin';
-
 import pluginPkg from '../../package.json';
-
-import { MediaLibraryDialog } from './components/MediaLibraryDialog';
-import { MediaLibraryInput } from './components/MediaLibraryInput';
 import PluginIcon from './components/PluginIcon';
-import { PERMISSIONS } from './constants';
+import pluginPermissions from './permissions';
+import { MediaLibraryInput } from './components/MediaLibraryInput';
+import { MediaLibraryDialog } from './components/MediaLibraryDialog';
 import pluginId from './pluginId';
 import getTrad from './utils/getTrad';
 
@@ -26,7 +24,7 @@ export default {
         id: `${pluginId}.plugin.name`,
         defaultMessage: 'Media Library',
       },
-      permissions: PERMISSIONS.main,
+      permissions: pluginPermissions.main,
       async Component() {
         const component = await import(/* webpackChunkName: "upload" */ './pages/App');
 
@@ -57,7 +55,7 @@ export default {
 
         return component;
       },
-      permissions: PERMISSIONS.settings,
+      permissions: pluginPermissions.settings,
     });
   },
   async registerTrads({ locales }) {

@@ -4,8 +4,7 @@
  */
 
 import produce from 'immer';
-
-import { RESET_PERMISSIONS, SET_PERMISSIONS } from './constants';
+import { SET_PERMISSIONS, RESET_PERMISSIONS } from './constants';
 
 export const initialState = {
   permissions: null,

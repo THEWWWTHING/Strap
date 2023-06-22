@@ -1,10 +1,8 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
-import Filters from './Filters';
 import useAllowedAttributes from './hooks/useAllowedAttributes';
+import Filters from './Filters';
 
 const AttributeFilter = ({ contentType, slug, metadatas }) => {
   const { formatMessage } = useIntl();

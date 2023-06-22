@@ -1,9 +1,6 @@
 import React, { useCallback, useMemo, useReducer } from 'react';
-
 import PropTypes from 'prop-types';
-
 import { ConfigurationsContext } from '../../contexts';
-
 import reducer, { initialState } from './reducer';
 
 const ConfigurationsProvider = ({

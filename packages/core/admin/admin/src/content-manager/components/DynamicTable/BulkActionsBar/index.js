@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-
-import { Button, Dialog, DialogBody, DialogFooter, Flex, Typography } from '@strapi/design-system';
-import { useTracking } from '@strapi/helper-plugin';
-import { Check, ExclamationMarkCircle, Trash } from '@strapi/icons';
 import PropTypes from 'prop-types';
+import { Button, Dialog, DialogBody, DialogFooter, Flex, Typography } from '@strapi/design-system';
+import { Check, ExclamationMarkCircle, Trash } from '@strapi/icons';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
-
-import { listViewDomain } from '../../../pages/ListView/selectors';
+import { useTracking } from '@strapi/helper-plugin';
 import { getTrad } from '../../../utils';
 import InjectionZoneList from '../../InjectionZoneList';
+import { listViewDomain } from '../../../pages/ListView/selectors';
 
 const ConfirmBulkActionDialog = ({ onToggleDialog, isOpen, dialogBody, endAction }) => {
   const { formatMessage } = useIntl();

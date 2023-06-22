@@ -1,13 +1,12 @@
-import {
-  contentManagementUtilRemoveFieldsFromData,
-  formatContentTypeData,
-  getFetchClient,
-} from '@strapi/helper-plugin';
-import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
 import merge from 'lodash/merge';
+import cloneDeep from 'lodash/cloneDeep';
 import { parse } from 'qs';
-
+import {
+  getFetchClient,
+  formatContentTypeData,
+  contentManagementUtilRemoveFieldsFromData,
+} from '@strapi/helper-plugin';
 import pluginId from '../pluginId';
 
 const addCommonFieldsToInitialDataMiddleware =

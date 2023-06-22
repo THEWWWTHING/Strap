@@ -5,15 +5,14 @@
  */
 
 import React from 'react';
-
-import { darkTheme, lightTheme } from '@strapi/design-system';
 import { act, render } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
 import { IntlProvider } from 'react-intl';
-import { Route, Router, Switch } from 'react-router-dom';
-
+import { Router, Switch, Route } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
+import { lightTheme, darkTheme } from '@strapi/design-system';
 import Theme from '../../../../../../components/Theme';
 import ThemeToggleProvider from '../../../../../../components/ThemeToggleProvider';
+
 import EditPage from '../index';
 
 jest.mock('@strapi/helper-plugin', () => ({

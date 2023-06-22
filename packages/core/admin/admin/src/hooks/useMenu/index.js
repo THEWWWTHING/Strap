@@ -1,10 +1,8 @@
 import { useEffect, useReducer, useRef } from 'react';
-
-import { useAppInfo, useRBACProvider, useStrapiApp } from '@strapi/helper-plugin';
-
-import reducer, { initialState } from './reducer';
-import getGeneralLinks from './utils/getGeneralLinks';
+import { useRBACProvider, useAppInfo, useStrapiApp } from '@strapi/helper-plugin';
 import getPluginSectionLinks from './utils/getPluginSectionLinks';
+import getGeneralLinks from './utils/getGeneralLinks';
+import reducer, { initialState } from './reducer';
 
 const useMenu = () => {
   const [state, dispatch] = useReducer(reducer, initialState);

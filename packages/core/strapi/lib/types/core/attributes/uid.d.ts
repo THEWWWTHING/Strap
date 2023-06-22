@@ -1,6 +1,15 @@
-import type { Attribute, Common, Utils } from '@strapi/strapi';
+import {
+  Attribute,
+  ConfigurableOption,
+  DefaultOption,
+  MinMaxLengthOption,
+  PrivateOption,
+  RequiredOption,
+} from './base';
+import { SchemaUID } from '../../utils';
+import { GetAttributesKeysByType } from './utils';
 
-export interface UIDOptions {
+export interface UIDAttributeOptions {
   separator?: string;
   lowercase?: boolean;
   decamelize?: boolean;
@@ -8,46 +17,41 @@ export interface UIDOptions {
   preserveLeadingUnderscore?: boolean;
 }
 
-export interface UIDProperties<
-  TOrigin extends Common.UID.Schema,
-  TTargetAttribute extends AllowedTargetAttributes<TOrigin>,
-  TOptions extends UIDOptions = UIDOptions
+export interface UIDAttributeProperties<
+  // Own Schema Reference
+  T extends SchemaUID | undefined = undefined,
+  // Target attribute
+  U extends T extends SchemaUID
+    ? GetAttributesKeysByType<T, 'string' | 'text'>
+    : undefined = undefined,
+  // UID options
+  S extends UIDAttributeOptions = UIDAttributeOptions
 > {
-  targetField: TTargetAttribute;
-  options: UIDOptions & TOptions;
+  targetField?: U;
+  options?: UIDAttributeOptions & S;
 }
 
-export interface GenericUIDProperties<TOptions extends UIDOptions = UIDOptions> {
-  targetField?: string;
-  options: TOptions & UIDOptions;
-}
-
-export type UID<
-  TOrigin extends Common.UID.Schema | undefined = undefined,
-  TTargetAttribute extends AllowedTargetAttributes<TOrigin> = AllowedTargetAttributes<TOrigin>,
-  TOptions extends UIDOptions = UIDOptions
-> = Attribute.OfType<'uid'> &
+export type UIDAttribute<
+  // Own Schema Reference
+  T extends SchemaUID | undefined = undefined,
+  // Target attribute
+  U extends T extends SchemaUID
+    ? GetAttributesKeysByType<T, 'string' | 'text'>
+    : undefined = undefined,
+  // UID options
+  S extends UIDAttributeOptions = UIDAttributeOptions
+> = Attribute<'uid'> &
   // Properties
-  (TOrigin extends Common.UID.Schema
-    ? UIDProperties<TOrigin, TTargetAttribute, TOptions>
-    : GenericUIDProperties<TOptions>) &
+  UIDAttributeProperties<T, U, S> &
   // Options
-  Attribute.ConfigurableOption &
-  Attribute.DefaultOption<UIDValue> &
-  Attribute.MinMaxLengthOption &
-  Attribute.PrivateOption &
-  Attribute.RequiredOption;
-
-type AllowedTargetAttributes<TOrigin extends Common.UID.Schema | undefined> =
-  TOrigin extends Common.UID.Schema
-    ? Utils.Guard.Never<Attribute.GetKeysByType<TOrigin, 'string' | 'text'>, string>
-    : never;
+  ConfigurableOption &
+  DefaultOption<UIDValue> &
+  MinMaxLengthOption &
+  PrivateOption &
+  RequiredOption;
 
 export type UIDValue = string;
 
-export type GetUIDValue<TAttribute extends Attribute.Attribute> = TAttribute extends UID<
-  infer _TOrigin,
-  infer _TTargetAttribute
->
+export type GetUIDAttributeValue<T extends Attribute> = T extends UIDAttribute<infer _U, infer _P>
   ? UIDValue
   : never;

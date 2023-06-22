@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-
-import { Box, CardAsset, CardTimer } from '@strapi/design-system';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { CardAsset, CardTimer, Box } from '@strapi/design-system';
+
+import { VideoPreview } from './VideoPreview';
+import { AssetCardBase } from './AssetCardBase';
 
 import { formatDuration } from '../../utils';
-
-import { AssetCardBase } from './AssetCardBase';
-import { VideoPreview } from './VideoPreview';
 
 const VideoPreviewWrapper = styled(Box)`
   canvas,

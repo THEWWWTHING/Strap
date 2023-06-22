@@ -1,11 +1,10 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { useQueryParams } from '@strapi/helper-plugin';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
+import { QueryClientProvider, QueryClient } from 'react-query';
 import { render } from '@testing-library/react';
-import { IntlProvider } from 'react-intl';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { useQueryParams } from '@strapi/helper-plugin';
 import { MemoryRouter } from 'react-router-dom';
+import { IntlProvider } from 'react-intl';
 
 import { Header } from '../Header';
 

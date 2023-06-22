@@ -1,5 +1,4 @@
 import { renderHook, waitFor } from '@testing-library/react';
-
 import useLazyComponents from '../index';
 
 const mockCustomField = {

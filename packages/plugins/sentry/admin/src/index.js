@@ -1,7 +1,5 @@
 import { prefixPluginTranslations } from '@strapi/helper-plugin';
-
 import pluginPkg from '../../package.json';
-
 import pluginId from './pluginId';
 
 const name = pluginPkg.strapi.name;

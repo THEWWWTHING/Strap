@@ -1,8 +1,7 @@
 import React from 'react';
-
+import { useIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { useIntl } from 'react-intl';
 
 const SettingsPageTitle = ({ name }) => {
   const { formatMessage } = useIntl();

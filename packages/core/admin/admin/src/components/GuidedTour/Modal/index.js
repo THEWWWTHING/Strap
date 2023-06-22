@@ -1,13 +1,10 @@
-import React, { useEffect, useReducer, useState } from 'react';
-
-import { useGuidedTour, useTracking } from '@strapi/helper-plugin';
+import React, { useEffect, useState, useReducer } from 'react';
 import at from 'lodash/at';
-
+import { useGuidedTour, useTracking } from '@strapi/helper-plugin';
 import layout from '../layout';
-
 import Modal from './components/Modal';
-import StepperModal from './components/Stepper';
 import reducer, { initialState } from './reducer';
+import StepperModal from './components/Stepper';
 
 const GuidedTourModal = () => {
   const {

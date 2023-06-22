@@ -1,9 +1,8 @@
 import React from 'react';
-
-import { Box, Option, Select } from '@strapi/design-system';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 import styled from 'styled-components';
+import { Select, Option, Box } from '@strapi/design-system';
+import { useIntl } from 'react-intl';
+import PropTypes from 'prop-types';
 
 const SelectWrapper = styled(Box)`
   font-weight: ${({ theme }) => theme.fontWeights.semiBold};

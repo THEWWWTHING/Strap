@@ -1,9 +1,8 @@
 import isEmpty from 'lodash/isEmpty';
 import isNumber from 'lodash/isNumber';
 
-import isFieldTypeNumber from '../../../../utils/isFieldTypeNumber';
-
 import isSingleRelation from './isSingleRelation';
+import isFieldTypeNumber from '../../../../utils/isFieldTypeNumber';
 
 export default function hasContent(type, content, metadatas, fieldSchema) {
   if (type === 'component') {

@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { intervalToDuration, isPast } from 'date-fns';
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
+import PropTypes from 'prop-types';
 
 const RelativeTime = ({ timestamp }) => {
   const { formatRelativeTime, formatDate, formatTime } = useIntl();

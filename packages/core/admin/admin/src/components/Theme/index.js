@@ -1,9 +1,7 @@
 import React from 'react';
-
 import { DesignSystemProvider } from '@strapi/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
 import { useThemeToggle } from '../../hooks';
 import GlobalStyle from '../GlobalStyle';
 

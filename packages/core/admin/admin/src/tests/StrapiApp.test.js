@@ -1,9 +1,8 @@
-import { fixtures } from '@strapi/admin-test-utils';
 import { render } from '@testing-library/react';
-
+import { fixtures } from '@strapi/admin-test-utils';
 import { Components, Fields } from '../core/apis';
-import appReducers from '../reducers';
 import StrapiApp from '../StrapiApp';
+import appReducers from '../reducers';
 
 const library = { fields: Fields(), components: Components() };
 const middlewares = { middlewares: [] };

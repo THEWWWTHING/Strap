@@ -5,11 +5,9 @@
 // Also the strapi-generate-plugins/files/admin/src/index.js needs to be updated
 // IF THE DOC IS NOT UPDATED THE PULL REQUEST WILL NOT BE MERGED
 import { prefixPluginTranslations } from '@strapi/helper-plugin';
-
 import pluginPkg from '../../package.json';
-
 import PluginIcon from './components/PluginIcon';
-import { PERMISSIONS } from './constants';
+import pluginPermissions from './permissions';
 import pluginId from './pluginId';
 
 const name = pluginPkg.strapi.name;
@@ -23,7 +21,7 @@ export default {
         id: `${pluginId}.plugin.name`,
         defaultMessage: 'Documentation',
       },
-      permissions: PERMISSIONS.main,
+      permissions: pluginPermissions.main,
       async Component() {
         const component = await import(
           /* webpackChunkName: "documentation-page" */ './pages/PluginPage'
@@ -53,7 +51,7 @@ export default {
 
         return component;
       },
-      permissions: PERMISSIONS.main,
+      permissions: pluginPermissions.main,
     });
   },
   async registerTrads({ locales }) {

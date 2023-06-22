@@ -1,15 +1,14 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { NotificationsProvider } from '@strapi/helper-plugin';
-import { within } from '@testing-library/dom';
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import { IntlProvider } from 'react-intl';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { render, fireEvent, act, waitFor, screen } from '@testing-library/react';
+import { within } from '@testing-library/dom';
+import { NotificationsProvider } from '@strapi/helper-plugin';
+import { QueryClientProvider, QueryClient } from 'react-query';
 
+import { EditFolderDialog } from '../EditFolderDialog';
 import { useEditFolder } from '../../../hooks/useEditFolder';
 import { useMediaLibraryPermissions } from '../../../hooks/useMediaLibraryPermissions';
-import { EditFolderDialog } from '../EditFolderDialog';
 
 jest.mock('@strapi/helper-plugin', () => ({
   ...jest.requireActual('@strapi/helper-plugin'),

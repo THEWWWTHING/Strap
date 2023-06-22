@@ -1,7 +1,6 @@
 import React from 'react';
-
-import { Button, ModalFooter } from '@strapi/design-system';
 import PropTypes from 'prop-types';
+import { Button, ModalFooter } from '@strapi/design-system';
 import { useIntl } from 'react-intl';
 
 export const DialogFooter = ({ onClose, onValidate }) => {

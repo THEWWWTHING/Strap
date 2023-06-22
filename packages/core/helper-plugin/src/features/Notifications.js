@@ -1,10 +1,9 @@
 import * as React from 'react';
 
-import { Alert, Flex } from '@strapi/design-system';
-import { Link } from '@strapi/design-system/v2';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
+import { Alert, Flex } from '@strapi/design-system';
+import { Link } from '@strapi/design-system/v2';
 import { useCallbackRef } from '../hooks/useCallbackRef';
 
 /**
@@ -303,4 +302,4 @@ Notification.propTypes = {
  */
 const useNotification = () => React.useContext(NotificationsContext).toggleNotification;
 
-export { NotificationsContext, NotificationsProvider, useNotification };
+export { NotificationsProvider, useNotification, NotificationsContext };

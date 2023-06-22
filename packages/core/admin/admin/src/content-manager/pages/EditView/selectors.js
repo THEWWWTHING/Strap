@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect';
-
 import { createAttributesLayout, getCustomFieldUidsFromLayout } from './utils';
 
 const selectCurrentLayout = (state) => state['content-manager_editViewLayoutManager'].currentLayout;
@@ -12,4 +11,4 @@ const selectCustomFieldUids = createSelector(selectCurrentLayout, (layout) =>
   getCustomFieldUidsFromLayout(layout)
 );
 
-export { selectAttributesLayout, selectCurrentLayout, selectCustomFieldUids };
+export { selectCurrentLayout, selectAttributesLayout, selectCustomFieldUids };

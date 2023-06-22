@@ -1,5 +1,4 @@
 import transformPermissionsData from '../transformPermissionsData';
-
 import { data } from './dataMock';
 
 describe('ADMIN | Container | SettingsPage | ApiTokens | EditView | utils | transformPermissionsData', () => {

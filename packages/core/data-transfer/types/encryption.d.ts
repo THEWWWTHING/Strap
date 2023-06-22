@@ -1,4 +1,4 @@
-import type { Cipher } from 'crypto';
+import type { Cipher, CipherKey, BinaryLike } from 'crypto';
 
 export type EncryptionStrategy = (key: string) => Cipher;
 

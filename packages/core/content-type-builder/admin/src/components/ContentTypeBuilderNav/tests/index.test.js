@@ -4,16 +4,13 @@
  *
  */
 
-import React from 'react';
-
 import { Layout, lightTheme, ThemeProvider } from '@strapi/design-system';
+import { IntlProvider } from 'react-intl';
 import { render } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
-import { IntlProvider } from 'react-intl';
+import React from 'react';
 import { Router } from 'react-router-dom';
-
 import ContentTypeBuilderNav from '../index';
-
 import mockData from './mockData';
 
 jest.mock('../useContentTypeBuilderMenu.js', () => {

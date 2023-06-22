@@ -1,12 +1,9 @@
 import { useEffect, useReducer } from 'react';
-
 import { useFetchClient, useNotification, useOverlayBlocker } from '@strapi/helper-plugin';
 import omit from 'lodash/omit';
-
 import { checkFormValidity, formatAPIErrors } from '../../utils';
-
-import init from './init';
 import { initialState, reducer } from './reducer';
+import init from './init';
 
 /**
  * TODO: refactor this, it's confusing and hard to read.

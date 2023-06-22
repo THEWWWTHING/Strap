@@ -1,7 +1,5 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
-
 import LocalesProviderContext from './context';
 
 const LocalesProvider = ({ changeLocale, children, localeNames }) => {

@@ -1,8 +1,7 @@
 import React from 'react';
-
-import { Box, Flex } from '@strapi/design-system';
-import { PageSizeURLQuery, PaginationURLQuery } from '@strapi/helper-plugin';
 import PropTypes from 'prop-types';
+import { Box, Flex } from '@strapi/design-system';
+import { PaginationURLQuery, PageSizeURLQuery } from '@strapi/helper-plugin';
 
 const NpmPackagesPagination = ({ pagination }) => {
   return (

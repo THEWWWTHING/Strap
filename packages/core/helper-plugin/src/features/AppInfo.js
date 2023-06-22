@@ -154,10 +154,10 @@ const AppInfosProvider = AppInfoProvider;
 const AppInfosContext = AppInfoContext;
 
 export {
-  AppInfoContext,
   AppInfoProvider,
-  AppInfosContext,
-  AppInfosProvider,
+  AppInfoContext,
   useAppInfo,
   useAppInfos,
+  AppInfosProvider,
+  AppInfosContext,
 };

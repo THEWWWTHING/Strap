@@ -1,8 +1,9 @@
-import { addStage, deleteStage, setWorkflows, updateStage } from '..';
+import { setWorkflows, deleteStage, updateStage, addStage } from '..';
+
 import {
-  ACTION_ADD_STAGE,
-  ACTION_DELETE_STAGE,
   ACTION_SET_WORKFLOWS,
+  ACTION_DELETE_STAGE,
+  ACTION_ADD_STAGE,
   ACTION_UPDATE_STAGE,
 } from '../../constants';
 

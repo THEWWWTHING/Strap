@@ -1,8 +1,7 @@
 import React from 'react';
-
-import { Tooltip, Typography } from '@strapi/design-system';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Tooltip, Typography } from '@strapi/design-system';
 
 import CellValue from '../CellValue';
 

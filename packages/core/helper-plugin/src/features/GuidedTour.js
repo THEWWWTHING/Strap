@@ -108,4 +108,4 @@ GuidedTourProvider.propTypes = {
  */
 const useGuidedTour = () => React.useContext(GuidedTourContext);
 
-export { GuidedTourContext, GuidedTourProvider, useGuidedTour };
+export { GuidedTourProvider, useGuidedTour, GuidedTourContext };

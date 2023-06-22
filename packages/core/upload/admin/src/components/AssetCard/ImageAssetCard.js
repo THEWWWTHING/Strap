@@ -1,7 +1,6 @@
 import React from 'react';
-
-import { CardAsset } from '@strapi/design-system';
 import PropTypes from 'prop-types';
+import { CardAsset } from '@strapi/design-system';
 
 import { AssetCardBase } from './AssetCardBase';
 

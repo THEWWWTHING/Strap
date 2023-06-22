@@ -3,13 +3,6 @@
 const createContext = require('../../../../../../test/helpers/create-context');
 const singleTypes = require('../single-types');
 
-// Mock the populate functions
-jest.mock('../../services/utils/populate', () => ({
-  ...jest.requireActual('../../services/utils/populate'),
-  getDeepPopulate: () => ({}),
-  getQueryPopulate: async () => ({}),
-}));
-
 describe('Single Types', () => {
   test('Successfull find', async () => {
     const state = {
@@ -43,7 +36,6 @@ describe('Single Types', () => {
           },
         },
       },
-      getModel: jest.fn(),
       plugins: {
         'content-manager': {
           services: {
@@ -60,7 +52,6 @@ describe('Single Types', () => {
                 return permissionChecker;
               },
             },
-            'populate-builder': require('../../services/populate-builder')(),
           },
         },
       },
@@ -158,7 +149,6 @@ describe('Single Types', () => {
                 return permissionChecker;
               },
             },
-            'populate-builder': require('../../services/populate-builder')(),
           },
         },
       },
@@ -275,7 +265,6 @@ describe('Single Types', () => {
                 return permissionChecker;
               },
             },
-            'populate-builder': require('../../services/populate-builder')(),
           },
         },
       },
@@ -373,7 +362,6 @@ describe('Single Types', () => {
                 return permissionChecker;
               },
             },
-            'populate-builder': require('../../services/populate-builder')(),
           },
         },
       },
@@ -471,7 +459,6 @@ describe('Single Types', () => {
                 return permissionChecker;
               },
             },
-            'populate-builder': require('../../services/populate-builder')(),
           },
         },
       },

@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-
-import { Box, Button, ModalFooter, Textarea } from '@strapi/design-system';
+import PropTypes from 'prop-types';
+import { Box, ModalFooter, Textarea, Button } from '@strapi/design-system';
+import { useIntl } from 'react-intl';
 import { Form, useTracking } from '@strapi/helper-plugin';
 import { Formik } from 'formik';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
-
 import getTrad from '../../../utils/getTrad';
-import { urlsToAssets } from '../../../utils/urlsToAssets';
 import { urlSchema } from '../../../utils/urlYupSchema';
+import { urlsToAssets } from '../../../utils/urlsToAssets';
 
 export const FromUrlForm = ({ onClose, onAddAsset, trackedLocation }) => {
   const [loading, setLoading] = useState(false);

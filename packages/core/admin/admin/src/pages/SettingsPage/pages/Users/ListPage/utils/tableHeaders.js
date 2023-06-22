@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Flex, Typography } from '@strapi/design-system';
 import { Status } from '@strapi/helper-plugin';
 

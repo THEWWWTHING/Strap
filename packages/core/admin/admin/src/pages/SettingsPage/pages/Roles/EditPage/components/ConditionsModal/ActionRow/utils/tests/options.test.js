@@ -1,4 +1,4 @@
-import { getNestedOptions, getNewStateFromChangedValues, getSelectedValues } from '../options';
+import { getSelectedValues, getNestedOptions, getNewStateFromChangedValues } from '../options';
 
 describe('ActionRow | utils | getSelectedValues', () => {
   test('should reduce the default values to a flat array', () => {

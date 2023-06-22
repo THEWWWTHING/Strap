@@ -1,18 +1,16 @@
 import React from 'react';
-
-import {
-  Box,
-  Flex,
-  Grid,
-  GridItem,
-  Option,
-  Select,
-  ToggleInput,
-  Typography,
-} from '@strapi/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
+import {
+  Box,
+  Grid,
+  GridItem,
+  Select,
+  Option,
+  ToggleInput,
+  Typography,
+  Flex,
+} from '@strapi/design-system';
 import { getTrad } from '../../../utils';
 
 const Settings = ({ modifiedData, onChange, sortOptions }) => {

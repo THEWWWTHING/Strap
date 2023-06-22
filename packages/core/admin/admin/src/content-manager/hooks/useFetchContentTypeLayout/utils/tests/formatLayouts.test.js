@@ -1,8 +1,8 @@
 import formatLayouts, {
   formatLayoutWithMetas,
   formatListLayoutWithMetas,
-  getDisplayedModels,
   shouldDisplayRelationLink,
+  getDisplayedModels,
 } from '../formatLayouts';
 
 describe('Content Manager | hooks | useFetchContentTypeLayout | utils ', () => {

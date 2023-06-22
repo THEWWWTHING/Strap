@@ -1,11 +1,9 @@
 import React from 'react';
-
-import { MenuItem, SimpleMenu } from '@strapi/design-system';
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
-import { sortOptions } from '../../constants';
+import PropTypes from 'prop-types';
+import { SimpleMenu, MenuItem } from '@strapi/design-system';
 import { getTrad } from '../../utils';
+import { sortOptions } from '../../constants';
 
 const SortPicker = ({ onChangeSort }) => {
   const { formatMessage } = useIntl();

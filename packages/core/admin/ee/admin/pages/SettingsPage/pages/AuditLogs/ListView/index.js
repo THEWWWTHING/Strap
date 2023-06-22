@@ -1,32 +1,29 @@
 import React from 'react';
-
+import { useIntl } from 'react-intl';
 import {
-  ActionLayout,
+  SettingsPageTitle,
+  DynamicTable,
+  useRBAC,
+  useFocusWhenNavigate,
+  useQueryParams,
+  AnErrorOccurred,
+} from '@strapi/helper-plugin';
+import {
   Box,
-  ContentLayout,
   HeaderLayout,
+  ContentLayout,
+  ActionLayout,
   Layout,
   Main,
 } from '@strapi/design-system';
-import {
-  AnErrorOccurred,
-  DynamicTable,
-  SettingsPageTitle,
-  useFocusWhenNavigate,
-  useQueryParams,
-  useRBAC,
-} from '@strapi/helper-plugin';
-import { useIntl } from 'react-intl';
-
-import Filters from '../../../../../../../admin/src/pages/SettingsPage/components/Filters';
 import adminPermissions from '../../../../../../../admin/src/permissions';
-
-import useAuditLogsData from './hooks/useAuditLogsData';
-import Modal from './Modal';
-import PaginationFooter from './PaginationFooter';
 import TableRows from './TableRows';
-import getDisplayedFilters from './utils/getDisplayedFilters';
 import tableHeaders from './utils/tableHeaders';
+import PaginationFooter from './PaginationFooter';
+import Modal from './Modal';
+import Filters from '../../../../../../../admin/src/pages/SettingsPage/components/Filters';
+import getDisplayedFilters from './utils/getDisplayedFilters';
+import useAuditLogsData from './hooks/useAuditLogsData';
 
 const auditLogsPermissions = {
   ...adminPermissions.settings.auditLogs,

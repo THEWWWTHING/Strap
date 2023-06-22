@@ -1,25 +1,22 @@
 import React from 'react';
-
-import { Flex, KeyboardNavigable, Typography } from '@strapi/design-system';
-import {
-  ManyToMany,
-  ManyToOne,
-  ManyWays as ManyWay,
-  OneToMany,
-  OneToOne,
-  OneWay,
-} from '@strapi/icons';
-import get from 'lodash/get';
-import truncate from 'lodash/truncate';
-import pluralize from 'pluralize';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { useDispatch } from 'react-redux';
-
+import get from 'lodash/get';
+import truncate from 'lodash/truncate';
+import pluralize from 'pluralize';
+import {
+  OneToOne,
+  OneWay,
+  ManyWays as ManyWay,
+  OneToMany,
+  ManyToOne,
+  ManyToMany,
+} from '@strapi/icons';
+import { Flex, Typography, KeyboardNavigable } from '@strapi/design-system';
 import useDataManager from '../../../hooks/useDataManager';
-import getTrad from '../../../utils/getTrad';
 import { ON_CHANGE_RELATION_TYPE } from '../../FormModal/constants';
-
+import getTrad from '../../../utils/getTrad';
 import { IconWrapper, InfosWrapper, Wrapper } from './components';
 
 const relations = {

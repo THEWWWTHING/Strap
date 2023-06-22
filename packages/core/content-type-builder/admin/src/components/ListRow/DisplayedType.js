@@ -1,9 +1,7 @@
 import React from 'react';
-
-import { Typography } from '@strapi/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
+import { Typography } from '@strapi/design-system';
 import getTrad from '../../utils/getTrad';
 
 const DisplayedType = ({ type, customField, repeatable }) => {

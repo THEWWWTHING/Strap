@@ -1,11 +1,10 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { useFetchClient } from '@strapi/helper-plugin';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, fireEvent, screen, waitFor } from '@testing-library/react';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import { IntlProvider } from 'react-intl';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClientProvider, QueryClient } from 'react-query';
 
+import { useFetchClient } from '@strapi/helper-plugin';
 import RelationMultiple from '../index';
 
 jest.mock('@strapi/helper-plugin', () => ({

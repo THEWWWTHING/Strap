@@ -1,8 +1,7 @@
 import * as React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import { IntlProvider } from 'react-intl';
 
 import * as Accordion from '../Accordion';

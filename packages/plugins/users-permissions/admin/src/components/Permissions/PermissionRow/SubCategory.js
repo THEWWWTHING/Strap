@@ -1,23 +1,12 @@
 import React, { useCallback, useMemo } from 'react';
-
-import {
-  Box,
-  Checkbox,
-  Flex,
-  Typography,
-  Grid,
-  GridItem,
-  VisuallyHidden,
-} from '@strapi/design-system';
-import { Cog as CogIcon } from '@strapi/icons';
 import get from 'lodash/get';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 import styled from 'styled-components';
-
-import { useUsersPermissions } from '../../../contexts/UsersPermissionsContext';
-
+import PropTypes from 'prop-types';
+import { Box, Checkbox, Flex, Typography, Grid, GridItem } from '@strapi/design-system';
+import { Cog as CogIcon } from '@strapi/icons';
+import { useIntl } from 'react-intl';
 import CheckboxWrapper from './CheckboxWrapper';
+import { useUsersPermissions } from '../../../contexts/UsersPermissionsContext';
 
 const Border = styled.div`
   flex: 1;
@@ -98,20 +87,10 @@ const SubCategory = ({ subCategory }) => {
                   </Checkbox>
                   <button
                     type="button"
+                    data-testid="action-cog"
                     onClick={() => onSelectedAction(action.name)}
                     style={{ display: 'inline-flex', alignItems: 'center' }}
                   >
-                    <VisuallyHidden as="span">
-                      {formatMessage(
-                        {
-                          id: 'app.utils.show-bound-route',
-                          defaultMessage: 'Show bound route for {route}',
-                        },
-                        {
-                          route: action.name,
-                        }
-                      )}
-                    </VisuallyHidden>
                     <CogIcon />
                   </button>
                 </CheckboxWrapper>

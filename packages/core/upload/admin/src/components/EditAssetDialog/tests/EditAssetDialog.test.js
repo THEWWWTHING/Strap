@@ -1,14 +1,12 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { NotificationsProvider } from '@strapi/helper-plugin';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import { IntlProvider } from 'react-intl';
 import { QueryClient, QueryClientProvider } from 'react-query';
-
+import { NotificationsProvider } from '@strapi/helper-plugin';
+import { EditAssetDialog } from '../index';
 import en from '../../../translations/en.json';
 import { downloadFile } from '../../../utils/downloadFile';
-import { EditAssetDialog } from '../index';
 
 jest.mock('../../../hooks/useFolderStructure');
 jest.mock('../../../utils/downloadFile');

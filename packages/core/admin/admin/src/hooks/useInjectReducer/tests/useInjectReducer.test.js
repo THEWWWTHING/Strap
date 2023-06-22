@@ -1,7 +1,6 @@
 import React from 'react';
-
-import { renderHook } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import { renderHook } from '@testing-library/react';
 
 import configureStore from '../../../core/store/configureStore';
 import { useInjectReducer } from '../useInjectReducer';

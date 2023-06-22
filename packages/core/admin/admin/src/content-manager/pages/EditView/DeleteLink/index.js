@@ -1,14 +1,11 @@
 import React, { memo, useState } from 'react';
-
-import { Button } from '@strapi/design-system';
-import { ConfirmDialog, useAPIErrorHandler, useNotification } from '@strapi/helper-plugin';
-import { Trash } from '@strapi/icons';
-import isEqual from 'lodash/isEqual';
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
+import isEqual from 'lodash/isEqual';
+import { Button } from '@strapi/design-system';
+import { Trash } from '@strapi/icons';
+import { ConfirmDialog, useNotification, useAPIErrorHandler } from '@strapi/helper-plugin';
+import PropTypes from 'prop-types';
 import { getTrad } from '../../../utils';
-
 import { connect, select } from './utils';
 
 const DeleteLink = ({ onDelete, trackerProperty }) => {

@@ -1,5 +1,4 @@
 import { getFetchClient } from '@strapi/helper-plugin';
-
 import { getRequestUrl } from '../../../utils';
 
 const putCMSettingsEV = (body, slug, isContentTypeView) => {

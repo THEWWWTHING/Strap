@@ -1,8 +1,7 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import { Box, Flex, Typography } from '@strapi/design-system';
 import { pxToRem } from '@strapi/helper-plugin';
-import PropTypes from 'prop-types';
 
 import { getStageColorByHex } from '../../../../../pages/SettingsPage/pages/ReviewWorkflows/utils/colors';
 

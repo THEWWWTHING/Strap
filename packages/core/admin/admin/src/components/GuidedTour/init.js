@@ -1,5 +1,4 @@
 import set from 'lodash/set';
-
 import persistStateToLocaleStorage, {
   COMPLETED_STEPS,
   CURRENT_STEP,

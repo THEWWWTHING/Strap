@@ -1,6 +1,6 @@
-import { translatedErrors as errorsTrads } from '@strapi/helper-plugin';
-import toNumber from 'lodash/toNumber';
 import * as yup from 'yup';
+import toNumber from 'lodash/toNumber';
+import { translatedErrors as errorsTrads } from '@strapi/helper-plugin';
 
 import getTrad from '../../../../utils/getTrad';
 
@@ -140,6 +140,6 @@ export {
   getUsedContentTypeAttributeNames,
   isMinSuperiorThanMax,
   isNameAllowed,
-  NAME_REGEX,
   validators,
+  NAME_REGEX,
 };

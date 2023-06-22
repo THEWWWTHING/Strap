@@ -5,9 +5,7 @@
  */
 
 import React from 'react';
-
 import PropTypes from 'prop-types';
-
 import FilterTag from './FilterTag';
 
 const FilterList = ({ appliedFilters, filtersSchema, onRemoveFilter }) => {

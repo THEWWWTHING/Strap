@@ -4,7 +4,6 @@
  */
 
 import produce from 'immer';
-
 import { RESET_PROPS, SET_LAYOUT } from './constants';
 
 export const initialState = {

@@ -1,7 +1,6 @@
 import { prefixPluginTranslations } from '@strapi/helper-plugin';
-
-import ColorPickerIcon from './components/ColorPicker/ColorPickerIcon';
 import pluginId from './pluginId';
+import ColorPickerIcon from './components/ColorPicker/ColorPickerIcon';
 import getTrad from './utils/getTrad';
 
 export default {

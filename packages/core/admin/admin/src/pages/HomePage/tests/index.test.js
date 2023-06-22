@@ -1,14 +1,12 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { useAppInfo } from '@strapi/helper-plugin';
 import { render } from '@testing-library/react';
+import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { IntlProvider } from 'react-intl';
-import { Router } from 'react-router-dom';
-
-import { useContentTypes } from '../../../hooks/useContentTypes';
+import { useAppInfo } from '@strapi/helper-plugin';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import HomePage from '../index';
+import { useContentTypes } from '../../../hooks/useContentTypes';
 
 jest.mock('@strapi/helper-plugin', () => ({
   ...jest.requireActual('@strapi/helper-plugin'),

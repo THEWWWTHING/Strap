@@ -1,15 +1,22 @@
-import type { Attribute } from '@strapi/strapi';
+import {
+  Attribute,
+  ConfigurableOption,
+  DefaultOption,
+  MinMaxOption,
+  PrivateOption,
+  RequiredOption,
+} from './base';
 
-export type Decimal = Attribute.OfType<'decimal'> &
+export type DecimalAttribute = Attribute<'decimal'> &
   // Options
-  Attribute.ConfigurableOption &
-  Attribute.DefaultOption<DecimalValue> &
-  Attribute.MinMaxOption &
-  Attribute.PrivateOption &
-  Attribute.RequiredOption;
+  ConfigurableOption &
+  DefaultOption<DecimalValue> &
+  MinMaxOption &
+  PrivateOption &
+  RequiredOption;
 
 export type DecimalValue = number;
 
-export type GetDecimalValue<T extends Attribute.Attribute> = T extends Decimal
+export type GetDecimalAttributeValue<T extends Attribute> = T extends DecimalAttribute
   ? DecimalValue
   : never;

@@ -1,48 +1,47 @@
 /* eslint-disable no-nested-ternary */
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
+import { useIntl } from 'react-intl';
+import { useQuery, useMutation } from 'react-query';
 
 import {
-  ActionLayout,
-  BaseCheckbox,
-  Box,
-  Button,
+  useFetchClient,
+  useRBAC,
+  LoadingIndicatorPage,
+  useNotification,
+  useFocusWhenNavigate,
+  SettingsPageTitle,
+  ConfirmDialog,
+  onRowClick,
+  stopPropagation,
+  LinkButton,
+  useAPIErrorHandler,
+} from '@strapi/helper-plugin';
+import {
+  HeaderLayout,
+  Layout,
   ContentLayout,
+  ActionLayout,
   EmptyStateLayout,
   Flex,
-  HeaderLayout,
   IconButton,
-  Layout,
-  Main,
-  Switch,
+  BaseCheckbox,
   Table,
+  Thead,
+  Tr,
+  Th,
   Tbody,
   Td,
   TFooter,
-  Th,
-  Thead,
-  Tr,
   Typography,
+  Button,
+  Switch,
+  Main,
   useNotifyAT,
+  Box,
   VisuallyHidden,
 } from '@strapi/design-system';
-import {
-  ConfirmDialog,
-  LinkButton,
-  LoadingIndicatorPage,
-  onRowClick,
-  SettingsPageTitle,
-  stopPropagation,
-  useAPIErrorHandler,
-  useFetchClient,
-  useFocusWhenNavigate,
-  useNotification,
-  useRBAC,
-} from '@strapi/helper-plugin';
-import { EmptyDocuments, Pencil, Plus, Trash } from '@strapi/icons';
-import { useIntl } from 'react-intl';
-import { useMutation, useQuery } from 'react-query';
-import { useHistory, useLocation } from 'react-router-dom';
-
+import { Plus, Pencil, Trash, EmptyDocuments } from '@strapi/icons';
 import adminPermissions from '../../../../../permissions';
 
 const ListView = () => {

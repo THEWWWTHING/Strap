@@ -1,16 +1,13 @@
-import React, { useCallback, useMemo } from 'react';
-
-import { GridItem, Option, Select } from '@strapi/design-system';
-import get from 'lodash/get';
+import React, { useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
+import { GridItem, Select, Option } from '@strapi/design-system';
+import { useSelector, shallowEqual } from 'react-redux';
 import { useIntl } from 'react-intl';
-import { shallowEqual, useSelector } from 'react-redux';
-
-import getTrad from '../../../utils/getTrad';
-import { makeSelectModelAndComponentSchemas, selectFieldSizes } from '../../App/selectors';
 import { useLayoutDnd } from '../hooks/useLayoutDnd';
 import { createPossibleMainFieldsForModelsAndComponents, getInputProps } from '../utils';
-
+import { makeSelectModelAndComponentSchemas, selectFieldSizes } from '../../App/selectors';
+import getTrad from '../../../utils/getTrad';
 import GenericInput from './GenericInput';
 
 const FIELD_SIZES = [

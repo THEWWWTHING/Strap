@@ -1,13 +1,10 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
+import { render as renderTL, fireEvent, screen, waitFor, within } from '@testing-library/react';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
+import { QueryClientProvider, QueryClient } from 'react-query';
 import { TrackingProvider } from '@strapi/helper-plugin';
-import { fireEvent, render as renderTL, screen, waitFor, within } from '@testing-library/react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-
 import en from '../../../translations/en.json';
 import { UploadAssetDialog } from '../UploadAssetDialog';
-
 import { server } from './server';
 
 jest.mock('../../../utils/getTrad', () => (x) => x);

@@ -1,10 +1,9 @@
 import React from 'react';
-
-import { Box, Flex, MultiSelectNested, Typography } from '@strapi/design-system';
 import PropTypes from 'prop-types';
+import { Box, Flex, Typography, MultiSelectNested } from '@strapi/design-system';
 import { useIntl } from 'react-intl';
 
-import { getNestedOptions, getNewStateFromChangedValues, getSelectedValues } from './utils/options';
+import { getNestedOptions, getSelectedValues, getNewStateFromChangedValues } from './utils/options';
 
 const ActionRow = ({
   arrayOfOptionsGroupedByCategory,

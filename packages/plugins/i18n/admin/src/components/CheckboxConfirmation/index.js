@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
-
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { useIntl } from 'react-intl';
 import {
-  Button,
   Checkbox,
   Dialog,
   DialogBody,
   DialogFooter,
-  Flex,
   Typography,
+  Flex,
+  Button,
 } from '@strapi/design-system';
 import { ExclamationMarkCircle } from '@strapi/icons';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
-import styled from 'styled-components';
-
 import { getTrad } from '../../utils';
 
 const TextAlignTypography = styled(Typography)`

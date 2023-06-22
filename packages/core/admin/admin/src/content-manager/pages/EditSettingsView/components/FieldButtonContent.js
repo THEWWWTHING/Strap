@@ -1,13 +1,10 @@
 import React from 'react';
-
-import { Box, Flex, IconButton, Typography } from '@strapi/design-system';
-import { Pencil, Trash } from '@strapi/icons';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-import styled from 'styled-components';
-
+import { Box, Flex, IconButton, Typography } from '@strapi/design-system';
+import { Pencil, Trash } from '@strapi/icons';
 import { getTrad } from '../../../utils';
-
 import ComponentFieldList from './ComponentFieldList';
 import DynamicZoneList from './DynamicZoneList';
 

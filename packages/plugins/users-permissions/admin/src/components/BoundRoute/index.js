@@ -1,12 +1,10 @@
 import React from 'react';
-
-import { Box, Flex, Typography } from '@strapi/design-system';
+import styled from 'styled-components';
+import { Flex, Box, Typography } from '@strapi/design-system';
 import map from 'lodash/map';
 import tail from 'lodash/tail';
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-import styled from 'styled-components';
-
+import PropTypes from 'prop-types';
 import getMethodColor from './getMethodColor';
 
 const MethodBox = styled(Box)`

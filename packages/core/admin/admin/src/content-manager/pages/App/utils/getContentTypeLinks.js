@@ -1,9 +1,7 @@
 import { getFetchClient } from '@strapi/helper-plugin';
-
-import { getRequestUrl } from '../../../utils';
-
-import checkPermissions from './checkPermissions';
 import generateModelsLinks from './generateModelsLinks';
+import checkPermissions from './checkPermissions';
+import { getRequestUrl } from '../../../utils';
 
 const getContentTypeLinks = async ({ models, userPermissions, toggleNotification }) => {
   const { get } = getFetchClient();

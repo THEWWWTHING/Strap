@@ -1,21 +1,20 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import {
-  Flex,
+  Typography,
   IconButton,
+  Flex,
   Table,
-  Tbody,
-  Td,
-  Th,
   Thead,
   Tr,
-  Typography,
+  Th,
+  Td,
+  Tbody,
   VisuallyHidden,
 } from '@strapi/design-system';
-import { onRowClick, stopPropagation } from '@strapi/helper-plugin';
 import { Pencil, Trash } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
+import { stopPropagation, onRowClick } from '@strapi/helper-plugin';
 
 import { getTrad } from '../../utils';
 

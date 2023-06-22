@@ -76,4 +76,4 @@ CustomFieldsProvider.propTypes = {
  */
 const useCustomFields = () => React.useContext(CustomFieldsContext);
 
-export { CustomFieldsContext, CustomFieldsProvider, useCustomFields };
+export { CustomFieldsProvider, useCustomFields, CustomFieldsContext };

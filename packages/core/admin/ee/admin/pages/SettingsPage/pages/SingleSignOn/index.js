@@ -1,36 +1,33 @@
 import React, { useEffect } from 'react';
-
-import {
-  Button,
-  ContentLayout,
-  Flex,
-  Grid,
-  GridItem,
-  HeaderLayout,
-  Layout,
-  Main,
-  MultiSelect,
-  MultiSelectOption,
-  Option,
-  Select,
-  ToggleInput,
-  Typography,
-} from '@strapi/design-system';
 import {
   CheckPagePermissions,
-  LoadingIndicatorPage,
   SettingsPageTitle,
-  useFocusWhenNavigate,
   useRBAC,
+  LoadingIndicatorPage,
+  useFocusWhenNavigate,
 } from '@strapi/helper-plugin';
 import { Check } from '@strapi/icons';
-import isEqual from 'lodash/isEqual';
+import {
+  ContentLayout,
+  HeaderLayout,
+  Layout,
+  Button,
+  Main,
+  Typography,
+  ToggleInput,
+  Select,
+  Option,
+  Grid,
+  GridItem,
+  Flex,
+  MultiSelect,
+  MultiSelectOption,
+} from '@strapi/design-system';
 import { useIntl } from 'react-intl';
-
+import isEqual from 'lodash/isEqual';
+import { getRequestUrl } from '../../../../../../admin/src/utils';
 import { useRolesList, useSettingsForm } from '../../../../../../admin/src/hooks';
 import adminPermissions from '../../../../../../admin/src/permissions';
-import { getRequestUrl } from '../../../../../../admin/src/utils';
-
 import schema from './utils/schema';
 
 const ssoPermissions = {

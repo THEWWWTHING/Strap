@@ -1,15 +1,14 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { NotificationsProvider, usePersistentState } from '@strapi/helper-plugin';
-import { fireEvent, render, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
+import { render, fireEvent, screen } from '@testing-library/react';
+import { NotificationsProvider, usePersistentState } from '@strapi/helper-plugin';
 import { MemoryRouter } from 'react-router-dom';
+import { QueryClientProvider, QueryClient } from 'react-query';
 
+import { useFolder } from '../../../../hooks/useFolder';
 import { BrowseStep } from '..';
 import { viewOptions } from '../../../../constants';
-import { useFolder } from '../../../../hooks/useFolder';
 
 jest.mock('../../../../hooks/useFolder');
 

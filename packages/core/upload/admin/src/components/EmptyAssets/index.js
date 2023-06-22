@@ -1,9 +1,7 @@
 import React from 'react';
-
-import { Box, Flex, Icon, Typography } from '@strapi/design-system';
-import { EmptyDocuments } from '@strapi/icons';
 import PropTypes from 'prop-types';
-
+import { Typography, Flex, Box, Icon } from '@strapi/design-system';
+import { EmptyDocuments } from '@strapi/icons';
 import { EmptyAssetGrid } from './EmptyAssetGrid';
 
 export const EmptyAssets = ({ icon, content, action, size, count }) => {

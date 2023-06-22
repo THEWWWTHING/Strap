@@ -1,9 +1,8 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { NotificationsProvider } from '@strapi/helper-plugin';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import { act, fireEvent, render } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
+import { NotificationsProvider } from '@strapi/helper-plugin';
 
 import DeleteButton from '../index';
 

@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { useIntl } from 'react-intl';
+import PropTypes from 'prop-types';
 import {
   Card,
   CardAsset,
@@ -7,11 +8,9 @@ import {
   CardBody,
   CardContent,
   CardHeader,
-  CardSubtitle,
   CardTitle,
+  CardSubtitle,
 } from '@strapi/design-system';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 
 const ImageCardAsset = ({ asset }) => {
   const { formatMessage } = useIntl();

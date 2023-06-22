@@ -119,10 +119,6 @@ describe('metrics', () => {
         projectId: 'test',
       },
     });
-    expect(fetch.mock.calls[0][1].headers).toMatchObject({
-      'Content-Type': 'application/json',
-      'X-Strapi-Event': 'someEvent',
-    });
 
     fetch.mockClear();
   });

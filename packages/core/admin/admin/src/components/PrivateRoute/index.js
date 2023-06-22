@@ -8,10 +8,9 @@
  */
 
 import React, { memo } from 'react';
-
-import { auth } from '@strapi/helper-plugin';
-import PropTypes from 'prop-types';
 import { Redirect, Route, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { auth } from '@strapi/helper-plugin';
 
 /* eslint-disable react/jsx-curly-newline */
 

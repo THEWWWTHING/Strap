@@ -1,6 +1,5 @@
-import removePasswordAndRelationsFieldFromData from '../removePasswordAndRelationsFieldFromData';
-
 import testData from './data';
+import removePasswordAndRelationsFieldFromData from '../removePasswordAndRelationsFieldFromData';
 
 describe('I18n | Components | CMEditViewCopyLocale | utils', () => {
   describe('removePasswordAndRelationsFieldFromData', () => {

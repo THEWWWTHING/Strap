@@ -4,19 +4,17 @@
  *
  */
 
-import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
 import { render } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
-import { IntlProvider } from 'react-intl';
+import React from 'react';
 import { Router } from 'react-router-dom';
-
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
+import { IntlProvider } from 'react-intl';
 import FormModalNavigationProvider from '../../../components/FormModalNavigationProvider';
 import pluginEn from '../../../translations/en.json';
 import getTrad from '../../../utils/getTrad';
-import ListView from '../index';
 
+import ListView from '../index';
 import mockData from './mockData';
 
 jest.mock('../../../hooks/useDataManager', () => {

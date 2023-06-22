@@ -1,7 +1,5 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
-
 import useInjectionZone from './useInjectionZone';
 
 const InjectionZone = ({ area, ...props }) => {

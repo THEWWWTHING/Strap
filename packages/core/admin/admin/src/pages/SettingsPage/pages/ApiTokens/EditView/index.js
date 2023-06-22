@@ -1,35 +1,32 @@
-import React, { useEffect, useReducer, useRef, useState } from 'react';
-
-import { ContentLayout, Flex, Main } from '@strapi/design-system';
-import {
-  Form,
-  SettingsPageTitle,
-  useFetchClient,
-  useFocusWhenNavigate,
-  useGuidedTour,
-  useNotification,
-  useOverlayBlocker,
-  useRBAC,
-  useTracking,
-} from '@strapi/helper-plugin';
-import { Formik } from 'formik';
+import React, { useEffect, useState, useRef, useReducer } from 'react';
 import { useIntl } from 'react-intl';
+import {
+  SettingsPageTitle,
+  useFocusWhenNavigate,
+  Form,
+  useOverlayBlocker,
+  useNotification,
+  useTracking,
+  useGuidedTour,
+  useRBAC,
+  useFetchClient,
+} from '@strapi/helper-plugin';
+import { Main, ContentLayout, Flex } from '@strapi/design-system';
+import { Formik } from 'formik';
+import { useRouteMatch, useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import { useHistory, useRouteMatch } from 'react-router-dom';
-
-import { ApiTokenPermissionsContextProvider } from '../../../../../contexts/ApiTokenPermissions';
-import adminPermissions from '../../../../../permissions';
 import { formatAPIErrors } from '../../../../../utils';
-import { API_TOKEN_TYPE } from '../../../components/Tokens/constants';
-import FormHead from '../../../components/Tokens/FormHead';
-import TokenBox from '../../../components/Tokens/TokenBox';
-
-import FormApiTokenContainer from './components/FormApiTokenContainer';
+import { schema } from './utils';
 import LoadingView from './components/LoadingView';
-import Permissions from './components/Permissions';
+import adminPermissions from '../../../../../permissions';
+import { ApiTokenPermissionsContextProvider } from '../../../../../contexts/ApiTokenPermissions';
 import init from './init';
 import reducer, { initialState } from './reducer';
-import { schema } from './utils';
+import Permissions from './components/Permissions';
+import FormApiTokenContainer from './components/FormApiTokenContainer';
+import TokenBox from '../../../components/Tokens/TokenBox';
+import FormHead from '../../../components/Tokens/FormHead';
+import { API_TOKEN_TYPE } from '../../../components/Tokens/constants';
 
 const MSG_ERROR_NAME_TAKEN = 'Name already taken';
 

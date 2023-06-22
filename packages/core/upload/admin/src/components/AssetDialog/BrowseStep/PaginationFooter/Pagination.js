@@ -1,8 +1,6 @@
 import React, { useMemo } from 'react';
-
-import { Box, Flex } from '@strapi/design-system';
 import PropTypes from 'prop-types';
-
+import { Box, Flex } from '@strapi/design-system';
 import { PaginationContext } from './PaginationContext';
 
 export const Pagination = ({ children, label, activePage, pageCount }) => {

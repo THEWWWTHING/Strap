@@ -1,8 +1,6 @@
 import React from 'react';
-
-import { ConfirmDialog } from '@strapi/helper-plugin';
 import PropTypes from 'prop-types';
-
+import { ConfirmDialog } from '@strapi/helper-plugin';
 import { useRemoveAsset } from '../../hooks/useRemoveAsset';
 
 export const RemoveAssetDialog = ({ onClose, asset }) => {

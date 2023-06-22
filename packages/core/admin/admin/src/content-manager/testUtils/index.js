@@ -1,3 +1,3 @@
 import testData, { permissions } from './data';
 
-export { permissions, testData };
+export { testData, permissions };

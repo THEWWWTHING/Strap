@@ -1,23 +1,21 @@
 import React from 'react';
-
-import {
-  AutoReloadOverlayBlockerProvider,
-  CustomFieldsProvider,
-  LibraryProvider,
-  NotificationsProvider,
-  OverlayBlockerProvider,
-  StrapiAppProvider,
-} from '@strapi/helper-plugin';
 import PropTypes from 'prop-types';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClientProvider, QueryClient } from 'react-query';
+import {
+  LibraryProvider,
+  CustomFieldsProvider,
+  StrapiAppProvider,
+  AutoReloadOverlayBlockerProvider,
+  OverlayBlockerProvider,
+  NotificationsProvider,
+} from '@strapi/helper-plugin';
 import { Provider } from 'react-redux';
-
 import { AdminContext } from '../../contexts';
 import ConfigurationsProvider from '../ConfigurationsProvider';
-import GuidedTour from '../GuidedTour';
 import LanguageProvider from '../LanguageProvider';
-import Theme from '../Theme';
+import GuidedTour from '../GuidedTour';
 import ThemeToggleProvider from '../ThemeToggleProvider';
+import Theme from '../Theme';
 
 const queryClient = new QueryClient({
   defaultOptions: {

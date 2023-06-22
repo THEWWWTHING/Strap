@@ -4,40 +4,38 @@
  *
  */
 
+import PropTypes from 'prop-types';
 import React, { useRef, useState } from 'react';
-
+import { useIntl } from 'react-intl';
+import isEqual from 'lodash/isEqual';
+import styled from 'styled-components';
 import {
-  Button,
-  FieldLabel,
-  Flex,
-  Grid,
-  GridItem,
-  Loader,
+  ModalLayout,
   ModalBody,
   ModalFooter,
-  ModalLayout,
+  Flex,
+  Loader,
+  Grid,
+  GridItem,
+  Button,
+  FieldLabel,
   TextInput,
   VisuallyHidden,
 } from '@strapi/design-system';
-import { Form, getFileExtension, pxToRem, useTracking } from '@strapi/helper-plugin';
+import { getFileExtension, Form, pxToRem, useTracking } from '@strapi/helper-plugin';
 import { Formik } from 'formik';
-import isEqual from 'lodash/isEqual';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
-import styled from 'styled-components';
 import * as yup from 'yup';
-
-import { AssetDefinition } from '../../constants';
-import { useEditAsset } from '../../hooks/useEditAsset';
-import { useFolderStructure } from '../../hooks/useFolderStructure';
-import { findRecursiveFolderByValue, getTrad } from '../../utils';
-import formatBytes from '../../utils/formatBytes';
-import { ContextInfo } from '../ContextInfo';
-import SelectTree from '../SelectTree';
 
 import { DialogHeader } from './DialogHeader';
 import { PreviewBox } from './PreviewBox';
+import { ContextInfo } from '../ContextInfo';
+import { AssetDefinition } from '../../constants';
+import { getTrad, findRecursiveFolderByValue } from '../../utils';
+import formatBytes from '../../utils/formatBytes';
+import { useEditAsset } from '../../hooks/useEditAsset';
+import { useFolderStructure } from '../../hooks/useFolderStructure';
 import { ReplaceMediaButton } from './ReplaceMediaButton';
+import SelectTree from '../SelectTree';
 
 const LoadingBody = styled(Flex)`
   /* 80px are coming from the Tabs component that is not included in the ModalBody */

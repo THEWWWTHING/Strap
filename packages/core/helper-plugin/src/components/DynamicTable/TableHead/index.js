@@ -1,20 +1,18 @@
 import React from 'react';
-
 import {
   BaseCheckbox,
   IconButton,
+  Tooltip,
+  Typography,
   Th,
   Thead,
-  Tooltip,
   Tr,
-  Typography,
   VisuallyHidden,
 } from '@strapi/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
-import useQueryParams from '../../../hooks/useQueryParams';
 import SortIcon from '../../../icons/SortIcon';
+import useQueryParams from '../../../hooks/useQueryParams';
 
 const TableHead = ({
   areAllEntriesSelected,

@@ -1,34 +1,36 @@
-import type { Attribute, Utils } from '@strapi/strapi';
+import { Attribute, ConfigurableOption, PrivateOption, RequiredOption } from './base';
+import { Media } from './common';
 
-export type MediaKind = 'images' | 'videos' | 'files' | 'audios';
+export type AllowedMediaTypes = 'images' | 'videos' | 'files' | 'audios';
 
-export interface MediaProperties<
-  TKind extends MediaKind | undefined = undefined,
-  TMultiple extends Utils.Expression.BooleanValue = Utils.Expression.False
+export interface MediaAttributeProperties<
+  // Media Type
+  T extends AllowedMediaTypes = undefined,
+  // Multiple
+  U extends boolean = false
 > {
-  allowedTypes?: TKind;
-  multiple?: TMultiple;
+  allowedTypes?: T;
+  multiple?: U;
 }
 
-export type Media<
-  TKind extends MediaKind | undefined = undefined,
-  TMultiple extends Utils.Expression.BooleanValue = Utils.Expression.False
-> = Attribute.OfType<'media'> &
+export type MediaAttribute<
+  // Media Type
+  T extends AllowedMediaTypes = undefined,
+  // Multiple
+  U extends boolean = false
+> = Attribute<'media'> &
   // Properties
-  MediaProperties<TKind, TMultiple> &
+  MediaAttributeProperties<T, U> &
   // Options
-  Attribute.ConfigurableOption &
-  Attribute.RequiredOption &
-  Attribute.PrivateOption;
+  ConfigurableOption &
+  RequiredOption &
+  PrivateOption;
 
-// TODO: Introduce a real type for the media values
-export type MediaValue<TMultiple extends Utils.Expression.BooleanValue = Utils.Expression.False> =
-  Utils.Expression.If<TMultiple, any[], any>;
+export type MediaValue<T extends boolean = false> = T extends true ? Media[] : Media;
 
-export type GetMediaValue<TAttribute extends Attribute.Attribute> = TAttribute extends Media<
-  // Unused as long as the media value is any
-  infer _TKind,
-  infer TMultiple
+export type GetMediaAttributeValue<T extends Attribute> = T extends MediaAttribute<
+  infer _U,
+  infer S
 >
-  ? MediaValue<TMultiple>
+  ? MediaValue<S>
   : never;

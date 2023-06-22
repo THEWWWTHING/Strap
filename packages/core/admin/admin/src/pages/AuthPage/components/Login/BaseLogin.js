@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-
-import { Box, Button, Checkbox, Flex, Main, TextInput, Typography } from '@strapi/design-system';
 import { Form, Link } from '@strapi/helper-plugin';
-import { Eye, EyeStriked } from '@strapi/icons';
-import { Formik } from 'formik';
+import { EyeStriked, Eye } from '@strapi/icons';
+import { Box, Main, Flex, Button, TextInput, Checkbox, Typography } from '@strapi/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import styled from 'styled-components';
-
-import Logo from '../../../../components/UnauthenticatedLogo';
+import { Formik } from 'formik';
 import { Column, LayoutContent } from '../../../../layouts/UnauthenticatedLayout';
+import Logo from '../../../../components/UnauthenticatedLogo';
 import FieldActionWrapper from '../FieldActionWrapper';
 
 const PasswordInput = styled(TextInput)`

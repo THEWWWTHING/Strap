@@ -1,12 +1,10 @@
 import React from 'react';
-
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { useIntl } from 'react-intl';
-
-import en from '../../../translations/en.json';
-import fr from '../../../translations/fr.json';
 import useLocalesProvider from '../../LocalesProvider/useLocalesProvider';
 import LanguageProvider from '../index';
+import en from '../../../translations/en.json';
+import fr from '../../../translations/fr.json';
 
 const messages = { en, fr };
 const localeNames = { en: 'English', fr: 'Français' };

@@ -32,7 +32,7 @@ export const assertValidHeader = (ctx: Context) => {
   }
 };
 
-export const isDataTransferMessage = (message: unknown): message is Protocol.Client.Message => {
+export const isDataTransferMessage = (message: unknown): message is Protocol.client.Message => {
   if (!message || typeof message !== 'object') {
     return false;
   }

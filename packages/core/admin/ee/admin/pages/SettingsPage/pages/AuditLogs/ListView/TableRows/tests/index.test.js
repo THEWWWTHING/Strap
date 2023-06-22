@@ -1,11 +1,9 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { fireEvent, render, screen } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
-import { IntlProvider } from 'react-intl';
 import { Router } from 'react-router-dom';
-
+import { IntlProvider } from 'react-intl';
+import { createMemoryHistory } from 'history';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import TableRows from '..';
 
 const history = createMemoryHistory();

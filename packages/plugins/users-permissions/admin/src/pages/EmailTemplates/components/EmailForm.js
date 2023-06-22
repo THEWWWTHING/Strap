@@ -1,21 +1,20 @@
 import React from 'react';
-
-import {
-  Button,
-  Grid,
-  GridItem,
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
-  ModalLayout,
-  Textarea,
-} from '@strapi/design-system';
-import { Breadcrumbs, Crumb } from '@strapi/design-system/v2';
-import { Form, GenericInput } from '@strapi/helper-plugin';
-import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
+import { Form, GenericInput } from '@strapi/helper-plugin';
+import { Formik } from 'formik';
+import {
+  ModalLayout,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  Grid,
+  GridItem,
+  Button,
+  Breadcrumbs,
+  Crumb,
+  Textarea,
+} from '@strapi/design-system';
 import { getTrad } from '../../../utils';
 import schema from '../utils/schema';
 
@@ -46,7 +45,7 @@ const EmailForm = ({ template, onToggle, onSubmit }) => {
               defaultMessage: 'Edit email template',
             })}
           </Crumb>
-          <Crumb isCurrent>
+          <Crumb>
             {formatMessage({ id: getTrad(template.display), defaultMessage: template.display })}
           </Crumb>
         </Breadcrumbs>

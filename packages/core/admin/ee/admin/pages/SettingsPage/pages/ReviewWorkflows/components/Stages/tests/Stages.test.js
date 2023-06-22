@@ -1,19 +1,19 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
 import { fireEvent, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { FormikProvider, useFormik } from 'formik';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
 import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
+import { FormikProvider, useFormik } from 'formik';
+import userEvent from '@testing-library/user-event';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 
 import configureStore from '../../../../../../../../../admin/src/core/store/configureStore';
-import * as actions from '../../../actions';
-import { ACTION_SET_WORKFLOWS, STAGE_COLOR_DEFAULT } from '../../../constants';
-import { reducer } from '../../../reducer';
 import { Stages } from '../Stages';
+import { reducer } from '../../../reducer';
+import { ACTION_SET_WORKFLOWS, STAGE_COLOR_DEFAULT } from '../../../constants';
+import * as actions from '../../../actions';
 
 // without mocking actions as ESM it is impossible to spy on named exports
 jest.mock('../../../actions', () => ({

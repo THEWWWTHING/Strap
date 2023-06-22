@@ -1,13 +1,12 @@
-import getTrad from '../../../utils/getTrad';
 import { attributesForm, attributeTypes, commonBaseForm } from '../attributes';
-import { nameField } from '../attributes/nameField';
 import { categoryForm, createCategorySchema } from '../category';
-import { componentForm, createComponentSchema } from '../component';
 import { contentTypeForm, createContentTypeSchema } from '../contentType';
+import { createComponentSchema, componentForm } from '../component';
 import { dynamiczoneForm } from '../dynamicZone';
-
+import { nameField } from '../attributes/nameField';
 import addItemsToFormSection from './utils/addItemsToFormSection';
 import getUsedAttributeNames from './utils/getUsedAttributeNames';
+import getTrad from '../../../utils/getTrad';
 
 const forms = {
   customField: {

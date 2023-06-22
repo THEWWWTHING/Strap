@@ -1,16 +1,13 @@
 import React, { memo } from 'react';
-
-import { Box, Option, Select } from '@strapi/design-system';
-import { useTracking } from '@strapi/helper-plugin';
 import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-
-import getTrad from '../../../utils/getTrad';
+import { useIntl } from 'react-intl';
+import { Select, Option, Box } from '@strapi/design-system';
+import { useTracking } from '@strapi/helper-plugin';
 import { onChangeListHeaders } from '../actions';
 import { selectDisplayedHeaders } from '../selectors';
-
 import getAllAllowedHeaders from './utils/getAllAllowedHeader';
+import getTrad from '../../../utils/getTrad';
 
 const FieldPicker = ({ layout }) => {
   const dispatch = useDispatch();

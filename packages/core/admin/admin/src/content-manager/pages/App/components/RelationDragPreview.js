@@ -1,17 +1,16 @@
 import * as React from 'react';
-
-import { Box, Flex, Icon, IconButton, Status, Typography } from '@strapi/design-system';
-import { Cross, Drag } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
+import PropTypes from 'prop-types';
+import { Box, Flex, IconButton, Typography, Status, Icon } from '@strapi/design-system';
+import { Drag, Cross } from '@strapi/icons';
 
-import { DisconnectButton, LinkEllipsis } from '../../../components/RelationInput';
+import { getTrad } from '../../../utils';
+import { PUBLICATION_STATES } from '../../../components/RelationInputDataManager/constants';
 import {
   ChildrenWrapper,
   FlexWrapper,
 } from '../../../components/RelationInput/components/RelationItem';
-import { PUBLICATION_STATES } from '../../../components/RelationInputDataManager/constants';
-import { getTrad } from '../../../utils';
+import { LinkEllipsis, DisconnectButton } from '../../../components/RelationInput';
 
 export const RelationDragPreview = ({ status, displayedValue, width }) => {
   const { formatMessage } = useIntl();

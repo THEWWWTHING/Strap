@@ -1,7 +1,6 @@
-import { rest } from 'msw';
 import { setupServer } from 'msw/node';
+import { rest } from 'msw';
 import qs from 'qs';
-
 import { responses as pluginResponses } from './mocks/plugins';
 import { responses as providerResponses } from './mocks/providers';
 

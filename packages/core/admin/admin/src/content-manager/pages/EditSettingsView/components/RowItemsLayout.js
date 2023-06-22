@@ -1,10 +1,7 @@
 import React from 'react';
-
-import get from 'lodash/get';
 import PropTypes from 'prop-types';
-
+import get from 'lodash/get';
 import { useLayoutDnd } from '../hooks/useLayoutDnd';
-
 import DisplayedFieldButton from './DisplayedFieldButton';
 
 const RowItemsLayout = ({ rowItem, onRemoveField, rowId, rowIndex, index, lastIndex }) => {

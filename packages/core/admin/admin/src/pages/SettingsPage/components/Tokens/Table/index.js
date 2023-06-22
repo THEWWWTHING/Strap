@@ -1,20 +1,18 @@
 import React from 'react';
-
-import { Flex, Tbody, Td, Tr, Typography } from '@strapi/design-system';
+import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Typography, Flex, Tbody, Tr, Td } from '@strapi/design-system';
 import {
-  DynamicTable,
+  RelativeTime,
   onRowClick,
   pxToRem,
-  RelativeTime,
+  DynamicTable,
   useQueryParams,
   useTracking,
 } from '@strapi/helper-plugin';
-import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
-
 import DeleteButton from './DeleteButton';
-import ReadButton from './ReadButton';
 import UpdateButton from './UpdateButton';
+import ReadButton from './ReadButton';
 
 const Table = ({
   permissions,

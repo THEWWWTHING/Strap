@@ -1,12 +1,12 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { NotificationsProvider, useNotification } from '@strapi/helper-plugin';
-import { act, renderHook, waitFor } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
-import { QueryClient, QueryClientProvider, useQueryClient } from 'react-query';
+import { QueryClientProvider, QueryClient, useQueryClient } from 'react-query';
+import { renderHook, act, waitFor } from '@testing-library/react';
 
+import { NotificationsProvider, useNotification } from '@strapi/helper-plugin';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import { deleteRequest } from '../../utils/deleteRequest';
+
 import { useRemoveAsset } from '../useRemoveAsset';
 
 const ASSET_FIXTURE = {

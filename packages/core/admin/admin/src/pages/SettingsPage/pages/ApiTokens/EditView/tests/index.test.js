@@ -1,12 +1,10 @@
 import React from 'react';
-
-import { darkTheme, lightTheme } from '@strapi/design-system';
 import { act, render, waitFor } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
 import { IntlProvider } from 'react-intl';
+import { Router, Route } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { Route, Router } from 'react-router-dom';
-
+import { lightTheme, darkTheme } from '@strapi/design-system';
 import Theme from '../../../../../../components/Theme';
 import ThemeToggleProvider from '../../../../../../components/ThemeToggleProvider';
 import EditView from '../index';

@@ -1,22 +1,21 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import { Box } from '@strapi/design-system';
 import { useCustomFields } from '@strapi/helper-plugin';
 import {
-  Boolean,
-  Component,
   Date,
-  DynamicZone,
+  Boolean,
   Email,
   Enumeration,
-  Json,
   Media,
-  Number,
   Relation,
   Text,
   Uid,
+  Number,
+  Json,
+  Component,
+  DynamicZone,
 } from '@strapi/icons';
-import PropTypes from 'prop-types';
 
 const iconByTypes = {
   biginteger: <Number />,

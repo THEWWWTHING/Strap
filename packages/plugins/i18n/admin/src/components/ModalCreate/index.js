@@ -1,33 +1,30 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
+import { useRBACProvider, Form } from '@strapi/helper-plugin';
 import {
-  Box,
-  Button,
-  Divider,
-  Flex,
+  ModalLayout,
+  ModalHeader,
   ModalBody,
   ModalFooter,
-  ModalHeader,
-  ModalLayout,
-  Tab,
   TabGroup,
-  TabPanel,
-  TabPanels,
   Tabs,
+  Tab,
+  TabPanels,
+  TabPanel,
+  Button,
   Typography,
+  Divider,
+  Box,
+  Flex,
 } from '@strapi/design-system';
-import { Form, useRBACProvider } from '@strapi/helper-plugin';
 import { Check } from '@strapi/icons';
-import { Formik } from 'formik';
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
-import useAddLocale from '../../hooks/useAddLocale';
+import { Formik } from 'formik';
 import localeFormSchema from '../../schemas';
 import { getTrad } from '../../utils';
-
-import AdvancedForm from './AdvancedForm';
+import useAddLocale from '../../hooks/useAddLocale';
 import BaseForm from './BaseForm';
+import AdvancedForm from './AdvancedForm';
 
 const initialFormValues = {
   code: '',

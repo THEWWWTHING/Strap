@@ -2,8 +2,8 @@ import {
   createLayout,
   formatLayout,
   getFieldSize,
-  getRowSize,
   setFieldSize,
+  getRowSize,
   unformatLayout,
 } from '../layout';
 

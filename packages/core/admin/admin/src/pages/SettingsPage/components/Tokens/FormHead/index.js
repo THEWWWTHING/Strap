@@ -1,11 +1,9 @@
 import React from 'react';
-
-import { Button, Flex, HeaderLayout } from '@strapi/design-system';
+import { useIntl } from 'react-intl';
+import PropTypes from 'prop-types';
 import { Link } from '@strapi/helper-plugin';
 import { ArrowLeft, Check } from '@strapi/icons';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
-
+import { Button, HeaderLayout, Flex } from '@strapi/design-system';
 import Regenerate from '../Regenerate';
 
 const FormHead = ({

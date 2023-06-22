@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { Earth as I18N, EarthStriked as StrikedWorld } from '@strapi/icons';
-
 import LabelAction from '../../components/LabelAction';
 import { getTrad } from '../../utils';
 import mutateEditViewLayout, {

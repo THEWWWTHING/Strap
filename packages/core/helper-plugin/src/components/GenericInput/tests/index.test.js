@@ -1,9 +1,8 @@
 import React from 'react';
-
 import { DesignSystemProvider } from '@strapi/design-system';
-import { fireEvent, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { IntlProvider } from 'react-intl';
+import { render, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import GenericInput from '../index';
 

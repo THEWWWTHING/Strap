@@ -162,6 +162,6 @@ export default formatLayouts;
 export {
   formatLayoutWithMetas,
   formatListLayoutWithMetas,
-  getDisplayedModels,
   shouldDisplayRelationLink,
+  getDisplayedModels,
 };

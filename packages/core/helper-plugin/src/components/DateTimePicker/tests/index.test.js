@@ -1,8 +1,6 @@
 import * as React from 'react';
-
-import { DesignSystemProvider } from '@strapi/design-system';
 import { render as renderRTL } from '@testing-library/react';
-
+import { DesignSystemProvider } from '@strapi/design-system';
 import DateTimePicker from '../index';
 
 const render = (props) =>

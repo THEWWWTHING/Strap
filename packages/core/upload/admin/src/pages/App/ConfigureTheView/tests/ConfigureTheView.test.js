@@ -1,14 +1,12 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { TrackingProvider } from '@strapi/helper-plugin';
-import { fireEvent, render as renderRTL, waitFor } from '@testing-library/react';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
+import { render as renderRTL, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { IntlProvider } from 'react-intl';
+import { TrackingProvider } from '@strapi/helper-plugin';
 import { MemoryRouter } from 'react-router-dom';
-
+import { IntlProvider } from 'react-intl';
 import ConfigureTheView from '..';
-import { pageSizes, sortOptions } from '../../../../constants';
+import { sortOptions, pageSizes } from '../../../../constants';
 
 const mutateAsync = jest.fn();
 jest.mock('../../../../hooks/useConfig', () => ({

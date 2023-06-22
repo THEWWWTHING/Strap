@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
-
 import { useFetchClient, useNotification } from '@strapi/helper-plugin';
-import { useDispatch, useSelector } from 'react-redux';
-
+import { useSelector, useDispatch } from 'react-redux';
 import { RESOLVE_LOCALES } from '../constants';
 
 const useLocales = () => {

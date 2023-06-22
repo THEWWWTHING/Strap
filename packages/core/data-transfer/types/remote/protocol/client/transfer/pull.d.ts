@@ -1,5 +1,5 @@
 import type { IEntity, ILink, IConfiguration } from '../../../../common-entities';
-import { CreateTransferMessage, TransferAssetFlow } from './utils';
+import { CreateTransferMessage } from './utils';
 
 export type TransferPullMessage = CreateTransferMessage<
   'step',

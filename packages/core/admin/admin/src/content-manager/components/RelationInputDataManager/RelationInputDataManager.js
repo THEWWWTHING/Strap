@@ -1,19 +1,21 @@
 /* eslint-disable no-nested-ternary */
+import PropTypes from 'prop-types';
 import React, { memo, useMemo, useState } from 'react';
-
-import { NotAllowedInput, useCMEditViewDataManager } from '@strapi/helper-plugin';
+import { useIntl } from 'react-intl';
 import get from 'lodash/get';
 import pick from 'lodash/pick';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 
-import { useRelation } from '../../hooks/useRelation';
-import { getTrad } from '../../utils';
-import { getInitialDataPathUsingTempKeys } from '../../utils/paths';
+import { useCMEditViewDataManager, NotAllowedInput } from '@strapi/helper-plugin';
+
 import { RelationInput } from '../RelationInput';
 
+import { useRelation } from '../../hooks/useRelation';
+
+import { getTrad } from '../../utils';
+
 import { PUBLICATION_STATES, RELATIONS_TO_DISPLAY, SEARCH_RESULTS_TO_DISPLAY } from './constants';
-import { connect, diffRelations, normalizeRelation, normalizeSearchResults, select } from './utils';
+import { connect, select, normalizeSearchResults, diffRelations, normalizeRelation } from './utils';
+import { getInitialDataPathUsingTempKeys } from '../../utils/paths';
 
 export const RelationInputDataManager = ({
   error,

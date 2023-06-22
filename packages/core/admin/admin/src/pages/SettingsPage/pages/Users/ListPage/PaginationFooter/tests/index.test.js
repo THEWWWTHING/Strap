@@ -1,12 +1,10 @@
 import React from 'react';
-
-import { darkTheme, lightTheme } from '@strapi/design-system';
-import { TrackingProvider } from '@strapi/helper-plugin';
 import { act, render } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
 import { IntlProvider } from 'react-intl';
-import { Route, Router } from 'react-router-dom';
-
+import { createMemoryHistory } from 'history';
+import { Router, Route } from 'react-router-dom';
+import { lightTheme, darkTheme } from '@strapi/design-system';
+import { TrackingProvider } from '@strapi/helper-plugin';
 import Theme from '../../../../../../../components/Theme';
 import ThemeToggleProvider from '../../../../../../../components/ThemeToggleProvider';
 import PaginationFooter from '../index';

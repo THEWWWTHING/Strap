@@ -5,9 +5,8 @@ import {
   getCreatedAndModifiedComponents,
   sortContentType,
 } from '../cleanData';
-
-import expectedData from './expectedFormattedData';
 import rawData from './rawData';
+import expectedData from './expectedFormattedData';
 
 describe('CleanData utils', () => {
   describe('FormatComponent', () => {

@@ -1,43 +1,42 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { useIntl } from 'react-intl';
 
+import { usePersistentState } from '@strapi/helper-plugin';
 import {
-  BaseCheckbox,
-  Box,
   Button,
-  Divider,
   Flex,
+  Box,
+  Divider,
+  BaseCheckbox,
   GridItem,
-  IconButton,
   Typography,
+  IconButton,
   VisuallyHidden,
 } from '@strapi/design-system';
-import { usePersistentState } from '@strapi/helper-plugin';
-import { Grid, List, Pencil, Plus } from '@strapi/icons';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
-import styled from 'styled-components';
+import { Pencil, Plus, Grid, List } from '@strapi/icons';
 
 import {
-  AssetDefinition,
   FolderDefinition,
-  localStorageKeys,
+  AssetDefinition,
   viewOptions,
+  localStorageKeys,
 } from '../../../constants';
-import { useFolder } from '../../../hooks/useFolder';
+import getTrad from '../../../utils/getTrad';
 import { getBreadcrumbDataCM, toSingularTypes } from '../../../utils';
 import getAllowedFiles from '../../../utils/getAllowedFiles';
-import getTrad from '../../../utils/getTrad';
 import { AssetGridList } from '../../AssetGridList';
-import { Breadcrumbs } from '../../Breadcrumbs';
-import { EmptyAssets } from '../../EmptyAssets';
-import { FolderCard, FolderCardBody, FolderCardBodyAction } from '../../FolderCard';
-import { FolderGridList } from '../../FolderGridList';
-import SortPicker from '../../SortPicker';
 import { TableList } from '../../TableList';
-
+import { FolderGridList } from '../../FolderGridList';
+import { EmptyAssets } from '../../EmptyAssets';
+import { Breadcrumbs } from '../../Breadcrumbs';
+import SortPicker from '../../SortPicker';
+import { useFolder } from '../../../hooks/useFolder';
+import { FolderCard, FolderCardBody, FolderCardBodyAction } from '../../FolderCard';
 import { Filters } from './Filters';
-import PageSize from './PageSize';
 import PaginationFooter from './PaginationFooter';
+import PageSize from './PageSize';
 import SearchAsset from './SearchAsset';
 import { isSelectable } from './utils/isSelectable';
 

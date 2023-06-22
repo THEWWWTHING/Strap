@@ -1,9 +1,8 @@
 import React from 'react';
-
-import { Flex, Typography } from '@strapi/design-system';
-import upperFirst from 'lodash/upperFirst';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
+import upperFirst from 'lodash/upperFirst';
+import { Flex, Typography } from '@strapi/design-system';
 
 import { getTrad } from '../../utils';
 

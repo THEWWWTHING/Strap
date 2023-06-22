@@ -1,7 +1,6 @@
 import React from 'react';
-
-import { ConfirmDialog } from '@strapi/helper-plugin';
 import PropTypes from 'prop-types';
+import { ConfirmDialog } from '@strapi/helper-plugin';
 
 export const RemoveFolderDialog = ({ onClose, onConfirm }) => {
   return (

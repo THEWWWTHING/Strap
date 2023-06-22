@@ -1,10 +1,9 @@
 import React from 'react';
-
-import { Flex, ProgressBar, Typography } from '@strapi/design-system';
-import { Cross } from '@strapi/icons';
 import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 import styled from 'styled-components';
+import { Cross } from '@strapi/icons';
+import { Typography, Flex, ProgressBar } from '@strapi/design-system';
+import { useIntl } from 'react-intl';
 
 const BoxWrapper = styled(Flex)`
   border-radius: ${({ theme }) => `${theme.borderRadius} ${theme.borderRadius} 0 0`};

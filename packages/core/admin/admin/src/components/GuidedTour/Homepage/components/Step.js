@@ -1,13 +1,11 @@
 import React from 'react';
-
-import { Box, Flex, Typography } from '@strapi/design-system';
-import { pxToRem } from '@strapi/helper-plugin';
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
-import { IS_ACTIVE, IS_DONE, IS_NOT_DONE } from '../../constants';
-import StepLine from '../../Stepper/StepLine';
+import PropTypes from 'prop-types';
+import { pxToRem } from '@strapi/helper-plugin';
+import { Typography, Box, Flex } from '@strapi/design-system';
 import StepNumber from '../../Stepper/StepNumber';
+import StepLine from '../../Stepper/StepLine';
+import { IS_DONE, IS_ACTIVE, IS_NOT_DONE } from '../../constants';
 
 const StepHomepage = ({ type, title, number, content, hasLine }) => {
   const { formatMessage } = useIntl();

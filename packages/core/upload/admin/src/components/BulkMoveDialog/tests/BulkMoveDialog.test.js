@@ -1,10 +1,9 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { NotificationsProvider } from '@strapi/helper-plugin';
-import { render } from '@testing-library/react';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import { IntlProvider } from 'react-intl';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { render } from '@testing-library/react';
+import { NotificationsProvider } from '@strapi/helper-plugin';
+import { QueryClientProvider, QueryClient } from 'react-query';
 
 import { BulkMoveDialog } from '..';
 

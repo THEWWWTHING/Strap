@@ -1,5 +1,4 @@
 import { getFetchClient } from '@strapi/helper-plugin';
-
 import { getRequestURL } from '../../../../utils';
 
 export const fetchData = async (toggleNotification, notifyStatus) => {
@@ -15,7 +14,7 @@ export const fetchData = async (toggleNotification, notifyStatus) => {
       message: { id: 'notification.error' },
     });
 
-    throw new Error(err);
+    throw new Error('error');
   }
 };
 

@@ -1,5 +1,5 @@
-import { translatedErrors as errorsTrads } from '@strapi/helper-plugin';
 import * as yup from 'yup';
+import { translatedErrors as errorsTrads } from '@strapi/helper-plugin';
 
 import CATEGORY_NAME_REGEX from './regex';
 

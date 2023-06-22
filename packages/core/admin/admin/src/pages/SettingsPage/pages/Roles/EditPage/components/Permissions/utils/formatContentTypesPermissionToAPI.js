@@ -1,7 +1,5 @@
 import isObject from 'lodash/isObject';
-
 import { createArrayOfValues } from '../../utils';
-
 import { createConditionsArray } from './formatSettingsPermissionsToAPI';
 
 /**
@@ -121,4 +119,4 @@ const formatContentTypesPermissionToAPI = (contentTypesPermissions) => {
 };
 
 export default formatContentTypesPermissionToAPI;
-export { createPermissionWithProperties, createPropertyArray };
+export { createPropertyArray, createPermissionWithProperties };

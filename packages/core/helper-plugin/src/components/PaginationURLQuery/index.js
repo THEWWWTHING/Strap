@@ -15,13 +15,11 @@
  */
 
 import React from 'react';
-
-import { Dots, NextLink, PageLink, Pagination, PreviousLink } from '@strapi/design-system';
+import { NextLink, Pagination, PreviousLink, Dots, PageLink } from '@strapi/design-system';
 import PropTypes from 'prop-types';
-import { stringify } from 'qs';
+import { useLocation, NavLink } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import { NavLink, useLocation } from 'react-router-dom';
-
+import { stringify } from 'qs';
 import useQueryParams from '../../hooks/useQueryParams';
 
 const PaginationURLQuery = ({ pagination: { pageCount } }) => {

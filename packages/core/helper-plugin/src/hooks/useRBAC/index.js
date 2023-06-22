@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
-
-import { useRBACProvider } from '../../features/RBAC';
 import hasPermissions from '../../utils/hasPermissions';
 
-import init from './init';
-import reducer from './reducer';
 import generateResultsObject from './utils/generateResultsObject';
+import reducer from './reducer';
+import init from './init';
+import { useRBACProvider } from '../../features/RBAC';
 
 const useRBAC = (pluginPermissions, permissions) => {
   const abortController = new AbortController();

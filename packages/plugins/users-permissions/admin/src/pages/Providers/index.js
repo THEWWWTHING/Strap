@@ -1,46 +1,43 @@
 import React, { useMemo, useRef, useState } from 'react';
-
+import { useIntl } from 'react-intl';
 import {
-  ContentLayout,
-  HeaderLayout,
-  IconButton,
-  Layout,
-  Main,
-  Table,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-  Typography,
-  useNotifyAT,
-  VisuallyHidden,
-} from '@strapi/design-system';
-import {
-  CheckPagePermissions,
-  LoadingIndicatorPage,
-  onRowClick,
   SettingsPageTitle,
-  stopPropagation,
-  useFocusWhenNavigate,
+  LoadingIndicatorPage,
+  useTracking,
   useNotification,
   useOverlayBlocker,
+  CheckPagePermissions,
   useRBAC,
-  useTracking,
+  useFocusWhenNavigate,
+  onRowClick,
+  stopPropagation,
 } from '@strapi/helper-plugin';
-import { Pencil } from '@strapi/icons';
 import has from 'lodash/has';
 import upperFirst from 'lodash/upperFirst';
-import { useIntl } from 'react-intl';
-import { useMutation, useQuery, useQueryClient } from 'react-query';
-
-import FormModal from '../../components/FormModal';
-import { PERMISSIONS } from '../../constants';
-import { getTrad } from '../../utils';
-
+import {
+  HeaderLayout,
+  Layout,
+  ContentLayout,
+  Main,
+  useNotifyAT,
+  Table,
+  Thead,
+  Tr,
+  Th,
+  Tbody,
+  Td,
+  Typography,
+  IconButton,
+  VisuallyHidden,
+} from '@strapi/design-system';
+import { Pencil } from '@strapi/icons';
+import { useQuery, useMutation, useQueryClient } from 'react-query';
+import forms from './utils/forms';
 import { fetchData, putProvider } from './utils/api';
 import createProvidersArray from './utils/createProvidersArray';
-import forms from './utils/forms';
+import { getTrad } from '../../utils';
+import pluginPermissions from '../../permissions';
+import FormModal from '../../components/FormModal';
 
 export const ProvidersPage = () => {
   const { formatMessage } = useIntl();
@@ -56,7 +53,7 @@ export const ProvidersPage = () => {
   const { lockApp, unlockApp } = useOverlayBlocker();
 
   const updatePermissions = useMemo(() => {
-    return { update: PERMISSIONS.updateProviders };
+    return { update: pluginPermissions.updateProviders };
   }, []);
 
   const {
@@ -267,7 +264,7 @@ export const ProvidersPage = () => {
 };
 
 const ProtectedProvidersPage = () => (
-  <CheckPagePermissions permissions={PERMISSIONS.readProviders}>
+  <CheckPagePermissions permissions={pluginPermissions.readProviders}>
     <ProvidersPage />
   </CheckPagePermissions>
 );

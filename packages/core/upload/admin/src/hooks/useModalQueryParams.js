@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
-
+import { useState, useEffect } from 'react';
 import { useTracking } from '@strapi/helper-plugin';
-import { stringify } from 'qs';
 
+import { stringify } from 'qs';
 import { useConfig } from './useConfig';
 
 const useModalQueryParams = (initialState) => {

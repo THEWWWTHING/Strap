@@ -21,7 +21,6 @@ const createStrapiInstance = async ({
   ensureSuperAdmin = true,
   logLevel = 'error',
   bypassAuth = true,
-  bootstrap,
 } = {}) => {
   // read .env file as it could have been updated
   dotenv.config({ path: process.env.ENV_PATH });
@@ -40,17 +39,6 @@ const createStrapiInstance = async ({
       verify() {},
     });
   }
-
-  if (bootstrap) {
-    const modules = instance.container.get('modules');
-    const originalBootstrap = modules.bootstrap;
-    // decorate modules bootstrap
-    modules.bootstrap = async () => {
-      await originalBootstrap();
-      await bootstrap({ strapi: instance });
-    };
-  }
-
   await instance.load();
 
   instance.log.level = logLevel;

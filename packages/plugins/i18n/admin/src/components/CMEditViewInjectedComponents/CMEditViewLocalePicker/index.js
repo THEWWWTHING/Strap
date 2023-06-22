@@ -1,17 +1,14 @@
 import React from 'react';
-
-import { Box, Divider, Flex, Option, Select, Typography } from '@strapi/design-system';
-import get from 'lodash/get';
 import PropTypes from 'prop-types';
-import { stringify } from 'qs';
+import get from 'lodash/get';
+import { Box, Divider, Select, Option, Typography, Flex } from '@strapi/design-system';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
-
+import { stringify } from 'qs';
 import { getTrad } from '../../../utils';
-import CMEditViewCopyLocale from '../CMEditViewCopyLocale';
-
-import Bullet from './Bullet';
 import { createLocalesOption } from './utils';
+import CMEditViewCopyLocale from '../CMEditViewCopyLocale';
+import Bullet from './Bullet';
 
 const CMEditViewLocalePicker = ({
   appLocales,

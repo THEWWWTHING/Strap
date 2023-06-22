@@ -1,13 +1,11 @@
 import React from 'react';
-
-import { Box, Flex, Typography } from '@strapi/design-system';
-import { pxToRem, useTracking } from '@strapi/helper-plugin';
-import { useIntl } from 'react-intl';
 import styled from 'styled-components';
-
+import { useIntl } from 'react-intl';
+import { useTracking, pxToRem } from '@strapi/helper-plugin';
+import { Box, Flex, Typography } from '@strapi/design-system';
 import cloudIconBackgroundImage from './assets/strapi-cloud-background.png';
-import cloudFlagsImage from './assets/strapi-cloud-flags.svg';
 import cloudIcon from './assets/strapi-cloud-icon.svg';
+import cloudFlagsImage from './assets/strapi-cloud-flags.svg';
 
 const BlockLink = styled.a`
   text-decoration: none;
