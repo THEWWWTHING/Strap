@@ -1,0 +1,62 @@
+{
+  "name": "@strapi/admin-test-utils",
+  "version": "4.11.1",
+  "private": true,
+  "description": "Test utilities for the Strapi administration panel",
+  "license": "MIT",
+  "author": {
+    "name": "Strapi Solutions SAS",
+    "email": "hi@strapi.io",
+    "url": "https://strapi.io"
+  },
+  "maintainers": [
+    {
+      "name": "Strapi Solutions SAS",
+      "email": "hi@strapi.io",
+      "url": "https://strapi.io"
+    }
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js"
+    },
+    "./after-env": {
+      "require": "./dist/after-env.js"
+    },
+    "./environment": {
+      "require": "./dist/environment.js"
+    },
+    "./file-mock": {
+      "require": "./dist/file-mock.js"
+    },
+    "./global-setup": {
+      "require": "./dist/global-setup.js"
+    }
+  },
+  "dependencies": {
+    "@juggle/resize-observer": "3.4.0",
+    "@testing-library/jest-dom": "5.16.5",
+    "jest-styled-components": "7.1.1",
+    "whatwg-fetch": "3.6.2"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "4.11.1",
+    "redux": "^4.2.1",
+    "tsconfig": "4.11.1"
+  },
+  "peerDependencies": {
+    "redux": "^4.2.1"
+  },
+  "scripts": {
+    "build": "run -T tsc",
+    "build:ts": "run -T tsc",
+    "watch": "run -T tsc -w --preserveWatchOutput",
+    "clean": "run -T rimraf ./dist",
+    "lint": "run -T eslint ."
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x"
+  }
+}
