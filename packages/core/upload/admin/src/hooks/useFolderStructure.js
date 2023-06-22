@@ -1,10 +1,8 @@
-import { useFetchClient } from '@strapi/helper-plugin';
-import { useIntl } from 'react-intl';
 import { useQuery } from 'react-query';
-
+import { useIntl } from 'react-intl';
+import { useFetchClient } from '@strapi/helper-plugin';
 import pluginId from '../pluginId';
 import { getRequestUrl, getTrad } from '../utils';
-
 import { recursiveRenameKeys } from './utils/rename-keys';
 
 const FIELD_MAPPING = {

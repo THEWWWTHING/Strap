@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-
-import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 import { useNotification } from '../../features/Notifications';
 import { useRBACProvider } from '../../features/RBAC';
 import hasPermissions from '../../utils/hasPermissions';

@@ -1,17 +1,17 @@
 import React, { useMemo, useState } from 'react';
-
-import { Box, Flex, VisuallyHidden } from '@strapi/design-system';
-import { NotAllowedInput, useCMEditViewDataManager, useNotification } from '@strapi/helper-plugin';
 import PropTypes from 'prop-types';
+import { Box, Flex, VisuallyHidden } from '@strapi/design-system';
+import { NotAllowedInput, useNotification, useCMEditViewDataManager } from '@strapi/helper-plugin';
 import { useIntl } from 'react-intl';
 
-import { useContentTypeLayout } from '../../hooks';
 import { getTrad } from '../../utils';
 
-import { AddComponentButton } from './components/AddComponentButton';
-import { ComponentPicker } from './components/ComponentPicker';
 import { DynamicComponent } from './components/DynamicComponent';
+import { AddComponentButton } from './components/AddComponentButton';
 import { DynamicZoneLabel } from './components/DynamicZoneLabel';
+import { ComponentPicker } from './components/ComponentPicker';
+
+import { useContentTypeLayout } from '../../hooks';
 
 const DynamicZone = ({ name, labelAction, fieldSchema, metadatas }) => {
   // We cannot use the default props here

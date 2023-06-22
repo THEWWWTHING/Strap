@@ -1,26 +1,26 @@
-import React, { useReducer, useState } from 'react';
-
-import { Button, ContentLayout, HeaderLayout, Layout, Main } from '@strapi/design-system';
-import {
-  ConfirmDialog,
-  Link,
-  useFocusWhenNavigate,
-  useNotification,
-  useTracking,
-} from '@strapi/helper-plugin';
-import { ArrowLeft, Check } from '@strapi/icons';
+import React, { useState, useReducer } from 'react';
+import { useIntl } from 'react-intl';
 import isEqual from 'lodash/isEqual';
 import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 
-import { useConfig } from '../../../hooks/useConfig';
+import { Layout, HeaderLayout, ContentLayout, Button, Main } from '@strapi/design-system';
+import {
+  useNotification,
+  ConfirmDialog,
+  Link,
+  useTracking,
+  useFocusWhenNavigate,
+} from '@strapi/helper-plugin';
+import { Check, ArrowLeft } from '@strapi/icons';
+import { Settings } from './components/Settings';
+
+import reducer from './state/reducer';
+import { init, initialState } from './state/init';
+import { onChange, setLoaded } from './state/actions';
+
 import pluginID from '../../../pluginId';
 import getTrad from '../../../utils/getTrad';
-
-import { Settings } from './components/Settings';
-import { onChange, setLoaded } from './state/actions';
-import { init, initialState } from './state/init';
-import reducer from './state/reducer';
+import { useConfig } from '../../../hooks/useConfig';
 
 const ConfigureTheView = ({ config }) => {
   const { trackUsage } = useTracking();

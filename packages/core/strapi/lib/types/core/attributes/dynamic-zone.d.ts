@@ -1,26 +1,29 @@
-import type { Utils, Attribute, Common } from '@strapi/strapi';
+import { SchemaUID, GetArrayValues } from '../../utils';
+import { Attribute, ConfigurableOption, MinMaxOption, RequiredOption } from './base';
+import { GetAttributesValues } from './utils';
 
-export interface DynamicZoneProperties<TComponentsUIDs extends Common.UID.Component[]> {
-  components: TComponentsUIDs;
+export interface DynamicZoneAttributeProperties<T extends Strapi.ComponentUIDs[] = []> {
+  components: T;
 }
 
-export type DynamicZone<TComponentsUIDs extends Common.UID.Component[] = Common.UID.Component[]> =
-  Attribute.OfType<'dynamiczone'> &
-    // Properties
-    DynamicZoneProperties<TComponentsUIDs> &
-    // Options
-    Attribute.ConfigurableOption &
-    Attribute.MinMaxOption &
-    Attribute.RequiredOption;
+export type DynamicZoneAttribute<T extends Strapi.ComponentUIDs[] = []> = Attribute<'dynamiczone'> &
+  // Properties
+  DynamicZoneAttributeProperties<T> &
+  // Options
+  ConfigurableOption &
+  MinMaxOption &
+  RequiredOption;
 
-type DynamicZoneValue<TComponentsUIDs extends Common.UID.Component[]> = Array<
-  // Extract tuple values to a component uid union type
-  Utils.Array.Values<TComponentsUIDs> extends infer TComponentUID
-    ? TComponentUID extends Common.UID.Component
-      ? Attribute.GetValues<TComponentUID> & { __component: TComponentUID }
+type DynamicZoneValue<T extends Strapi.ComponentUIDs[]> = Array<
+  GetArrayValues<T> extends infer P
+    ? P extends SchemaUID
+      ? GetAttributesValues<P> & { __component: P }
       : never
     : never
 >;
 
-export type GetDynamicZoneValue<TAttribute extends Attribute.Attribute> =
-  TAttribute extends DynamicZone<infer TComponentsUIDs> ? DynamicZoneValue<TComponentsUIDs> : never;
+export type GetDynamicZoneAttributeValue<T extends Attribute> = T extends DynamicZoneAttribute<
+  infer U
+>
+  ? DynamicZoneValue<U>
+  : never;

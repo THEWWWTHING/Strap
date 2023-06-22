@@ -1,10 +1,7 @@
 import React from 'react';
-
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
+import PropTypes from 'prop-types';
 import basename from '../../../../../../core/utils/basename';
-
 import MagicLinkWrapper from './MagicLinkWrapper';
 
 const MagicLink = ({ registrationToken }) => {

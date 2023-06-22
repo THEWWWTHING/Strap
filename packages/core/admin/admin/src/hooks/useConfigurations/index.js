@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-
 import { ConfigurationsContext } from '../../contexts';
 
 const useConfigurations = () => {

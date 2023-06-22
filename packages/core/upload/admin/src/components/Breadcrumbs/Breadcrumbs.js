@@ -1,13 +1,11 @@
 import React from 'react';
-
-import { Breadcrumbs as BaseBreadcrumbs, Crumb, CrumbLink } from '@strapi/design-system/v2';
 import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';
+import { useIntl } from 'react-intl';
 
-import { BreadcrumbsDefinition } from '../../constants';
-
+import { Crumb, CrumbLink, Breadcrumbs as BaseBreadcrumbs } from '@strapi/design-system/v2';
 import { CrumbSimpleMenuAsync } from './CrumbSimpleMenuAsync';
+import { BreadcrumbsDefinition } from '../../constants';
 
 export const Breadcrumbs = ({ breadcrumbs, onChangeFolder, currentFolderId, ...props }) => {
   const { formatMessage } = useIntl();

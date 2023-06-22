@@ -1,8 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Flex, Icon } from '@strapi/design-system';
-import PropTypes from 'prop-types';
-
 import { COMPONENT_ICONS } from './constants';
 
 export function ComponentIcon({ showBackground = true, size = 'M', icon }) {

@@ -1,34 +1,36 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import React, { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
-
-import { Main } from '@strapi/design-system';
-import {
-  ContentManagerEditViewDataManagerContext,
-  getAPIInnerErrors,
-  getYupInnerErrors,
-  LoadingIndicatorPage,
-  useNotification,
-  useOverlayBlocker,
-  useTracking,
-} from '@strapi/helper-plugin';
+import React, { useCallback, useEffect, useMemo, useRef, useReducer } from 'react';
+import isEmpty from 'lodash/isEmpty';
 import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
-import isEmpty from 'lodash/isEmpty';
 import isEqual from 'lodash/isEqual';
 import set from 'lodash/set';
 import PropTypes from 'prop-types';
-import { flushSync } from 'react-dom';
 import { useIntl } from 'react-intl';
-import { useDispatch, useSelector } from 'react-redux';
 import { Prompt, Redirect } from 'react-router-dom';
+import { flushSync } from 'react-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { usePrev } from '../../hooks';
-import { clearSetModifiedDataOnly } from '../../sharedReducers/crudReducer/actions';
-import selectCrudReducer from '../../sharedReducers/crudReducer/selectors';
+import { Main } from '@strapi/design-system';
+import {
+  LoadingIndicatorPage,
+  ContentManagerEditViewDataManagerContext,
+  useNotification,
+  useOverlayBlocker,
+  useTracking,
+  getYupInnerErrors,
+  getAPIInnerErrors,
+} from '@strapi/helper-plugin';
+
 import { createYupSchema, getTrad } from '../../utils';
+
+import selectCrudReducer from '../../sharedReducers/crudReducer/selectors';
 
 import reducer, { initialState } from './reducer';
 import { cleanData } from './utils';
+
+import { clearSetModifiedDataOnly } from '../../sharedReducers/crudReducer/actions';
+import { usePrev } from '../../hooks';
 
 const EditViewDataManagerProvider = ({
   allLayoutData,

@@ -1,14 +1,13 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { render as renderTL, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { render as renderTL, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 import { AssetDialog } from '..';
-import { useAssets } from '../../../hooks/useAssets';
 import { useFolders } from '../../../hooks/useFolders';
+import { useAssets } from '../../../hooks/useAssets';
 import { useMediaLibraryPermissions } from '../../../hooks/useMediaLibraryPermissions';
 import useModalQueryParams from '../../../hooks/useModalQueryParams';
 

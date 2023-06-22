@@ -1,14 +1,11 @@
 import React, { memo, useMemo } from 'react';
-
-import { BaseCheckbox, Box, Flex, Typography } from '@strapi/design-system';
-import get from 'lodash/get';
 import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
+import { BaseCheckbox, Box, Flex, Typography } from '@strapi/design-system';
 import styled from 'styled-components';
-
+import get from 'lodash/get';
+import { useIntl } from 'react-intl';
 import { usePermissionsDataManager } from '../../../../../../../hooks';
 import { cellWidth, firstRowWidth } from '../Permissions/utils/constants';
-
 import { findDisplayedActions, getCheckboxesState } from './utils';
 
 const CenteredStack = styled(Flex)`

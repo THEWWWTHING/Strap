@@ -1,6 +1,5 @@
 import ComboboxFilter from '../ComboboxFilter';
-
-import { actionTypes, getDefaultMessage } from './getActionTypesDefaultMessages';
+import { getDefaultMessage, actionTypes } from './getActionTypesDefaultMessages';
 
 const customOperators = [
   {

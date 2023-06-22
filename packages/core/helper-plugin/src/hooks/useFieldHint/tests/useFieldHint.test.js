@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { act, renderHook } from '@testing-library/react';
+import { renderHook, act } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 
 import useFieldHint from '../index';

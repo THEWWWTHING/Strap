@@ -1,50 +1,54 @@
 import React, { memo, useCallback, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
+import isEqual from 'lodash/isEqual';
+import { bindActionCreators, compose } from 'redux';
+import { useIntl } from 'react-intl';
+import { useHistory, useLocation, Link as ReactRouterLink } from 'react-router-dom';
+import { stringify } from 'qs';
+import axios from 'axios';
 
 import {
-  ActionLayout,
-  Box,
-  Button,
-  ContentLayout,
-  HeaderLayout,
-  IconButton,
-  Main,
-  useNotifyAT,
-} from '@strapi/design-system';
-import {
-  CheckPermissions,
-  getYupInnerErrors,
-  Link,
   NoPermissions,
+  CheckPermissions,
   SearchURLQuery,
-  useAPIErrorHandler,
   useFetchClient,
   useFocusWhenNavigate,
-  useNotification,
   useQueryParams,
+  useNotification,
   useRBACProvider,
   useTracking,
+  Link,
+  useAPIErrorHandler,
+  getYupInnerErrors,
 } from '@strapi/helper-plugin';
-import { ArrowLeft, Cog, Plus } from '@strapi/icons';
-import axios from 'axios';
-import isEqual from 'lodash/isEqual';
-import PropTypes from 'prop-types';
-import { stringify } from 'qs';
-import { useIntl } from 'react-intl';
+
+import {
+  IconButton,
+  Main,
+  Box,
+  ActionLayout,
+  ContentLayout,
+  HeaderLayout,
+  useNotifyAT,
+  Button,
+} from '@strapi/design-system';
+
+import { ArrowLeft, Plus, Cog } from '@strapi/icons';
 import { useMutation } from 'react-query';
-import { connect } from 'react-redux';
-import { Link as ReactRouterLink, useHistory, useLocation } from 'react-router-dom';
-import { bindActionCreators, compose } from 'redux';
-import styled from 'styled-components';
+
+import DynamicTable from '../../components/DynamicTable';
+import AttributeFilter from '../../components/AttributeFilter';
+import { InjectionZone } from '../../../shared/components';
 
 import permissions from '../../../permissions';
-import { InjectionZone } from '../../../shared/components';
-import AttributeFilter from '../../components/AttributeFilter';
-import DynamicTable from '../../components/DynamicTable';
+
 import { createYupSchema, getRequestUrl, getTrad } from '../../utils';
 
-import { getData, getDataSucceeded, onChangeListHeaders, onResetListHeaders } from './actions';
 import FieldPicker from './FieldPicker';
 import PaginationFooter from './PaginationFooter';
+import { getData, getDataSucceeded, onChangeListHeaders, onResetListHeaders } from './actions';
 import makeSelectListView from './selectors';
 import { buildQueryString } from './utils';
 

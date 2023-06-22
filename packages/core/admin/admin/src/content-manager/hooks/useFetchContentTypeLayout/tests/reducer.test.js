@@ -1,5 +1,4 @@
 import produce from 'immer';
-
 import reducer from '../reducer';
 
 describe('CONTENT MANAGER | hooks | useFetchContentTypeLayout | reducer', () => {

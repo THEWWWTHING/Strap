@@ -1,12 +1,10 @@
 import React from 'react';
-
-import { Box, Flex, Grid, GridItem, Typography } from '@strapi/design-system';
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
+import PropTypes from 'prop-types';
+import { Box, Grid, GridItem, Flex, Typography } from '@strapi/design-system';
 import LifeSpanInput from '../../../../../components/Tokens/LifeSpanInput';
-import TokenDescription from '../../../../../components/Tokens/TokenDescription';
 import TokenName from '../../../../../components/Tokens/TokenName';
+import TokenDescription from '../../../../../components/Tokens/TokenDescription';
 import TokenTypeSelect from '../../../../../components/Tokens/TokenTypeSelect';
 
 const FormApiTokenContainer = ({

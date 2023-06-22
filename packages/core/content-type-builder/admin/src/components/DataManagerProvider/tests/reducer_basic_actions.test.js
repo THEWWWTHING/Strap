@@ -1,9 +1,7 @@
 import get from 'lodash/get';
-
-import * as actions from '../constants';
 import reducer, { initialState } from '../reducer';
-
 import testData from './data';
+import * as actions from '../constants';
 
 describe('CTB | components | DataManagerProvider | reducer | basics actions ', () => {
   it('Should return the initial state', () => {

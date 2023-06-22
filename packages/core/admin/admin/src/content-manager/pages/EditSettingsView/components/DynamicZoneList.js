@@ -1,9 +1,8 @@
 import React from 'react';
-
-import { Box, Flex, Typography } from '@strapi/design-system';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Box, Flex, Typography } from '@strapi/design-system';
 
 import { ComponentIcon } from '../../../components/ComponentIcon';
 import { useLayoutDnd } from '../hooks/useLayoutDnd';

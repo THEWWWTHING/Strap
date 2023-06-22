@@ -1,7 +1,6 @@
 import get from 'lodash/get';
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
-
 import { getInitialDataPathUsingTempKeys } from '../../../utils/paths';
 
 /* eslint-disable indent */

@@ -1,111 +1,63 @@
-import type { Attribute, Common, Utils } from '@strapi/strapi';
+import { SchemaUID } from '../../utils';
+import { Attribute, ConfigurableOption, PrivateOption } from './base';
+import { GetAttributesByType, GetAttributesValues } from './utils';
 
-export type Relation<
-  // TODO: TOrigin was originally needed to infer precise attribute literal types by doing a reverse lookup
-  // on TTarget -> TOrigin relations. Due to errors because of Attribute.Any [relation] very generic
-  // representation, type mismatches were encountered and mappedBy/inversedBy are now regular strings.
-  // It is kept to allow for future iterations without breaking the current type API
-  TOrigin extends Common.UID.Schema = Common.UID.Schema,
-  TRelationKind extends RelationKind.Any = RelationKind.Any,
-  TTarget extends Common.UID.Schema = never
-> = Attribute.OfType<'relation'> &
+export type BasicRelationsType = 'oneToOne' | 'oneToMany' | 'manyToOne' | 'manyToMany';
+export type PolymorphicRelationsType = 'morphToOne' | 'morphToMany' | 'morphOne' | 'morphMany';
+export type RelationsType = BasicRelationsType | PolymorphicRelationsType;
+
+export interface BasicRelationAttributeProperties<
+  S extends SchemaUID,
+  R extends RelationsType,
+  T extends SchemaUID
+> {
+  relation: R;
+  target: T;
+  inversedBy?: RelationsKeysFromTo<T, S>;
+  mappedBy?: RelationsKeysFromTo<T, S>;
+}
+
+export interface PolymorphicRelationAttributeProperties<R extends RelationsType> {
+  relation: R;
+}
+
+export type RelationAttribute<
+  S extends SchemaUID,
+  R extends RelationsType,
+  T extends R extends PolymorphicRelationsType ? never : SchemaUID = never
+> = Attribute<'relation'> &
   // Properties
-  RelationProperties<TOrigin, TRelationKind, TTarget> &
+  (R extends BasicRelationsType
+    ? BasicRelationAttributeProperties<S, R, T>
+    : PolymorphicRelationAttributeProperties<R>) &
   // Options
-  Attribute.ConfigurableOption &
-  Attribute.PrivateOption;
-
-export type RelationProperties<
-  _TOrigin extends Common.UID.Schema,
-  TRelationKind extends RelationKind.Any,
-  TTarget extends Common.UID.Schema
-> = Utils.Expression.MatchFirst<
-  [
-    Utils.Expression.Test<
-      Utils.Expression.Extends<TRelationKind, RelationKind.BiDirectional>,
-      {
-        relation: TRelationKind;
-        target: TTarget;
-        inversedBy?: string;
-        mappedBy?: string;
-      }
-    >,
-    Utils.Expression.Test<
-      Utils.Expression.Extends<TRelationKind, RelationKind.UniDirectional>,
-      { relation: TRelationKind }
-    >,
-    Utils.Expression.Test<
-      Utils.Expression.Extends<TRelationKind, RelationKind.MorphReference>,
-      {
-        relation: TRelationKind;
-        target: TTarget;
-        morphBy?: Utils.Guard.Never<
-          Attribute.GetKeysByType<TTarget, 'relation', { relation: RelationKind.MorphOwner }>,
-          string
-        >;
-      }
-    >
-  ]
->;
+  ConfigurableOption &
+  PrivateOption;
 
 export type RelationsKeysFromTo<
-  TTarget extends Common.UID.Schema,
-  TOrigin extends Common.UID.Schema
-> = keyof PickRelationsFromTo<TTarget, TOrigin>;
+  TTarget extends SchemaUID,
+  TSource extends SchemaUID
+> = keyof PickRelationsFromTo<TTarget, TSource>;
 
 export type PickRelationsFromTo<
-  TTarget extends Common.UID.Schema,
-  TOrigin extends Common.UID.Schema
-> = Attribute.GetByType<TTarget, 'relation', { target: TOrigin }>;
+  TTarget extends SchemaUID,
+  TSource extends SchemaUID
+> = GetAttributesByType<TTarget, 'relation', { target: TSource }>;
 
 export type RelationPluralityModifier<
-  TRelationKind extends RelationKind.Any,
-  TValue
-> = TRelationKind extends Utils.String.Suffix<string, 'Many'> ? TValue[] : TValue;
+  TRelation extends RelationsType,
+  TValue extends Record<string, unknown>
+> = TRelation extends `${string}Many` ? TValue[] : TValue;
 
 export type RelationValue<
-  TRelationKind extends RelationKind.Any,
-  TTarget extends Common.UID.Schema
-> = RelationPluralityModifier<TRelationKind, Attribute.GetValues<TTarget>>;
+  TRelation extends RelationsType,
+  TTarget extends SchemaUID
+> = RelationPluralityModifier<TRelation, GetAttributesValues<TTarget>>;
 
-export type GetRelationValue<TAttribute extends Attribute.Attribute> = TAttribute extends Relation<
-  infer _TOrigin,
-  infer TRelationKind,
+export type GetRelationAttributeValue<T extends Attribute> = T extends RelationAttribute<
+  infer _TSource,
+  infer TRelation,
   infer TTarget
 >
-  ? RelationValue<TRelationKind, TTarget>
+  ? RelationValue<TRelation, TTarget>
   : never;
-
-export module RelationKind {
-  type GetOppositePlurality<TPlurality extends RelationKind.Left | RelationKind.Right> = {
-    one: 'many';
-    One: 'Many';
-    many: 'one';
-    Many: 'One';
-  }[TPlurality];
-
-  export type Plurality = 'one' | 'many';
-
-  export type Left = Lowercase<RelationKind.Plurality>;
-  export type Right = Capitalize<RelationKind.Plurality>;
-
-  export type MorphOwner = `morphTo${RelationKind.Right}`;
-  export type MorphReference = `morph${RelationKind.Right}`;
-  export type Morph = RelationKind.MorphOwner | RelationKind.MorphReference;
-
-  export type XWay = `${RelationKind.Left}Way`;
-
-  export type BiDirectional = `${RelationKind.Left}To${RelationKind.Right}`;
-  export type UniDirectional = RelationKind.Morph | RelationKind.XWay;
-
-  export type Any = RelationKind.BiDirectional | RelationKind.UniDirectional;
-
-  export type Reverse<TRelationKind extends RelationKind.Any> =
-    TRelationKind extends `${infer TLeft extends RelationKind.Left}To${infer TRight extends RelationKind.Right}`
-      ? Utils.Expression.If<
-          Utils.Expression.Extends<Uppercase<TLeft>, Uppercase<TRight>>,
-          TRelationKind,
-          `${GetOppositePlurality<TLeft>}To${GetOppositePlurality<TRight>}`
-        >
-      : TRelationKind;
-}

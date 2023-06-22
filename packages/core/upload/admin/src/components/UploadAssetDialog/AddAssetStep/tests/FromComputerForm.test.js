@@ -1,10 +1,8 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { TrackingProvider } from '@strapi/helper-plugin';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import { render as renderTL } from '@testing-library/react';
+import { TrackingProvider } from '@strapi/helper-plugin';
 import { IntlProvider } from 'react-intl';
-
 import { FromComputerForm } from '../FromComputerForm';
 
 jest.mock('@strapi/helper-plugin', () => ({

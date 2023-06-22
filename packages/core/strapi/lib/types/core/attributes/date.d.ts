@@ -1,13 +1,22 @@
-import type { Attribute } from '@strapi/strapi';
+import {
+  Attribute,
+  ConfigurableOption,
+  DefaultOption,
+  PrivateOption,
+  RequiredOption,
+  UniqueOption,
+} from './base';
 
-export type Date = Attribute.OfType<'date'> &
+export type DateAttribute = Attribute<'date'> &
   // Options
-  Attribute.ConfigurableOption &
-  Attribute.DefaultOption<DateValue> &
-  Attribute.PrivateOption &
-  Attribute.RequiredOption &
-  Attribute.UniqueOption;
+  ConfigurableOption &
+  DefaultOption<DateValue> &
+  PrivateOption &
+  RequiredOption &
+  UniqueOption;
 
 export type DateValue = Date;
 
-export type GetDateValue<T extends Attribute.Attribute> = T extends Date ? DateValue : never;
+export type GetDateAttributeValue<T extends Attribute> = T extends DateAttribute
+  ? DateValue
+  : never;

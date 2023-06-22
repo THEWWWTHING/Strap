@@ -20,13 +20,8 @@ module.exports = {
 
     const permissionQuery = await permissionChecker.sanitizedQuery.read(query);
 
-    const populate = await getService('populate-builder')(model)
-      .populateDeep(1)
-      .countRelations({ toOne: false, toMany: true })
-      .build();
-
-    const { results, pagination } = await entityManager.findPage(
-      { ...permissionQuery, populate },
+    const { results, pagination } = await entityManager.findWithRelationCountsPage(
+      permissionQuery,
       model
     );
 
@@ -51,25 +46,15 @@ module.exports = {
       return ctx.forbidden();
     }
 
-    const permissionQuery = await permissionChecker.sanitizedQuery.read(ctx.query);
-    const populate = await getService('populate-builder')(model)
-      .populateFromQuery(permissionQuery)
-      .populateDeep(Infinity)
-      .countRelations()
-      .build();
-
-    const entity = await entityManager.findOne(id, model, { populate });
+    const entity = await entityManager.findOneWithCreatorRolesAndCount(id, model);
 
     if (!entity) {
       return ctx.notFound();
     }
 
-    // if the user has condition that needs populated content, it's not applied because entity don't have relations populated
     if (permissionChecker.cannot.read(entity)) {
       return ctx.forbidden();
     }
-
-    // TODO: Count populated relations by permissions
 
     ctx.body = await permissionChecker.sanitizeOutput(entity);
   },
@@ -95,13 +80,7 @@ module.exports = {
     const sanitizeFn = pipeAsync(pickWritables, pickPermittedFields, setCreator);
 
     const sanitizedBody = await sanitizeFn(body);
-
     const entity = await entityManager.create(sanitizedBody, model);
-
-    // TODO: Revert the creation if create permission conditions are not met
-    // if (permissionChecker.cannot.create(entity)) {
-    //   return ctx.forbidden();
-    // }
 
     ctx.body = await permissionChecker.sanitizeOutput(entity);
 
@@ -124,12 +103,7 @@ module.exports = {
       return ctx.forbidden();
     }
 
-    const permissionQuery = await permissionChecker.sanitizedQuery.update(ctx.query);
-    const populate = await getService('populate-builder')(model)
-      .populateFromQuery(permissionQuery)
-      .build();
-
-    const entity = await entityManager.findOne(id, model, { populate });
+    const entity = await entityManager.findOneWithCreatorRoles(id, model);
 
     if (!entity) {
       return ctx.notFound();
@@ -142,9 +116,10 @@ module.exports = {
     const pickWritables = pickWritableAttributes({ model });
     const pickPermittedFields = permissionChecker.sanitizeUpdateInput(entity);
     const setCreator = setCreatorFields({ user, isEdition: true });
-    const sanitizeFn = pipeAsync(pickWritables, pickPermittedFields, setCreator);
-    const sanitizedBody = await sanitizeFn(body);
 
+    const sanitizeFn = pipeAsync(pickWritables, pickPermittedFields, setCreator);
+
+    const sanitizedBody = await sanitizeFn(body);
     const updatedEntity = await entityManager.update(entity, sanitizedBody, model);
 
     ctx.body = await permissionChecker.sanitizeOutput(updatedEntity);
@@ -161,12 +136,7 @@ module.exports = {
       return ctx.forbidden();
     }
 
-    const permissionQuery = await permissionChecker.sanitizedQuery.delete(ctx.query);
-    const populate = await getService('populate-builder')(model)
-      .populateFromQuery(permissionQuery)
-      .build();
-
-    const entity = await entityManager.findOne(id, model, { populate });
+    const entity = await entityManager.findOneWithCreatorRoles(id, model);
 
     if (!entity) {
       return ctx.notFound();
@@ -192,12 +162,7 @@ module.exports = {
       return ctx.forbidden();
     }
 
-    const permissionQuery = await permissionChecker.sanitizedQuery.publish(ctx.query);
-    const populate = await getService('populate-builder')(model)
-      .populateFromQuery(permissionQuery)
-      .build();
-
-    const entity = await entityManager.findOne(id, model, { populate });
+    const entity = await entityManager.findOneWithCreatorRoles(id, model);
 
     if (!entity) {
       return ctx.notFound();
@@ -231,12 +196,7 @@ module.exports = {
       return ctx.forbidden();
     }
 
-    const permissionQuery = await permissionChecker.sanitizedQuery.publish(ctx.query);
-    const populate = await getService('populate-builder')(model)
-      .populateFromQuery(permissionQuery)
-      .build();
-
-    const entityPromises = ids.map((id) => entityManager.findOne(id, model, { populate }));
+    const entityPromises = ids.map((id) => entityManager.findOneWithCreatorRoles(id, model));
     const entities = await Promise.all(entityPromises);
 
     for (const entity of entities) {
@@ -268,12 +228,7 @@ module.exports = {
       return ctx.forbidden();
     }
 
-    const permissionQuery = await permissionChecker.sanitizedQuery.publish(ctx.query);
-    const populate = await getService('populate-builder')(model)
-      .populateFromQuery(permissionQuery)
-      .build();
-
-    const entityPromises = ids.map((id) => entityManager.findOne(id, model, { populate }));
+    const entityPromises = ids.map((id) => entityManager.findOneWithCreatorRoles(id, model));
     const entities = await Promise.all(entityPromises);
 
     for (const entity of entities) {
@@ -301,12 +256,7 @@ module.exports = {
       return ctx.forbidden();
     }
 
-    const permissionQuery = await permissionChecker.sanitizedQuery.unpublish(ctx.query);
-    const populate = await getService('populate-builder')(model)
-      .populateFromQuery(permissionQuery)
-      .build();
-
-    const entity = await entityManager.findOne(id, model, { populate });
+    const entity = await entityManager.findOneWithCreatorRoles(id, model);
 
     if (!entity) {
       return ctx.notFound();
@@ -367,12 +317,7 @@ module.exports = {
       return ctx.forbidden();
     }
 
-    const permissionQuery = await permissionChecker.sanitizedQuery.read(ctx.query);
-    const populate = await getService('populate-builder')(model)
-      .populateFromQuery(permissionQuery)
-      .build();
-
-    const entity = await entityManager.findOne(id, model, { populate });
+    const entity = await entityManager.findOneWithCreatorRolesAndCount(id, model);
 
     if (!entity) {
       return ctx.notFound();

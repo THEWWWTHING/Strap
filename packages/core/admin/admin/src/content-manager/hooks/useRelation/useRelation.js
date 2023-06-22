@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-
-import { useCallbackRef, useFetchClient } from '@strapi/helper-plugin';
+import { useState, useEffect } from 'react';
 import { useInfiniteQuery } from 'react-query';
+
+import { useFetchClient, useCallbackRef } from '@strapi/helper-plugin';
 
 import { normalizeRelations } from '../../components/RelationInputDataManager/utils';
 

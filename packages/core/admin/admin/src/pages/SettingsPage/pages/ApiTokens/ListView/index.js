@@ -1,29 +1,28 @@
 import React, { useEffect, useRef } from 'react';
-
-import { Button, ContentLayout, HeaderLayout, Main } from '@strapi/design-system';
-import {
-  LinkButton,
-  NoContent,
-  NoPermissions,
-  SettingsPageTitle,
-  useFetchClient,
-  useFocusWhenNavigate,
-  useGuidedTour,
-  useNotification,
-  useRBAC,
-  useTracking,
-} from '@strapi/helper-plugin';
-import { Plus } from '@strapi/icons';
-import qs from 'qs';
 import { useIntl } from 'react-intl';
-import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { useQuery, useMutation, useQueryClient } from 'react-query';
 import { useHistory } from 'react-router-dom';
+import qs from 'qs';
+
+import {
+  SettingsPageTitle,
+  useFocusWhenNavigate,
+  useNotification,
+  NoPermissions,
+  useRBAC,
+  NoContent,
+  useTracking,
+  useGuidedTour,
+  useFetchClient,
+  LinkButton,
+} from '@strapi/helper-plugin';
+import { HeaderLayout, ContentLayout, Main, Button } from '@strapi/design-system';
+import { Plus } from '@strapi/icons';
 
 import adminPermissions from '../../../../../permissions';
-import { API_TOKEN_TYPE } from '../../../components/Tokens/constants';
-import Table from '../../../components/Tokens/Table';
-
 import tableHeaders from './utils/tableHeaders';
+import Table from '../../../components/Tokens/Table';
+import { API_TOKEN_TYPE } from '../../../components/Tokens/constants';
 
 const ApiTokenListView = () => {
   useFocusWhenNavigate();

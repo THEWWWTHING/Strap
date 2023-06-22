@@ -1,10 +1,9 @@
 import React from 'react';
-
 import { renderHook } from '@testing-library/react';
 import axios from 'axios';
 
 import { useAppInfo } from '../AppInfo';
-import { TrackingProvider, useTracking } from '../Tracking';
+import { useTracking, TrackingProvider } from '../Tracking';
 
 jest.mock('../AppInfo');
 
@@ -69,10 +68,7 @@ describe('useTracking', () => {
         userProperties: {},
       },
       {
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Strapi-Event': 'event',
-        },
+        headers: { 'Content-Type': 'application/json' },
       }
     );
 

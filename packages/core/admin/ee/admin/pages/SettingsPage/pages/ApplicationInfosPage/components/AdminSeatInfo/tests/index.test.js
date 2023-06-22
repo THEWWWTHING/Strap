@@ -1,11 +1,10 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
 import { render } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
+import { useLicenseLimits } from '../../../../../../../hooks';
 
 import AdminSeatInfo from '..';
-import { useLicenseLimits } from '../../../../../../../hooks';
 
 const LICENSE_MOCK = {
   license: {

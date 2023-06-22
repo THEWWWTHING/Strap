@@ -5,11 +5,9 @@
  */
 
 import React from 'react';
-
-import { Option, Select } from '@strapi/design-system';
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
+import PropTypes from 'prop-types';
+import { Select, Option } from '@strapi/design-system';
 import useDataManager from '../../hooks/useDataManager';
 
 const SelectComponent = ({

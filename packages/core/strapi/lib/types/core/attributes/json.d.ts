@@ -1,11 +1,14 @@
-import type { Attribute } from '@strapi/strapi';
+import { Attribute, ConfigurableOption, PrivateOption, RequiredOption } from './base';
+import { JSON } from './common';
 
-export type JSON = Attribute.OfType<'json'> &
-  // Options
-  Attribute.ConfigurableOption &
-  Attribute.RequiredOption &
-  Attribute.PrivateOption;
+export type JSONAttribute = Attribute<'json'> &
+  //Options
+  ConfigurableOption &
+  RequiredOption &
+  PrivateOption;
 
-export type JsonValue<T extends object = object> = T;
+export type JsonValue = JSON;
 
-export type GetJsonValue<T extends Attribute.Attribute> = T extends JSON ? JsonValue : never;
+export type GetJsonAttributeValue<T extends Attribute> = T extends JSONAttribute
+  ? JsonValue
+  : never;

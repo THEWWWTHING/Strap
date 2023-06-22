@@ -1,22 +1,20 @@
 import React from 'react';
-
+import { useIntl } from 'react-intl';
+import { LoadingIndicatorPage, useFocusWhenNavigate } from '@strapi/helper-plugin';
 import {
-  ContentLayout,
-  HeaderLayout,
+  useNotifyAT,
   Layout,
+  HeaderLayout,
+  ContentLayout,
   Main,
+  Typography,
   Table,
+  Thead,
   Tbody,
+  Tr,
   Td,
   Th,
-  Thead,
-  Tr,
-  Typography,
-  useNotifyAT,
 } from '@strapi/design-system';
-import { LoadingIndicatorPage, useFocusWhenNavigate } from '@strapi/helper-plugin';
-import { useIntl } from 'react-intl';
-
 import useFetchEnabledPlugins from '../../hooks/useFetchEnabledPlugins';
 
 const Plugins = () => {

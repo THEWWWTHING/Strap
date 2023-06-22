@@ -1,22 +1,20 @@
 import React from 'react';
-
-import {
-  Icon,
-  IconButton,
-  Table,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-  Typography,
-  VisuallyHidden,
-} from '@strapi/design-system';
-import { onRowClick, stopPropagation } from '@strapi/helper-plugin';
-import { Check, Pencil, Refresh } from '@strapi/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Td,
+  Th,
+  Typography,
+  IconButton,
+  Icon,
+  VisuallyHidden,
+} from '@strapi/design-system';
+import { Pencil, Refresh, Check } from '@strapi/icons';
+import { onRowClick, stopPropagation } from '@strapi/helper-plugin';
 import { getTrad } from '../../../utils';
 
 const EmailTable = ({ canUpdate, onEditClick }) => {

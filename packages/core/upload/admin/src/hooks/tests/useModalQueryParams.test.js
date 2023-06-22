@@ -1,11 +1,10 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { NotificationsProvider } from '@strapi/helper-plugin';
-import { act, renderHook } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { renderHook, act } from '@testing-library/react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { NotificationsProvider } from '@strapi/helper-plugin';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 
 import useModalQueryParams from '../useModalQueryParams';
 

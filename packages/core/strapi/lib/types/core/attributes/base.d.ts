@@ -1,7 +1,9 @@
+import { GetAttributeValue } from './utils';
+
 /**
  * List of all the Strapi attribute types
  */
-export type Kind =
+export type AttributeType =
   | 'string'
   | 'text'
   | 'richtext'
@@ -27,22 +29,17 @@ export type Kind =
 /**
  * Most basic shape of a schema attribute
  */
-export interface Attribute<TKind extends Kind = Kind> {
+export interface Attribute<T extends AttributeType = AttributeType> {
   /**
    * Type of the attribute
    */
-  type: TKind;
+  type: T;
 
   /**
    * Options defined and used by the plugins
    */
   pluginOptions?: object;
 }
-
-/**
- * Creates a basic Attribute of type T
- */
-export type OfType<T extends Kind> = Attribute<T>;
 
 // Common attributes Options
 

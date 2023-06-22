@@ -1,12 +1,10 @@
 import React from 'react';
-
-import { Flex, Grid, GridItem, Loader } from '@strapi/design-system';
-import { AnErrorOccurred } from '@strapi/helper-plugin';
 import PropTypes from 'prop-types';
+import { Grid, GridItem, Flex, Loader } from '@strapi/design-system';
 import { useIntl } from 'react-intl';
-
-import EmptyNpmPackageSearch from '../EmptyNpmPackageSearch';
+import { AnErrorOccurred } from '@strapi/helper-plugin';
 import NpmPackageCard from '../NpmPackageCard';
+import EmptyNpmPackageSearch from '../EmptyNpmPackageSearch';
 
 const NpmPackagesGrid = ({
   status,

@@ -1,5 +1,4 @@
 import { getFetchClient } from '@strapi/helper-plugin';
-
 import { getRequestURL } from '../../../utils';
 
 const fetchData = async () => {

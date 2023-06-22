@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-
 import { AdminContext } from '../../../contexts';
 
 const useAdminProvider = () => {

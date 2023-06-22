@@ -6,38 +6,38 @@
  */
 
 import React, { useState } from 'react';
-
+import { useIntl } from 'react-intl';
 import {
-  Box,
-  Button,
-  ContentLayout,
-  Flex,
-  HeaderLayout,
-  IconButton,
-  Layout,
-  Main,
-  Table,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-  Typography,
-} from '@strapi/design-system';
-import {
-  AnErrorOccurred,
   CheckPermissions,
   ConfirmDialog,
-  EmptyStateLayout,
   LoadingIndicatorPage,
   stopPropagation,
+  EmptyStateLayout,
   useFocusWhenNavigate,
+  AnErrorOccurred,
 } from '@strapi/helper-plugin';
-import { Eye as Show, Refresh as Reload, Trash } from '@strapi/icons';
 import { Helmet } from 'react-helmet';
-import { useIntl } from 'react-intl';
+import {
+  Button,
+  Layout,
+  HeaderLayout,
+  ContentLayout,
+  Main,
+  IconButton,
+  Typography,
+  Flex,
+  Table,
+  Tr,
+  Thead,
+  Th,
+  Tbody,
+  Td,
+  Box,
+} from '@strapi/design-system';
 
-import { PERMISSIONS } from '../../constants';
+import { Trash, Eye as Show, Refresh as Reload } from '@strapi/icons';
+
+import permissions from '../../permissions';
 import { getTrad } from '../../utils';
 import openWithNewTab from '../../utils/openWithNewTab';
 import useReactQuery from '../utils/useReactQuery';
@@ -107,7 +107,7 @@ const PluginPage = () => {
           })}
           primaryAction={
             //  eslint-disable-next-line
-            <CheckPermissions permissions={PERMISSIONS.open}>
+            <CheckPermissions permissions={permissions.open}>
               <Button onClick={() => openDocVersion(data?.currentVersion)} startIcon={<Show />}>
                 {formatMessage({
                   id: getTrad('pages.PluginPage.Button.open'),
@@ -166,7 +166,7 @@ const PluginPage = () => {
                               { target: `${doc.version}` }
                             )}
                           />
-                          <CheckPermissions permissions={PERMISSIONS.regenerate}>
+                          <CheckPermissions permissions={permissions.regenerate}>
                             <IconButton
                               onClick={() => handleRegenerateDoc(doc.version)}
                               noBorder
@@ -180,7 +180,7 @@ const PluginPage = () => {
                               )}
                             />
                           </CheckPermissions>
-                          <CheckPermissions permissions={PERMISSIONS.update}>
+                          <CheckPermissions permissions={permissions.update}>
                             {doc.version !== data.currentVersion && (
                               <IconButton
                                 onClick={() => handleClickDelete(doc.version)}

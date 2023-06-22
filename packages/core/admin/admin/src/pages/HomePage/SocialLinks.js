@@ -4,13 +4,12 @@
  */
 
 import React from 'react';
-
-import { Box, Flex, Grid, GridItem, Typography } from '@strapi/design-system';
-import { Link, LinkButton } from '@strapi/design-system/v2';
-import { useAppInfo } from '@strapi/helper-plugin';
-import { Discord, Discourse, ExternalLink, Github, Reddit, Strapi, Twitter } from '@strapi/icons';
-import { useIntl } from 'react-intl';
 import styled from 'styled-components';
+import { useIntl } from 'react-intl';
+import { useAppInfo } from '@strapi/helper-plugin';
+import { Typography, Box, Flex, Grid, GridItem } from '@strapi/design-system';
+import { Link, LinkButton } from '@strapi/design-system/v2';
+import { ExternalLink, Github, Discord, Reddit, Strapi, Twitter, Discourse } from '@strapi/icons';
 
 const StyledDiscord = styled(Discord)`
   path {

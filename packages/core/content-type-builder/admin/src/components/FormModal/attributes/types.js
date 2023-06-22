@@ -1,18 +1,16 @@
-import { translatedErrors as errorsTrads } from '@strapi/helper-plugin';
 import uniq from 'lodash/uniq';
 import * as yup from 'yup';
-
-import getRelationType from '../../../utils/getRelationType';
+import { translatedErrors as errorsTrads } from '@strapi/helper-plugin';
 import getTrad from '../../../utils/getTrad';
+import getRelationType from '../../../utils/getRelationType';
 import toRegressedEnumValue from '../../../utils/toRegressedEnumValue';
-
 import {
   alreadyUsedAttributeNames,
   createTextShape,
   isMinSuperiorThanMax,
   isNameAllowed,
-  NAME_REGEX,
   validators,
+  NAME_REGEX,
 } from './validation/common';
 
 const types = {

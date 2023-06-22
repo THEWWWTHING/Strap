@@ -1,14 +1,11 @@
 import React, { useMemo } from 'react';
-
-import { useCMEditViewDataManager, useQueryParams } from '@strapi/helper-plugin';
 import get from 'lodash/get';
 import has from 'lodash/has';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
-import useContentTypePermissions from '../../hooks/useContentTypePermissions';
+import { useCMEditViewDataManager, useQueryParams } from '@strapi/helper-plugin';
 import selectI18NLocales from '../../selectors/selectI18nLocales';
-
+import useContentTypePermissions from '../../hooks/useContentTypePermissions';
 import CMEditViewLocalePicker from './CMEditViewLocalePicker';
 
 const CMEditViewInjectedComponents = () => {

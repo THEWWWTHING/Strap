@@ -8,7 +8,6 @@ const fieldSizes = require('./field-sizes');
 const metrics = require('./metrics');
 const permissionChecker = require('./permission-checker');
 const permission = require('./permission');
-const populateBuilder = require('./populate-builder');
 const uid = require('./uid');
 
 module.exports = {
@@ -20,6 +19,5 @@ module.exports = {
   metrics,
   'permission-checker': permissionChecker,
   permission,
-  'populate-builder': populateBuilder,
   uid,
 };

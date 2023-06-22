@@ -1,13 +1,12 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
-import { IntlProvider } from 'react-intl';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { render, fireEvent, waitFor, act } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { IntlProvider } from 'react-intl';
 
-import { useBulkRemove } from '../../../../../hooks/useBulkRemove';
 import { BulkDeleteButton } from '../BulkDeleteButton';
+import { useBulkRemove } from '../../../../../hooks/useBulkRemove';
 
 jest.mock('../../../../../hooks/useBulkRemove');
 

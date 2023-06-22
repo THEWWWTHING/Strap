@@ -1,5 +1,14 @@
 import React, { useRef } from 'react';
-
+import { useQuery, useMutation, useQueryClient } from 'react-query';
+import { useIntl } from 'react-intl';
+import {
+  useAppInfo,
+  SettingsPageTitle,
+  useFocusWhenNavigate,
+  useNotification,
+  useRBAC,
+  useTracking,
+} from '@strapi/helper-plugin';
 import {
   Button,
   ContentLayout,
@@ -12,22 +21,11 @@ import {
   Main,
   Typography,
 } from '@strapi/design-system';
-import {
-  SettingsPageTitle,
-  useAppInfo,
-  useFocusWhenNavigate,
-  useNotification,
-  useRBAC,
-  useTracking,
-} from '@strapi/helper-plugin';
-import { Check, ExternalLink } from '@strapi/icons';
+import { ExternalLink, Check } from '@strapi/icons';
 import AdminSeatInfo from 'ee_else_ce/pages/SettingsPage/pages/ApplicationInfosPage/components/AdminSeatInfo';
-import { useIntl } from 'react-intl';
-import { useMutation, useQuery, useQueryClient } from 'react-query';
 
-import { useConfigurations } from '../../../../hooks';
 import adminPermissions from '../../../../permissions';
-
+import { useConfigurations } from '../../../../hooks';
 import CustomizationInfos from './components/CustomizationInfos';
 import { fetchProjectSettings, postProjectSettings } from './utils/api';
 import getFormData from './utils/getFormData';

@@ -1,8 +1,7 @@
-import { useNotifyAT } from '@strapi/design-system';
-import { useFetchClient, useNotification } from '@strapi/helper-plugin';
-import { useIntl } from 'react-intl';
 import { useQuery } from 'react-query';
-
+import { useFetchClient, useNotification } from '@strapi/helper-plugin';
+import { useNotifyAT } from '@strapi/design-system';
+import { useIntl } from 'react-intl';
 import { getTrad } from '../../utils';
 
 const useDefaultLocales = () => {

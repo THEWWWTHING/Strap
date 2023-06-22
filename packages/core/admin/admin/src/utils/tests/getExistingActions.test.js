@@ -1,5 +1,4 @@
 import getExistingActions from '../getExistingActions';
-
 import data from './data';
 
 describe('ADMIN | utils | getExistingActions', () => {

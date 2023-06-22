@@ -1,40 +1,38 @@
 import React, { useEffect, useRef, useState } from 'react';
-
-import {
-  Box,
-  ContentLayout,
-  Flex,
-  Layout,
-  Main,
-  Searchbar,
-  Tab,
-  TabGroup,
-  TabPanel,
-  TabPanels,
-  Tabs,
-} from '@strapi/design-system';
+import { useIntl } from 'react-intl';
+import { Helmet } from 'react-helmet';
 import {
   CheckPagePermissions,
-  useAppInfo,
   useFocusWhenNavigate,
-  useNotification,
-  useQueryParams,
   useTracking,
+  useNotification,
+  useAppInfo,
+  useQueryParams,
 } from '@strapi/helper-plugin';
-import { Helmet } from 'react-helmet';
-import { useIntl } from 'react-intl';
+import {
+  Layout,
+  ContentLayout,
+  Main,
+  Searchbar,
+  Box,
+  Flex,
+  Tabs,
+  Tab,
+  TabGroup,
+  TabPanels,
+  TabPanel,
+} from '@strapi/design-system';
 
-import useDebounce from '../../hooks/useDebounce';
-import useNavigatorOnLine from '../../hooks/useNavigatorOnLine';
-import adminPermissions from '../../permissions';
-
-import MissingPluginBanner from './components/MissingPluginBanner';
-import NpmPackagesFilters from './components/NpmPackagesFilters';
-import NpmPackagesGrid from './components/NpmPackagesGrid';
-import NpmPackagesPagination from './components/NpmPackagesPagination';
-import OfflineLayout from './components/OfflineLayout';
 import PageHeader from './components/PageHeader';
+import adminPermissions from '../../permissions';
+import useNavigatorOnLine from '../../hooks/useNavigatorOnLine';
+import MissingPluginBanner from './components/MissingPluginBanner';
+import NpmPackagesGrid from './components/NpmPackagesGrid';
 import SortSelect from './components/SortSelect';
+import NpmPackagesFilters from './components/NpmPackagesFilters';
+import NpmPackagesPagination from './components/NpmPackagesPagination';
+import useDebounce from '../../hooks/useDebounce';
+import OfflineLayout from './components/OfflineLayout';
 import useMarketplaceData from './utils/useMarketplaceData';
 
 const MarketPlacePage = () => {

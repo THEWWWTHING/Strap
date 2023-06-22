@@ -1,23 +1,21 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
 import {
   BaseCheckbox,
   IconButton,
   Table,
   Th,
   Thead,
-  Tooltip,
   Tr,
+  Tooltip,
   Typography,
   VisuallyHidden,
 } from '@strapi/design-system';
 import { CarretDown, CarretUp } from '@strapi/icons';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 
-import { AssetDefinition, FolderDefinition, tableHeaders } from '../../constants';
 import { getTrad } from '../../utils';
-
+import { AssetDefinition, tableHeaders, FolderDefinition } from '../../constants';
 import { TableRows } from './TableRows';
 
 export const TableList = ({

@@ -1,9 +1,7 @@
 import { useState } from 'react';
-
 import { useFetchClient, useNotification } from '@strapi/helper-plugin';
-import get from 'lodash/get';
 import { useDispatch } from 'react-redux';
-
+import get from 'lodash/get';
 import { getTrad } from '../../utils';
 import { ADD_LOCALE } from '../constants';
 

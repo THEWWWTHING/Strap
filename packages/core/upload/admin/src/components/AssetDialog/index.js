@@ -1,40 +1,37 @@
 import React, { useState } from 'react';
-
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { useIntl } from 'react-intl';
 import {
-  Badge,
-  Button,
-  Divider,
-  Flex,
-  Loader,
+  ModalLayout,
   ModalBody,
   ModalHeader,
-  ModalLayout,
+  Flex,
+  Button,
+  Divider,
+  Typography,
+  Tabs,
   Tab,
   TabGroup,
-  TabPanel,
   TabPanels,
-  Tabs,
-  Typography,
+  TabPanel,
+  Badge,
+  Loader,
 } from '@strapi/design-system';
-import { AnErrorOccurred, NoPermissions, pxToRem, useSelectionState } from '@strapi/helper-plugin';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
-import styled from 'styled-components';
-
-import { AssetDefinition } from '../../constants';
+import { NoPermissions, AnErrorOccurred, useSelectionState, pxToRem } from '@strapi/helper-plugin';
+import { getTrad, containsAssetFilter } from '../../utils';
+import { SelectedStep } from './SelectedStep';
+import { BrowseStep } from './BrowseStep';
+import { useMediaLibraryPermissions } from '../../hooks/useMediaLibraryPermissions';
 import { useAssets } from '../../hooks/useAssets';
 import { useFolders } from '../../hooks/useFolders';
-import { useMediaLibraryPermissions } from '../../hooks/useMediaLibraryPermissions';
 import useModalQueryParams from '../../hooks/useModalQueryParams';
-import { containsAssetFilter, getTrad } from '../../utils';
+import { AssetDefinition } from '../../constants';
 import getAllowedFiles from '../../utils/getAllowedFiles';
-import { moveElement } from '../../utils/moveElement';
-import { EditAssetDialog } from '../EditAssetDialog';
-import { EditFolderDialog } from '../EditFolderDialog';
-
-import { BrowseStep } from './BrowseStep';
 import { DialogFooter } from './DialogFooter';
-import { SelectedStep } from './SelectedStep';
+import { EditAssetDialog } from '../EditAssetDialog';
+import { moveElement } from '../../utils/moveElement';
+import { EditFolderDialog } from '../EditFolderDialog';
 
 const LoadingBody = styled(Flex)`
   /* 80px are coming from the Tabs component that is not included in the ModalBody */

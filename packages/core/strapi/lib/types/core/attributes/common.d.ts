@@ -2,73 +2,47 @@
  * Strapi custom scalar types
  */
 
-import { Attribute, Common } from '@strapi/strapi';
+import { MinMaxLengthOption, MinMaxOption } from './base';
+import { StringAttribute } from './string';
+
+export type JSON<T extends object = object> = T;
+
+export type Media = any;
 
 /**
  * Setters for the attributes options
  */
 
 // required
-export type Required = { required: true };
-export type NonRequired = { required: false };
+export type RequiredAttribute = { required: true };
+export type NonRequiredAttribute = { required: false };
 
 // private
-export type Private = { private: true };
-export type NonPrivate = { private: false };
+export type PrivateAttribute = { private: true };
+export type NonPrivateAttribute = { private: false };
 
 // unique
-export type Unique = { unique: true };
-export type NonUnique = { unique: false };
+export type UniqueAttribute = { unique: true };
+export type NonUniqueAttribute = { unique: false };
 
 // configurable
-export type Configurable = { configurable: true };
-export type NonConfigurable = { configurable: false };
+export type ConfigurableAttribute = { configurable: true };
+export type NonConfigurableAttribute = { configurable: false };
 
 // custom field
-export type CustomField<TKind extends string, TOptions extends object | undefined = undefined> = {
-  customField: TKind;
-  options?: TOptions;
+export type CustomField<T extends string, P extends object = undefined> = {
+  customField: T;
+  options?: P;
 };
 
 // min/max
-export type SetMinMax<TConfig extends Attribute.MinMaxOption<TType>, TType = number> = TConfig;
+export type SetMinMax<T extends MinMaxOption<U>, U = number> = T;
 
 // minLength/maxLength
-export type SetMinMaxLength<TConfig extends Attribute.MinMaxLengthOption> = TConfig;
+export type SetMinMaxLength<T extends MinMaxLengthOption> = T;
 
 // pluginOptions
-export type SetPluginOptions<TConfig extends object = object> = { pluginOptions?: TConfig };
+export type SetPluginOptions<T extends object = object> = { pluginOptions?: T };
 
 // default
 export type DefaultTo<T> = { default: T };
-
-// Any Attribute
-export type Any =
-  | Attribute.BigInteger
-  | Attribute.Boolean
-  | Attribute.Component<Common.UID.Component, boolean>
-  | Attribute.DateTime
-  | Attribute.Date
-  | Attribute.Decimal
-  | Attribute.DynamicZone
-  | Attribute.Email
-  | Attribute.Enumeration<string[]>
-  | Attribute.Float
-  | Attribute.Integer
-  | Attribute.JSON
-  | Attribute.Media<Attribute.MediaKind | undefined, boolean>
-  | Attribute.Password
-  | (
-      | Attribute.Relation<
-          Common.UID.Schema,
-          Attribute.RelationKind.BiDirectional,
-          Common.UID.Schema
-        >
-      | Attribute.Relation<Common.UID.Schema, Attribute.RelationKind.UniDirectional>
-    )
-  | Attribute.RichText
-  | Attribute.String
-  | Attribute.Text
-  | Attribute.Time
-  | Attribute.Timestamp
-  | Attribute.UID<Common.UID.Schema | undefined>;

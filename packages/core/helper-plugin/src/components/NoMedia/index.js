@@ -1,7 +1,6 @@
 import React from 'react';
-
-import { EmptyStateLayout } from '@strapi/design-system';
 import { EmptyPictures } from '@strapi/icons';
+import { EmptyStateLayout } from '@strapi/design-system';
 
 const NoMedia = (props) => {
   return <EmptyStateLayout icon={<EmptyPictures width="10rem" />} {...props} />;

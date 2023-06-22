@@ -1,13 +1,11 @@
-import React, { useRef, useState } from 'react';
-
-import { Box, Flex, Popover, Tooltip, Typography } from '@strapi/design-system';
-import { SortIcon, stopPropagation } from '@strapi/helper-plugin';
-import get from 'lodash/get';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
-import styled from 'styled-components';
-
+import { Flex, Box, Tooltip, Typography, Popover } from '@strapi/design-system';
+import { SortIcon, stopPropagation } from '@strapi/helper-plugin';
+import get from 'lodash/get';
 import selectI18NLocales from '../../selectors/selectI18nLocales';
 import { getTrad } from '../../utils';
 

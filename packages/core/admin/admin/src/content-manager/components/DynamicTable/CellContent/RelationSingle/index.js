@@ -1,9 +1,7 @@
 import React from 'react';
-
-import { Typography } from '@strapi/design-system';
 import PropTypes from 'prop-types';
+import { Typography } from '@strapi/design-system';
 import styled from 'styled-components';
-
 import CellValue from '../CellValue';
 
 const TypographyMaxWidth = styled(Typography)`

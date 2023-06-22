@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-
-import { CarouselInput, CarouselSlide } from '@strapi/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
-import { AssetDefinition } from '../../../constants';
+import { CarouselInput, CarouselSlide } from '@strapi/design-system';
 import getTrad from '../../../utils/getTrad';
-import { EditAssetDialog } from '../../EditAssetDialog';
-
-import { CarouselAsset } from './CarouselAsset';
+import { AssetDefinition } from '../../../constants';
 import { CarouselAssetActions } from './CarouselAssetActions';
+import { CarouselAsset } from './CarouselAsset';
 import { EmptyStateAsset } from './EmptyStateAsset';
+import { EditAssetDialog } from '../../EditAssetDialog';
 
 export const CarouselAssets = ({
   assets,

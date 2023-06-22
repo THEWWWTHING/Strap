@@ -1,15 +1,22 @@
-import type { Attribute } from '@strapi/strapi';
+import {
+  Attribute,
+  ConfigurableOption,
+  DefaultOption,
+  MinMaxLengthOption,
+  PrivateOption,
+  RequiredOption,
+} from './base';
 
-export type Password = Attribute.OfType<'password'> &
+export type PasswordAttribute = Attribute<'password'> &
   // Options
-  Attribute.ConfigurableOption &
-  Attribute.DefaultOption<PasswordValue> &
-  Attribute.MinMaxLengthOption &
-  Attribute.PrivateOption &
-  Attribute.RequiredOption;
+  ConfigurableOption &
+  DefaultOption<PasswordValue> &
+  MinMaxLengthOption &
+  PrivateOption &
+  RequiredOption;
 
 export type PasswordValue = string;
 
-export type GetPasswordValue<T extends Attribute.Attribute> = T extends Password
+export type GetPasswordAttributeValue<T extends Attribute> = T extends PasswordAttribute
   ? PasswordValue
   : never;

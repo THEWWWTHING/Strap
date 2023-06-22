@@ -5,17 +5,16 @@
  */
 
 import React from 'react';
-
-import { darkTheme, lightTheme } from '@strapi/design-system';
-import { TrackingProvider, useRBAC } from '@strapi/helper-plugin';
 import { render, screen } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
-import { IntlProvider } from 'react-intl';
 import { Router } from 'react-router-dom';
+import { IntlProvider } from 'react-intl';
+import { useRBAC, TrackingProvider } from '@strapi/helper-plugin';
+import { lightTheme, darkTheme } from '@strapi/design-system';
+import { useRolesList } from '../../../../../../hooks';
 
 import Theme from '../../../../../../components/Theme';
 import ThemeToggleProvider from '../../../../../../components/ThemeToggleProvider';
-import { useRolesList } from '../../../../../../hooks';
 import ListPage from '../index';
 
 jest.mock('@strapi/helper-plugin', () => ({

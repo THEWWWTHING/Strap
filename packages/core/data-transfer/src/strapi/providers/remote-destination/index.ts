@@ -2,12 +2,11 @@ import { WebSocket } from 'ws';
 import { randomUUID } from 'crypto';
 import { Writable } from 'stream';
 import { once } from 'lodash/fp';
-import type { Schema, Utils } from '@strapi/strapi';
 
 import { createDispatcher, connectToWebsocket, trimTrailingSlash } from '../utils';
 
 import type { IDestinationProvider, IMetadata, ProviderType, IAsset } from '../../../../types';
-import type { Client, Server } from '../../../../types/remote/protocol';
+import type { client, server } from '../../../../types/remote/protocol';
 import type { ILocalStrapiDestinationProviderOptions } from '../local-destination';
 import { TRANSFER_PATH } from '../../remote/constants';
 import { ProviderTransferError, ProviderValidationError } from '../../../errors/providers';
@@ -54,18 +53,18 @@ class RemoteStrapiDestinationProvider implements IDestinationProvider {
       params: { options: { strategy, restore }, transfer: 'push' },
     });
 
-    const res = (await query) as Server.Payload<Server.InitMessage>;
+    const res = (await query) as server.Payload<server.InitMessage>;
     if (!res?.transferID) {
       throw new ProviderTransferError('Init failed, invalid response from the server');
     }
     return res.transferID;
   }
 
-  #startStepOnce(stage: Client.TransferPushStep) {
+  #startStepOnce(stage: client.TransferPushStep) {
     return once(() => this.#startStep(stage));
   }
 
-  async #startStep<T extends Client.TransferPushStep>(step: T) {
+  async #startStep<T extends client.TransferPushStep>(step: T) {
     try {
       await this.dispatcher?.dispatchTransferStep({ action: 'start', step });
     } catch (e) {
@@ -83,7 +82,7 @@ class RemoteStrapiDestinationProvider implements IDestinationProvider {
     return null;
   }
 
-  async #endStep<T extends Client.TransferPushStep>(step: T) {
+  async #endStep<T extends client.TransferPushStep>(step: T) {
     try {
       await this.dispatcher?.dispatchTransferStep({ action: 'end', step });
     } catch (e) {
@@ -101,9 +100,9 @@ class RemoteStrapiDestinationProvider implements IDestinationProvider {
     return null;
   }
 
-  async #streamStep<T extends Client.TransferPushStep>(
+  async #streamStep<T extends client.TransferPushStep>(
     step: T,
-    data: Client.GetTransferPushStreamData<T>
+    data: client.GetTransferPushStreamData<T>
   ) {
     try {
       await this.dispatcher?.dispatchTransferStep({ action: 'stream', step, data });
@@ -122,13 +121,13 @@ class RemoteStrapiDestinationProvider implements IDestinationProvider {
     return null;
   }
 
-  #writeStream(step: Exclude<Client.TransferPushStep, 'assets'>): Writable {
+  #writeStream(step: Exclude<client.TransferPushStep, 'assets'>): Writable {
     type Step = typeof step;
 
     const batchSize = 1024 * 1024; // 1MB;
     const startTransferOnce = this.#startStepOnce(step);
 
-    let batch = [] as Client.GetTransferPushStreamData<Step>;
+    let batch = [] as client.GetTransferPushStreamData<Step>;
 
     const batchLength = () => jsonLength(batch);
 
@@ -260,12 +259,12 @@ class RemoteStrapiDestinationProvider implements IDestinationProvider {
     await this.dispatcher?.dispatchTransferAction('rollback');
   }
 
-  getSchemas() {
+  getSchemas(): Promise<Strapi.Schemas | null> {
     if (!this.dispatcher) {
       return Promise.resolve(null);
     }
 
-    return this.dispatcher.dispatchTransferAction<Utils.String.Dict<Schema.Schema>>('getSchemas');
+    return this.dispatcher.dispatchTransferAction<Strapi.Schemas>('getSchemas');
   }
 
   createEntitiesWriteStream(): Writable {
@@ -281,7 +280,7 @@ class RemoteStrapiDestinationProvider implements IDestinationProvider {
   }
 
   createAssetsWriteStream(): Writable | Promise<Writable> {
-    let batch: Client.TransferAssetFlow[] = [];
+    let batch: client.TransferAssetFlow[] = [];
     let hasStarted = false;
 
     const batchSize = 1024 * 1024; // 1MB;
@@ -299,7 +298,7 @@ class RemoteStrapiDestinationProvider implements IDestinationProvider {
       return streamError;
     };
 
-    const safePush = async (chunk: Client.TransferAssetFlow) => {
+    const safePush = async (chunk: client.TransferAssetFlow) => {
       batch.push(chunk);
 
       if (batchLength() >= batchSize) {

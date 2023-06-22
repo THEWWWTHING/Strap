@@ -1,29 +1,28 @@
 import React, { useRef, useState } from 'react';
-
-import { Button, Flex, IconButtonGroup, Option, Popover, Select } from '@strapi/design-system';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { useIntl } from 'react-intl';
+import { Button, IconButtonGroup, Option, Select, Popover, Flex } from '@strapi/design-system';
 import {
   Bold,
-  BulletList,
-  Code,
   Italic,
-  Link,
-  More,
-  NumberList,
-  Picture as Image,
-  Quote,
-  StrikeThrough,
   Underline,
+  StrikeThrough,
+  BulletList,
+  NumberList,
+  Code,
+  Picture as Image,
+  Link,
+  Quote,
+  More,
 } from '@strapi/icons';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
-import styled from 'styled-components';
 
 import {
-  CustomIconButton,
-  CustomLinkIconButton,
-  IconButtonGroupMargin,
   MainButtons,
+  CustomIconButton,
   MoreButton,
+  IconButtonGroupMargin,
+  CustomLinkIconButton,
 } from './WysiwygStyles';
 
 /**

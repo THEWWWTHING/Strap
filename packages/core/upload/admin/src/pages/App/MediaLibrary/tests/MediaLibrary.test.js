@@ -1,23 +1,22 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { render as renderTL, screen, waitFor, fireEvent } from '@testing-library/react';
 import {
+  useSelectionState,
+  useQueryParams,
   TrackingProvider,
   usePersistentState,
-  useQueryParams,
-  useSelectionState,
 } from '@strapi/helper-plugin';
-import { fireEvent, render as renderTL, screen, waitFor } from '@testing-library/react';
-import { IntlProvider } from 'react-intl';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { MemoryRouter } from 'react-router-dom';
+import { IntlProvider } from 'react-intl';
 
-import { MediaLibrary } from '..';
-import { viewOptions } from '../../../../constants';
+import { useMediaLibraryPermissions } from '../../../../hooks/useMediaLibraryPermissions';
+import { useFolders } from '../../../../hooks/useFolders';
 import { useAssets } from '../../../../hooks/useAssets';
 import { useFolder } from '../../../../hooks/useFolder';
-import { useFolders } from '../../../../hooks/useFolders';
-import { useMediaLibraryPermissions } from '../../../../hooks/useMediaLibraryPermissions';
+import { MediaLibrary } from '..';
+import { viewOptions } from '../../../../constants';
 
 const FIXTURE_ASSET_PAGINATION = {
   pageCount: 1,

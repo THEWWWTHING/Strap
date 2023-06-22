@@ -1,16 +1,13 @@
 import React from 'react';
-
-import { darkTheme, lightTheme } from '@strapi/design-system';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, waitFor, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import { QueryClient, QueryClientProvider } from 'react-query';
-
-import Theme from '../../../components/Theme';
-import ThemeToggleProvider from '../../../components/ThemeToggleProvider';
+import { lightTheme, darkTheme } from '@strapi/design-system';
 import ProfilePage from '../index';
-
 import server from './utils/server';
 import serverLockedSSO from './utils/serverLockedSSO';
+import ThemeToggleProvider from '../../../components/ThemeToggleProvider';
+import Theme from '../../../components/Theme';
 
 jest.mock('../../../components/LocalesProvider/useLocalesProvider');
 

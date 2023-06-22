@@ -1,10 +1,9 @@
 import React, { memo, useMemo } from 'react';
-
-import { difference, LoadingIndicatorPage, useRBAC } from '@strapi/helper-plugin';
 import PropTypes from 'prop-types';
+import { useRBAC, LoadingIndicatorPage, difference } from '@strapi/helper-plugin';
 
-import { generatePermissionsObject } from '../../utils';
 import ListView from '../ListView';
+import { generatePermissionsObject } from '../../utils';
 
 const Permissions = (props) => {
   const viewPermissions = useMemo(() => generatePermissionsObject(props.slug), [props.slug]);

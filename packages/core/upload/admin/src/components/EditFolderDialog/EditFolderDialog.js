@@ -1,34 +1,32 @@
+import * as yup from 'yup';
+import { Formik } from 'formik';
 import React, { useState } from 'react';
-
+import PropTypes from 'prop-types';
+import isEmpty from 'lodash/isEmpty';
+import { useIntl } from 'react-intl';
 import {
   Button,
-  FieldLabel,
-  Flex,
   Grid,
   GridItem,
-  Loader,
+  ModalLayout,
   ModalBody,
   ModalFooter,
-  ModalLayout,
+  FieldLabel,
+  Flex,
+  Loader,
   TextInput,
   Typography,
 } from '@strapi/design-system';
-import { Form, getAPIInnerErrors, useNotification, useTracking } from '@strapi/helper-plugin';
-import { Formik } from 'formik';
-import isEmpty from 'lodash/isEmpty';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
-import * as yup from 'yup';
+import { Form, useNotification, getAPIInnerErrors, useTracking } from '@strapi/helper-plugin';
 
+import { getTrad, findRecursiveFolderByValue } from '../../utils';
 import { FolderDefinition } from '../../constants';
-import { useBulkRemove } from '../../hooks/useBulkRemove';
 import { useEditFolder } from '../../hooks/useEditFolder';
+import { useBulkRemove } from '../../hooks/useBulkRemove';
 import { useFolderStructure } from '../../hooks/useFolderStructure';
 import { useMediaLibraryPermissions } from '../../hooks/useMediaLibraryPermissions';
-import { findRecursiveFolderByValue, getTrad } from '../../utils';
 import { ContextInfo } from '../ContextInfo';
 import SelectTree from '../SelectTree';
-
 import { EditFolderModalHeader } from './ModalHeader';
 import RemoveFolderDialog from './RemoveFolderDialog';
 

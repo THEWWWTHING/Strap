@@ -1,7 +1,5 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
-
 import CustomRadioGroup from '../CustomRadioGroup';
 
 const BooleanRadioGroup = ({ onChange, name, ...rest }) => {

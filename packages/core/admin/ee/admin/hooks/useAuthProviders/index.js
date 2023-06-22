@@ -1,9 +1,7 @@
-import { useEffect, useReducer } from 'react';
-
+import { useReducer, useEffect } from 'react';
 import { useFetchClient, useNotification } from '@strapi/helper-plugin';
 
 import { getRequestUrl } from '../../../../admin/src/utils';
-
 import reducer, { initialState } from './reducer';
 
 const useAuthProviders = ({ ssoEnabled }) => {

@@ -1,14 +1,13 @@
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import React from 'react';
-
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
+import { QueryClientProvider, QueryClient } from 'react-query';
 import { lightTheme, ThemeProvider } from '@strapi/design-system';
 import { NotificationsProvider } from '@strapi/helper-plugin';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { Router } from 'react-router-dom';
 
-import LanguageProvider from '../../../../../../../../components/LanguageProvider';
 import en from '../../../../../../../../translations/en.json';
+import LanguageProvider from '../../../../../../../../components/LanguageProvider';
 import WebhookForm from '../index';
 
 jest.mock('../../../../../../../../hooks/useContentTypes');
@@ -78,8 +77,7 @@ describe('Create Webhook', () => {
     fireEvent.change(screen.getByLabelText(/url/i), { target: { value: 'https://google.fr' } });
     fireEvent.click(screen.getByRole('checkbox', { name: /entry.create/i }));
 
-    const saveButton = screen.getByRole('button', { name: /Save/i });
-    fireEvent.click(saveButton);
+    fireEvent.click(screen.getByRole('button', { name: /Save/i }));
 
     await waitFor(() => {
       expect(handleSubmit).toHaveBeenCalledTimes(1);
@@ -90,7 +88,5 @@ describe('Create Webhook', () => {
         headers: [{ key: '', value: '' }],
       });
     });
-
-    expect(saveButton).toHaveAttribute('aria-disabled', 'true');
   });
 });

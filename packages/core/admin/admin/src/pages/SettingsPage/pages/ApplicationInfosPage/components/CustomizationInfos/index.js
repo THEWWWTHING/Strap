@@ -1,16 +1,13 @@
-import React, { forwardRef, useImperativeHandle, useReducer } from 'react';
-
-import { Box, Grid, GridItem, Typography } from '@strapi/design-system';
-import { useTracking } from '@strapi/helper-plugin';
+import React, { useReducer, forwardRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
+import { useTracking } from '@strapi/helper-plugin';
+import { Grid, GridItem, Box, Typography } from '@strapi/design-system';
 import { useConfigurations } from '../../../../../../hooks';
 import { DIMENSION, SIZE } from '../../utils/constants';
 import LogoInput from '../LogoInput';
-
-import init from './init';
 import reducer, { initialState } from './reducer';
+import init from './init';
 
 const CustomizationInfos = forwardRef(({ canUpdate, projectSettingsStored }, ref) => {
   const { formatMessage } = useIntl();

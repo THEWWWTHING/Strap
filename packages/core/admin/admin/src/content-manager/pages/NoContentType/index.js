@@ -1,10 +1,8 @@
 import React from 'react';
-
-import { ContentLayout, EmptyStateLayout, HeaderLayout, Main } from '@strapi/design-system';
-import { LinkButton, useFocusWhenNavigate } from '@strapi/helper-plugin';
-import { EmptyDocuments, Plus } from '@strapi/icons';
+import { useFocusWhenNavigate, LinkButton } from '@strapi/helper-plugin';
+import { Main, ContentLayout, HeaderLayout, EmptyStateLayout } from '@strapi/design-system';
+import { Plus, EmptyDocuments } from '@strapi/icons';
 import { useIntl } from 'react-intl';
-
 import { getTrad } from '../../utils';
 
 const NoContentType = () => {

@@ -1,5 +1,5 @@
-import * as actions from '../constants';
 import reducer, { initialState } from '../reducer';
+import * as actions from '../constants';
 
 describe('CTB | components | FormModal | reducer | actions', () => {
   describe(actions.ON_CHANGE, () => {

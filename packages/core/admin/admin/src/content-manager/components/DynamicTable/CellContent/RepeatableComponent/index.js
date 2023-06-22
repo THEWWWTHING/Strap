@@ -1,10 +1,9 @@
 import React from 'react';
-
-import { Badge, Box, MenuItem, SimpleMenu, Typography } from '@strapi/design-system';
-import { stopPropagation } from '@strapi/helper-plugin';
 import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 import styled from 'styled-components';
+import { useIntl } from 'react-intl';
+import { Badge, Box, Typography, SimpleMenu, MenuItem } from '@strapi/design-system';
+import { stopPropagation } from '@strapi/helper-plugin';
 
 import CellValue from '../CellValue';
 

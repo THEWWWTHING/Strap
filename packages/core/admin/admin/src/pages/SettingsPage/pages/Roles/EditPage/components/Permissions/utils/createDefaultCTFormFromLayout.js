@@ -176,7 +176,7 @@ const createDefaultCTFormFromLayout = (
 export default createDefaultCTFormFromLayout;
 export {
   createDefaultConditionsForm,
-  createDefaultPropertiesForm,
   createDefaultPropertyForms,
+  createDefaultPropertiesForm,
   findLayouts,
 };

@@ -1,9 +1,8 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { getFetchClient } from '@strapi/helper-plugin';
-import { fireEvent, render as renderTL, screen, waitFor } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
+import { render as renderTL, fireEvent, screen, waitFor } from '@testing-library/react';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
+import { getFetchClient } from '@strapi/helper-plugin';
 
 import LogoInput from '../index';
 

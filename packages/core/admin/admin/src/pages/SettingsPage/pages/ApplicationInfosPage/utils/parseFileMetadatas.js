@@ -1,4 +1,4 @@
-import { ACCEPTED_FORMAT, DIMENSION, SIZE } from './constants';
+import { DIMENSION, SIZE, ACCEPTED_FORMAT } from './constants';
 
 const FILE_FORMAT_ERROR_MESSAGE = {
   id: 'Settings.application.customization.modal.upload.error-format',

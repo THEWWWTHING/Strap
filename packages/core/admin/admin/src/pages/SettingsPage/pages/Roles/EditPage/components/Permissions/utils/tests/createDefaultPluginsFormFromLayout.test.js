@@ -1,6 +1,6 @@
 import createDefaultPluginsFormFromLayout, {
-  createChildrenDefaultForm,
   createSubCategoryForm,
+  createChildrenDefaultForm,
 } from '../createDefaultPluginsFormFromLayout';
 
 const conditions = [

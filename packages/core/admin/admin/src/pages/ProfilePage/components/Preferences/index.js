@@ -1,9 +1,8 @@
 import React from 'react';
-
-import { Box, Flex, Grid, GridItem, Option, Select, Typography } from '@strapi/design-system';
-import upperFirst from 'lodash/upperFirst';
 import PropTypes from 'prop-types';
+import { Typography, Box, Grid, GridItem, Flex, Select, Option } from '@strapi/design-system';
 import { useIntl } from 'react-intl';
+import upperFirst from 'lodash/upperFirst';
 
 const Preferences = ({ onChange, values, localeNames, allApplicationThemes }) => {
   const { formatMessage } = useIntl();

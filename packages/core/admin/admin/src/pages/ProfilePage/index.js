@@ -1,39 +1,36 @@
 import React from 'react';
-
 import {
-  Box,
-  Button,
-  ContentLayout,
-  Flex,
-  HeaderLayout,
-  Main,
-  useNotifyAT,
-} from '@strapi/design-system';
-import {
-  auth,
   Form,
   LoadingIndicatorPage,
   useAppInfo,
-  useFetchClient,
   useFocusWhenNavigate,
   useNotification,
   useOverlayBlocker,
+  auth,
   useTracking,
+  useFetchClient,
 } from '@strapi/helper-plugin';
-import { Check } from '@strapi/icons';
-import { Formik } from 'formik';
-import { Helmet } from 'react-helmet';
 import { useIntl } from 'react-intl';
-import { useMutation, useQuery, useQueryClient } from 'react-query';
-
+import { Formik } from 'formik';
+import { useQuery, useMutation, useQueryClient } from 'react-query';
+import { Helmet } from 'react-helmet';
+import {
+  Main,
+  Box,
+  ContentLayout,
+  HeaderLayout,
+  Button,
+  Flex,
+  useNotifyAT,
+} from '@strapi/design-system';
+import { Check } from '@strapi/icons';
+import UserInfo from './components/UserInfo';
+import Preferences from './components/Preferences';
+import Password from './components/Password';
 import useLocalesProvider from '../../components/LocalesProvider/useLocalesProvider';
 import { useThemeToggle } from '../../hooks';
-import { getFullName } from '../../utils';
-
-import Password from './components/Password';
-import Preferences from './components/Preferences';
-import UserInfo from './components/UserInfo';
 import schema from './utils/schema';
+import { getFullName } from '../../utils';
 
 const ProfilePage = () => {
   const { changeLocale, localeNames } = useLocalesProvider();

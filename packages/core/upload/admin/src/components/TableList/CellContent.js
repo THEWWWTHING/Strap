@@ -1,14 +1,12 @@
 import React from 'react';
-
-import { Typography } from '@strapi/design-system';
-import { getFileExtension } from '@strapi/helper-plugin';
-import parseISO from 'date-fns/parseISO';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
-import { formatBytes } from '../../utils';
+import parseISO from 'date-fns/parseISO';
+import { getFileExtension } from '@strapi/helper-plugin';
+import { Typography } from '@strapi/design-system';
 
 import { PreviewCell } from './PreviewCell';
+import { formatBytes } from '../../utils';
 
 export const CellContent = ({ cellType, contentType, content, name }) => {
   const { formatDate, formatMessage } = useIntl();

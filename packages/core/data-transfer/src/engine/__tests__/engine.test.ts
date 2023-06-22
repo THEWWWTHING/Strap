@@ -145,32 +145,28 @@ const schemas = {
   },
 };
 
-type Entity = IEntity<
-  'api::foo.foo' | 'api::bar.bar' | 'admin::permission' | 'api::homepage.homepage'
->;
-
 const getEntitiesMockSourceStream = (
-  data: Array<Entity> = [
-    { id: 1, type: 'api::foo.foo', data: { foo: 'bar' } },
-    { id: 2, type: 'api::bar.bar', data: { bar: 'foo' } },
+  data: Iterable<IEntity<'foo' | 'bar' | 'admin::permission' | 'api::homepage.homepage'>> = [
+    { id: 1, type: 'foo', data: { foo: 'bar' } },
+    { id: 2, type: 'bar', data: { bar: 'foo' } },
     { id: 1, type: 'admin::permission', data: { foo: 'bar' } },
     { id: 2, type: 'api::homepage.homepage', data: { bar: 'foo' } },
   ]
 ) => getMockSourceStream(data);
 
 const getLinksMockSourceStream = (
-  data: Array<ILink> = [
+  data: Iterable<ILink> = [
     {
       kind: 'relation.basic',
       relation: 'oneToOne',
-      left: { type: 'api::foo.foo', ref: 1, field: 'foo' },
-      right: { type: 'api::bar.bar', ref: 2, field: 'bar' },
+      left: { type: 'foo', ref: 1, field: 'foo' },
+      right: { type: 'bar', ref: 2, field: 'bar' },
     },
     {
       kind: 'relation.basic',
       relation: 'oneToMany',
-      left: { type: 'api::foo.foo', ref: 1, field: 'foos' },
-      right: { type: 'api::bar.bar', ref: 2, field: 'bar' },
+      left: { type: 'foo', ref: 1, field: 'foos' },
+      right: { type: 'bar', ref: 2, field: 'bar' },
     },
   ]
 ) => getMockSourceStream(data);
@@ -200,7 +196,7 @@ const getConfigurationMockSourceStream = (
 ) => getMockSourceStream(data);
 
 const getSchemasMockSourceStream = (
-  data: Array<Schema.Schema> = [
+  data: Iterable<Schema> = [
     {
       info: { displayName: 'foo' },
       modelType: 'contentType',
@@ -249,10 +245,10 @@ const metadata = {
 
 const createSource = (streamData?: {
   assets?: IAsset[];
-  entities?: Entity[];
+  entities?: IEntity[];
   links?: ILink[];
   configuration?: IConfiguration[];
-  schemas?: Schema.Schema[];
+  schemas?: Schema[];
 }): ISourceProvider => {
   return {
     type: 'source',

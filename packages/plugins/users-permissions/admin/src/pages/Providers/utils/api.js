@@ -1,5 +1,4 @@
 import { getFetchClient } from '@strapi/helper-plugin';
-
 import { getRequestURL } from '../../../utils';
 
 // eslint-disable-next-line import/prefer-default-export

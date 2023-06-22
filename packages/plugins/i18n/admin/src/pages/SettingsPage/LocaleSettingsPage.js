@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
 import PropTypes from 'prop-types';
-
 import LocaleList from '../../components/LocaleList';
 
 const LocaleSettingsPage = ({

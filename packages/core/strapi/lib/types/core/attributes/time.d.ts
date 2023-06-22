@@ -1,13 +1,22 @@
-import type { Attribute } from '@strapi/strapi';
+import {
+  Attribute,
+  ConfigurableOption,
+  DefaultOption,
+  PrivateOption,
+  RequiredOption,
+  UniqueOption,
+} from './base';
 
-export type Time = Attribute.OfType<'time'> &
+export type TimeAttribute = Attribute<'time'> &
   // Options
-  Attribute.ConfigurableOption &
-  Attribute.DefaultOption<TimeValue> &
-  Attribute.PrivateOption &
-  Attribute.RequiredOption &
-  Attribute.UniqueOption;
+  ConfigurableOption &
+  DefaultOption<TimeValue> &
+  PrivateOption &
+  RequiredOption &
+  UniqueOption;
 
 export type TimeValue = string;
 
-export type GetTimeValue<T extends Attribute.Attribute> = T extends Time ? TimeValue : never;
+export type GetTimeAttributeValue<T extends Attribute> = T extends TimeAttribute
+  ? TimeValue
+  : never;

@@ -1,18 +1,15 @@
 import React from 'react';
-
-import { AnErrorOccurred, CheckPagePermissions } from '@strapi/helper-plugin';
-import { Route, Switch } from 'react-router-dom';
-
-import { PERMISSIONS } from '../../constants';
+import { Switch, Route } from 'react-router-dom';
+import { CheckPagePermissions, AnErrorOccurred } from '@strapi/helper-plugin';
 import pluginId from '../../pluginId';
-
-import ProtectedRolesCreatePage from './ProtectedCreatePage';
-import ProtectedRolesEditPage from './ProtectedEditPage';
+import pluginPermissions from '../../permissions';
 import ProtectedRolesListPage from './ProtectedListPage';
+import ProtectedRolesEditPage from './ProtectedEditPage';
+import ProtectedRolesCreatePage from './ProtectedCreatePage';
 
 const Roles = () => {
   return (
-    <CheckPagePermissions permissions={PERMISSIONS.accessRoles}>
+    <CheckPagePermissions permissions={pluginPermissions.accessRoles}>
       <Switch>
         <Route
           path={`/settings/${pluginId}/roles/new`}

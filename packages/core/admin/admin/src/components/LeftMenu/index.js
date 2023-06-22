@@ -1,29 +1,27 @@
 import React, { useRef, useState } from 'react';
-
-import { Box, Divider, Flex, FocusTrap, Typography } from '@strapi/design-system';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
+import { NavLink as RouterNavLink, useLocation, useHistory } from 'react-router-dom';
+import { Divider, FocusTrap, Box, Typography, Flex } from '@strapi/design-system';
 import {
   MainNav,
   NavBrand,
-  NavCondense,
-  NavFooter,
+  NavSections,
   NavLink,
   NavSection,
-  NavSections,
   NavUser,
+  NavCondense,
+  NavFooter,
 } from '@strapi/design-system/v2';
+import { Write, Exit } from '@strapi/icons';
 import {
   auth,
-  getFetchClient,
-  useAppInfo,
   usePersistentState,
+  useAppInfo,
   useTracking,
+  getFetchClient,
 } from '@strapi/helper-plugin';
-import { Exit, Write } from '@strapi/icons';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
-import { NavLink as RouterNavLink, useHistory, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
-
 import { useConfigurations } from '../../hooks';
 
 const LinkUserWrapper = styled(Box)`

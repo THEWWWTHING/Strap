@@ -7,13 +7,8 @@ const { getService, pickWritableAttributes } = require('../utils');
 const findEntity = async (query, model) => {
   const entityManager = getService('entity-manager');
 
-  const populate = await getService('populate-builder')(model)
-    .populateFromQuery(query)
-    .populateDeep(Infinity)
-    .countRelations()
-    .build();
-
-  return entityManager.find(query, model, { populate });
+  const entity = await entityManager.find(query, model);
+  return entityManager.assocCreatorRoles(entity);
 };
 
 module.exports = {
@@ -61,6 +56,7 @@ module.exports = {
     }
 
     const sanitizedQuery = await permissionChecker.sanitizedQuery.update(query);
+
     const entity = await findEntity(sanitizedQuery, model);
 
     const pickWritables = pickWritableAttributes({ model });

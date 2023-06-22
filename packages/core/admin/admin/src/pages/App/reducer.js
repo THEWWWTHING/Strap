@@ -1,5 +1,4 @@
 import produce from 'immer';
-
 import { SET_APP_RUNTIME_STATUS } from './constants';
 
 const initialState = {

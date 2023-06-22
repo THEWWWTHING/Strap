@@ -1,8 +1,6 @@
 import React from 'react';
-
-import { ConfirmDialog } from '@strapi/helper-plugin';
 import PropTypes from 'prop-types';
-
+import { ConfirmDialog } from '@strapi/helper-plugin';
 import useDeleteLocale from '../../hooks/useDeleteLocale';
 
 const ModalDelete = ({ localeToDelete, onClose }) => {

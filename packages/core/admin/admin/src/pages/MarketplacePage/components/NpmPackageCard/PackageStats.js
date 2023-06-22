@@ -1,11 +1,10 @@
 import React from 'react';
-
-import { Divider, Flex, Icon, Typography } from '@strapi/design-system';
-import { pxToRem } from '@strapi/helper-plugin';
-import { Download, Github, Star } from '@strapi/icons';
 import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 import styled from 'styled-components';
+import { useIntl } from 'react-intl';
+import { Typography, Icon, Divider, Flex } from '@strapi/design-system';
+import { Github, Download, Star } from '@strapi/icons';
+import { pxToRem } from '@strapi/helper-plugin';
 
 const VerticalDivider = styled(Divider)`
   width: ${pxToRem(12)};
@@ -33,7 +32,7 @@ const PackageStats = ({ githubStars, npmDownloads, npmPackageType }) => {
               }
             )}
           >
-            <Typography variant="pi" textColor="neutral800">
+            <Typography variant="pi" textColor="neutral800" lineHeight={16}>
               {githubStars}
             </Typography>
           </p>
@@ -53,7 +52,7 @@ const PackageStats = ({ githubStars, npmDownloads, npmPackageType }) => {
           }
         )}
       >
-        <Typography variant="pi" textColor="neutral800">
+        <Typography variant="pi" textColor="neutral800" lineHeight={16}>
           {npmDownloads}
         </Typography>
       </p>

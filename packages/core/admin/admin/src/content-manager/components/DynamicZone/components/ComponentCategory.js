@@ -1,17 +1,16 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import {
   Accordion,
-  AccordionContent,
   AccordionToggle,
+  AccordionContent,
   Box,
   Flex,
   Typography,
 } from '@strapi/design-system';
 import { pxToRem } from '@strapi/helper-plugin';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 import styled from 'styled-components';
+import { useIntl } from 'react-intl';
 
 import { ComponentIcon } from '../../ComponentIcon';
 

@@ -1,5 +1,6 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import {
   Box,
   Card,
@@ -9,15 +10,13 @@ import {
   CardCheckbox,
   CardContent,
   CardHeader,
-  CardSubtitle,
   CardTitle,
+  CardSubtitle,
   Flex,
   IconButton,
 } from '@strapi/design-system';
 import { Pencil, Trash } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-import styled from 'styled-components';
 
 import { getTrad } from '../../utils';
 

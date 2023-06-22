@@ -1,8 +1,6 @@
 import React from 'react';
-
 import { Eye } from '@strapi/icons';
 import PropTypes from 'prop-types';
-
 import DefaultButton from '../DefaultButton';
 
 const ReadButton = ({ tokenName, tokenId }) => {

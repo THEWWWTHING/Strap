@@ -1,6 +1,5 @@
 const fs = require('fs-extra');
 const path = require('path');
-
 const languageNativeNames = require('../languageNativeNames').default;
 
 const languages = fs

@@ -62,24 +62,24 @@ export interface PushHandler extends Handler {
   /**
    * Callback when receiving a regular transfer message
    */
-  onTransferMessage(msg: Protocol.Client.TransferMessage): Promise<unknown> | unknown;
+  onTransferMessage(msg: Protocol.client.TransferMessage): Promise<unknown> | unknown;
 
   /**
    * Callback when receiving a transfer action message
    */
-  onTransferAction(msg: Protocol.Client.Action): Promise<unknown> | unknown;
+  onTransferAction(msg: Protocol.client.Action): Promise<unknown> | unknown;
 
   /**
    * Callback when receiving a transfer step message
    */
-  onTransferStep(msg: Protocol.Client.TransferPushMessage): Promise<unknown> | unknown;
+  onTransferStep(msg: Protocol.client.TransferPushMessage): Promise<unknown> | unknown;
 
   /**
    * Start streaming an asset
    */
   streamAsset(
     this: PushHandler,
-    payload: Protocol.Client.GetTransferPushStreamData<'assets'>
+    payload: Protocol.client.GetTransferPushStreamData<'assets'>
   ): Promise<void>;
 
   // Transfer Flow
@@ -256,7 +256,7 @@ export const createPushController = handlerControllerFactory<Partial<PushHandler
     }
 
     if (kind === 'step') {
-      return this.onTransferStep(msg as Protocol.Client.TransferPushMessage);
+      return this.onTransferStep(msg as Protocol.client.TransferPushMessage);
     }
   },
 
@@ -430,8 +430,8 @@ export const createPushController = handlerControllerFactory<Partial<PushHandler
 
   async init(
     this: PushHandler,
-    params: Protocol.Client.GetCommandParams<'init'>
-  ): Promise<Protocol.Server.Payload<Protocol.Server.InitMessage>> {
+    params: Protocol.client.GetCommandParams<'init'>
+  ): Promise<Protocol.server.Payload<Protocol.server.InitMessage>> {
     if (this.transferID || this.provider) {
       throw new Error('Transfer already in progress');
     }
@@ -474,8 +474,8 @@ export const createPushController = handlerControllerFactory<Partial<PushHandler
 
   async end(
     this: PushHandler,
-    params: Protocol.Client.GetCommandParams<'end'>
-  ): Promise<Protocol.Server.Payload<Protocol.Server.EndMessage>> {
+    params: Protocol.client.GetCommandParams<'end'>
+  ): Promise<Protocol.server.Payload<Protocol.server.EndMessage>> {
     await this.verifyAuth();
 
     if (this.transferID !== params.transferID) {

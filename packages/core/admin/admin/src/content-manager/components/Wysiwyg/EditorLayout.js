@@ -1,11 +1,10 @@
 import React from 'react';
-
-import { BaseButton, Box, Flex, FocusTrap, Portal, Typography } from '@strapi/design-system';
-import { pxToRem, useLockScroll } from '@strapi/helper-plugin';
-import { Collapse } from '@strapi/icons';
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { BaseButton, Box, Flex, FocusTrap, Portal, Typography } from '@strapi/design-system';
+import { Collapse } from '@strapi/icons';
+import { pxToRem, useLockScroll } from '@strapi/helper-plugin';
 
 import PreviewWysiwyg from '../PreviewWysiwyg';
 

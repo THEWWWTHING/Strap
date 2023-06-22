@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
-
+import { render, screen, fireEvent } from '@testing-library/react';
 import { useGuidedTour } from '@strapi/helper-plugin/';
-import { fireEvent, render, screen } from '@testing-library/react';
-
 import GuidedTour from '../index';
 
 describe('GuidedTour', () => {

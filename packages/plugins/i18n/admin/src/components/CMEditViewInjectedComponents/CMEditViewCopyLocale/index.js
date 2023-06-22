@@ -1,25 +1,22 @@
 import React, { useState } from 'react';
-
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { useIntl } from 'react-intl';
 import {
-  Box,
-  Button,
   Dialog,
   DialogBody,
   DialogFooter,
-  Flex,
-  Option,
   Select,
+  Option,
+  Button,
+  Box,
   Typography,
+  Flex,
 } from '@strapi/design-system';
-import { useCMEditViewDataManager, useFetchClient, useNotification } from '@strapi/helper-plugin';
-import { Duplicate, ExclamationMarkCircle } from '@strapi/icons';
-import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
-import { useDispatch } from 'react-redux';
-import styled from 'styled-components';
-
+import { ExclamationMarkCircle, Duplicate } from '@strapi/icons';
+import { useCMEditViewDataManager, useNotification, useFetchClient } from '@strapi/helper-plugin';
 import { getTrad } from '../../../utils';
-
 import { cleanData, generateOptions } from './utils';
 
 const StyledTypography = styled(Typography)`

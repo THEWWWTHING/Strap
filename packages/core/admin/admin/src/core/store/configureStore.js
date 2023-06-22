@@ -1,4 +1,4 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 
 const configureStore = (appMiddlewares, appReducers) => {
   let composeEnhancers = compose;

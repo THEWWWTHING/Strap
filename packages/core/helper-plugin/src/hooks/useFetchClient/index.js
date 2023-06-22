@@ -3,8 +3,7 @@
  * useFetchClient
  *
  */
-import { useEffect, useMemo, useRef } from 'react';
-
+import { useEffect, useRef, useMemo } from 'react';
 import getFetchClient from '../../utils/getFetchClient';
 
 const useFetchClient = () => {

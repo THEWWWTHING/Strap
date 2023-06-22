@@ -1,18 +1,16 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, waitFor, screen, fireEvent } from '@testing-library/react';
+import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
 import { IntlProvider } from 'react-intl';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { Provider } from 'react-redux';
-import { Router } from 'react-router-dom';
 import { combineReducers, createStore } from 'redux';
-
-import cmReducers from '../../../../reducers';
+import { Provider } from 'react-redux';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import EditSettingsView from '../index';
+import cmReducers from '../../../../reducers';
 
 jest.mock('@strapi/helper-plugin', () => ({
   ...jest.requireActual('@strapi/helper-plugin'),

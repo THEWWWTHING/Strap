@@ -5,12 +5,10 @@
  */
 
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import { IntlProvider } from 'react-intl';
 import { QueryClient, QueryClientProvider } from 'react-query';
-
 import { UploadProgress } from '..';
 import en from '../../../translations/en.json';
 

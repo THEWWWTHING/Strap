@@ -1,19 +1,16 @@
 import React, { memo } from 'react';
-
-import { Box, Flex, IconButton, Typography } from '@strapi/design-system';
-import { onRowClick, pxToRem, stopPropagation } from '@strapi/helper-plugin';
-import { Lock, Pencil, Trash } from '@strapi/icons';
-import get from 'lodash/get';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import { useIntl } from 'react-intl';
-
+import { IconButton, Flex, Typography, Box } from '@strapi/design-system';
+import { Lock, Pencil, Trash } from '@strapi/icons';
+import { stopPropagation, onRowClick, pxToRem } from '@strapi/helper-plugin';
 import useDataManager from '../../hooks/useDataManager';
-import Curve from '../../icons/Curve';
 import getTrad from '../../utils/getTrad';
-import AttributeIcon from '../AttributeIcon';
+import Curve from '../../icons/Curve';
 import UpperFist from '../UpperFirst';
-
 import BoxWrapper from './BoxWrapper';
+import AttributeIcon from '../AttributeIcon';
 import DisplayedType from './DisplayedType';
 
 function ListRow({

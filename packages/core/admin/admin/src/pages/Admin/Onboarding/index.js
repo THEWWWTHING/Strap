@@ -1,24 +1,22 @@
 import React, { useRef, useState } from 'react';
-
+import styled from 'styled-components';
+import { useIntl } from 'react-intl';
+import { useAppInfo } from '@strapi/helper-plugin';
 import {
   Box,
   Button,
   Divider,
   Flex,
   Icon,
-  PopoverPrimitives,
   Portal,
+  PopoverPrimitives,
   Typography,
   VisuallyHidden,
 } from '@strapi/design-system';
-import { useAppInfo } from '@strapi/helper-plugin';
 import { Cross, Message, Play, Question } from '@strapi/icons';
-import { useIntl } from 'react-intl';
-import styled from 'styled-components';
 
 import onboardingPreview from '../../../assets/images/onboarding-preview.png';
-
-import { DOCUMENTATION_LINKS, VIDEO_LINKS, WATCH_MORE } from './constants';
+import { VIDEO_LINKS, DOCUMENTATION_LINKS, WATCH_MORE } from './constants';
 
 // TODO: use new Button props derived from Box props with next DS release
 const HelperButton = styled(Button)`

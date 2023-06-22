@@ -1,5 +1,4 @@
 import produce from 'immer';
-
 import generateAllowedActions from './utils/generateAllowedActions';
 
 const initialState = {

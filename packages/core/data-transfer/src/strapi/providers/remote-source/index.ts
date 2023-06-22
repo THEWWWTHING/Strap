@@ -1,4 +1,3 @@
-import type { Schema, Utils } from '@strapi/strapi';
 import { PassThrough, Readable } from 'stream';
 import { WebSocket } from 'ws';
 
@@ -11,7 +10,7 @@ import type {
   ProviderType,
   TransferStage,
 } from '../../../../types';
-import { Client, Server } from '../../../../types/remote/protocol';
+import { client, server } from '../../../../types/remote/protocol';
 import { ProviderTransferError, ProviderValidationError } from '../../../errors/providers';
 import { TRANSFER_PATH } from '../../remote/constants';
 import { ILocalStrapiSourceProviderOptions } from '../local-source';
@@ -172,7 +171,7 @@ class RemoteStrapiSourceProvider implements ISourceProvider {
       command: 'init',
     });
 
-    const res = (await query) as Server.Payload<Server.InitMessage>;
+    const res = (await query) as server.Payload<server.InitMessage>;
 
     if (!res?.transferID) {
       throw new ProviderTransferError('Init failed, invalid response from the server');
@@ -235,16 +234,14 @@ class RemoteStrapiSourceProvider implements ISourceProvider {
     });
   }
 
-  async getSchemas() {
+  async getSchemas(): Promise<Strapi.Schemas | null> {
     const schemas =
-      (await this.dispatcher?.dispatchTransferAction<Utils.String.Dict<Schema.Schema>>(
-        'getSchemas'
-      )) ?? null;
+      (await this.dispatcher?.dispatchTransferAction<Strapi.Schemas>('getSchemas')) ?? null;
 
     return schemas;
   }
 
-  async #startStep<T extends Client.TransferPullStep>(step: T) {
+  async #startStep<T extends client.TransferPullStep>(step: T) {
     try {
       return await this.dispatcher?.dispatchTransferStep({ action: 'start', step });
     } catch (e) {
@@ -272,7 +269,7 @@ class RemoteStrapiSourceProvider implements ISourceProvider {
     });
   }
 
-  async #endStep<T extends Client.TransferPullStep>(step: T) {
+  async #endStep<T extends client.TransferPullStep>(step: T) {
     try {
       await this.dispatcher?.dispatchTransferStep({ action: 'end', step });
     } catch (e) {

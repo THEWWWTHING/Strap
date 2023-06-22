@@ -1,15 +1,12 @@
 import React from 'react';
-
-import { getFileExtension, prefixFileUrlWithBackendUrl } from '@strapi/helper-plugin';
 import PropTypes from 'prop-types';
-
-import { AssetDefinition, AssetType } from '../../constants';
-import { createAssetUrl } from '../../utils';
-
-import { AudioAssetCard } from './AudioAssetCard';
-import { DocAssetCard } from './DocAssetCard';
+import { prefixFileUrlWithBackendUrl, getFileExtension } from '@strapi/helper-plugin';
 import { ImageAssetCard } from './ImageAssetCard';
 import { VideoAssetCard } from './VideoAssetCard';
+import { DocAssetCard } from './DocAssetCard';
+import { AudioAssetCard } from './AudioAssetCard';
+import { AssetType, AssetDefinition } from '../../constants';
+import { createAssetUrl } from '../../utils';
 
 export const AssetCard = ({ asset, isSelected, onSelect, onEdit, onRemove, size, local }) => {
   const handleSelect = onSelect ? () => onSelect(asset) : undefined;

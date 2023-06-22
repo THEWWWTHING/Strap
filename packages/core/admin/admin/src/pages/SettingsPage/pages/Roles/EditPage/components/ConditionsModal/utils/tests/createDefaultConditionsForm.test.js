@@ -1,6 +1,6 @@
 import createDefaultConditionsForm, {
-  createCategoryForm,
   createConditionsForm,
+  createCategoryForm,
 } from '../createDefaultConditionsForm';
 
 describe('ADMIN | COMPONENTS | Roles | ConditionsModale | utils ', () => {

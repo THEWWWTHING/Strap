@@ -92,10 +92,7 @@ function trackEvent(event: string, payload: Record<string, unknown>) {
         ...payload,
       }),
       timeout: 1000,
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Strapi-Event': event,
-      },
+      headers: { 'Content-Type': 'application/json' },
     }).catch(() => {});
   } catch (err) {
     /** ignore errors */

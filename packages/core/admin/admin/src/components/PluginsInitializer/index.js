@@ -1,7 +1,5 @@
 import React, { useReducer, useRef } from 'react';
-
 import { LoadingIndicatorPage, useStrapiApp } from '@strapi/helper-plugin';
-
 import Admin from '../../pages/Admin';
 
 import init from './init';

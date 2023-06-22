@@ -1,13 +1,11 @@
-import React, { useCallback, useEffect, useRef } from 'react';
-
-import { auth, LoadingIndicatorPage, useFetchClient } from '@strapi/helper-plugin';
-import Cookies from 'js-cookie';
-import { useIntl } from 'react-intl';
+import React, { useEffect, useRef, useCallback } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
-
+import { useIntl } from 'react-intl';
+import Cookies from 'js-cookie';
+import { auth, LoadingIndicatorPage, useFetchClient } from '@strapi/helper-plugin';
 import { getRequestUrl } from '../../../../admin/src/utils';
 
-export const AuthResponse = () => {
+const AuthResponse = () => {
   const {
     params: { authResponse },
   } = useRouteMatch('/auth/login/:authResponse');

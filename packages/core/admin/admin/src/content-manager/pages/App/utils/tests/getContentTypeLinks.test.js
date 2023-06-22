@@ -1,5 +1,4 @@
 import { getFetchClient, hasPermissions } from '@strapi/helper-plugin';
-
 import getContentTypeLinks from '../getContentTypeLinks';
 
 // FIXME

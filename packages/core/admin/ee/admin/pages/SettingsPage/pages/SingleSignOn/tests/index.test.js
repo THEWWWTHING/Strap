@@ -1,13 +1,11 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { useRBAC } from '@strapi/helper-plugin';
-import { fireEvent, getByLabelText, render, screen, waitFor } from '@testing-library/react';
+import { getByLabelText, render, screen, waitFor, fireEvent } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 
-import { SingleSignOn } from '../index';
-
+import { useRBAC } from '@strapi/helper-plugin';
 import server from './server';
+import { SingleSignOn } from '../index';
 
 jest.mock('@strapi/helper-plugin', () => ({
   ...jest.requireActual('@strapi/helper-plugin'),

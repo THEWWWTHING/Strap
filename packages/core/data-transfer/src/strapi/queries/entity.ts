@@ -1,18 +1,15 @@
-import type { Attribute, Schema } from '@strapi/strapi';
+import type { ContentTypeSchema } from '@strapi/strapi';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import * as componentsService from '@strapi/strapi/lib/services/entity-service/components';
 import { assign, isArray, isEmpty, isObject, map, omit, size } from 'lodash/fp';
 
-const sanitizeComponentLikeAttributes = <T extends Schema.ContentType>(
-  model: T,
-  data: Attribute.GetValues<T['uid']>
-) => {
+const sanitizeComponentLikeAttributes = <T extends object>(model: ContentTypeSchema, data: T) => {
   const { attributes } = model;
 
   const componentLikeAttributesKey = Object.entries(attributes)
-    .filter(([, attribute]) => attribute.type === 'component' || attribute.type === 'dynamiczone')
+    .filter(([, attribute]) => ['component', 'dynamiczone'].includes(attribute.type))
     .map(([key]) => key);
 
   return omit(componentLikeAttributesKey, data);
@@ -78,7 +75,7 @@ const createEntityQuery = (strapi: Strapi.Strapi) => {
     };
 
     const getDeepPopulateComponentLikeQuery = (
-      contentType: Schema.ContentType,
+      contentType: ContentTypeSchema,
       params = { select: '*' }
     ) => {
       const { attributes } = contentType;

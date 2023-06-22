@@ -1,5 +1,5 @@
-import { AxiosError } from 'axios';
 import { useIntl } from 'react-intl';
+import { AxiosError } from 'axios';
 
 import { formatAPIError } from './utils/formatAPIError';
 import { formatAxiosError } from './utils/formatAxiosError';

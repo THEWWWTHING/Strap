@@ -1,61 +1,61 @@
-import React, { useRef, useState } from 'react';
-
+import React, { useState, useRef } from 'react';
+import { useIntl } from 'react-intl';
+import styled from 'styled-components';
+import { useHistory, useLocation, Link as ReactRouterLink } from 'react-router-dom';
+import { stringify } from 'qs';
 import {
-  ActionLayout,
-  BaseCheckbox,
-  Box,
-  ContentLayout,
-  Divider,
-  Flex,
-  GridItem,
-  IconButton,
+  LoadingIndicatorPage,
+  useFocusWhenNavigate,
+  AnErrorOccurred,
+  SearchURLQuery,
+  useSelectionState,
+  useQueryParams,
+  useTracking,
+  CheckPermissions,
+  usePersistentState,
+} from '@strapi/helper-plugin';
+import {
   Layout,
+  ContentLayout,
+  ActionLayout,
   Main,
+  Box,
+  Divider,
+  BaseCheckbox,
+  IconButton,
   Typography,
+  GridItem,
+  Flex,
   VisuallyHidden,
 } from '@strapi/design-system';
-import {
-  AnErrorOccurred,
-  CheckPermissions,
-  LoadingIndicatorPage,
-  SearchURLQuery,
-  useFocusWhenNavigate,
-  usePersistentState,
-  useQueryParams,
-  useSelectionState,
-  useTracking,
-} from '@strapi/helper-plugin';
-import { Cog, Grid, List, Pencil } from '@strapi/icons';
-import { stringify } from 'qs';
-import { useIntl } from 'react-intl';
-import { Link as ReactRouterLink, useHistory, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
+import { Pencil, Cog, Grid, List } from '@strapi/icons';
 
-import { AssetGridList } from '../../../components/AssetGridList';
-import { EditAssetDialog } from '../../../components/EditAssetDialog';
+import { UploadAssetDialog } from '../../../components/UploadAssetDialog/UploadAssetDialog';
 import { EditFolderDialog } from '../../../components/EditFolderDialog';
+import { EditAssetDialog } from '../../../components/EditAssetDialog';
+import { AssetGridList } from '../../../components/AssetGridList';
+import { FolderGridList } from '../../../components/FolderGridList';
+import { TableList } from '../../../components/TableList';
+import SortPicker from '../../../components/SortPicker';
+import { PaginationFooter } from '../../../components/PaginationFooter';
+import { BulkActions } from './components/BulkActions';
+import { EmptyOrNoPermissions } from './components/EmptyOrNoPermissions';
 import {
   FolderCard,
   FolderCardBody,
-  FolderCardBodyAction,
   FolderCardCheckbox,
+  FolderCardBodyAction,
 } from '../../../components/FolderCard';
-import { FolderGridList } from '../../../components/FolderGridList';
-import { PaginationFooter } from '../../../components/PaginationFooter';
-import SortPicker from '../../../components/SortPicker';
-import { TableList } from '../../../components/TableList';
-import { UploadAssetDialog } from '../../../components/UploadAssetDialog/UploadAssetDialog';
-import { localStorageKeys, PERMISSIONS, viewOptions } from '../../../constants';
-import { useAssets } from '../../../hooks/useAssets';
-import { useFolder } from '../../../hooks/useFolder';
-import { useFolders } from '../../../hooks/useFolders';
-import { useMediaLibraryPermissions } from '../../../hooks/useMediaLibraryPermissions';
-import { containsAssetFilter, getBreadcrumbDataML, getFolderURL, getTrad } from '../../../utils';
-
-import { BulkActions } from './components/BulkActions';
-import { EmptyOrNoPermissions } from './components/EmptyOrNoPermissions';
 import { Filters } from './components/Filters';
 import { Header } from './components/Header';
+
+import { useAssets } from '../../../hooks/useAssets';
+import { useFolders } from '../../../hooks/useFolders';
+import { useMediaLibraryPermissions } from '../../../hooks/useMediaLibraryPermissions';
+import { useFolder } from '../../../hooks/useFolder';
+import { getTrad, containsAssetFilter, getBreadcrumbDataML, getFolderURL } from '../../../utils';
+import pluginPermissions from '../../../permissions';
+import { localStorageKeys, viewOptions } from '../../../constants';
 
 const BoxWithHeight = styled(Box)`
   height: ${32 / 16}rem;
@@ -256,7 +256,7 @@ export const MediaLibrary = () => {
           }
           endActions={
             <>
-              <CheckPermissions permissions={PERMISSIONS.configureView}>
+              <CheckPermissions permissions={pluginPermissions.configureView}>
                 <ActionContainer paddingTop={1} paddingBottom={1}>
                   <IconButton
                     forwardedAs={ReactRouterLink}

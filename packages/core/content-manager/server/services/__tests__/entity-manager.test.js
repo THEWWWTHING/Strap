@@ -37,13 +37,6 @@ describe('Content-Manager', () => {
         webhookStore: {
           allowedEvents: new Map([['ENTRY_PUBLISH', 'entry.publish']]),
         },
-        plugins: {
-          'content-manager': {
-            services: {
-              'populate-builder': require('../populate-builder')(),
-            },
-          },
-        },
       };
       entityManager = entityManagerLoader({ strapi });
     });
@@ -160,13 +153,6 @@ describe('Content-Manager', () => {
         },
         webhookStore: {
           allowedEvents: new Map([['ENTRY_UNPUBLISH', 'entry.unpublish']]),
-        },
-        plugins: {
-          'content-manager': {
-            services: {
-              'populate-builder': require('../populate-builder')(),
-            },
-          },
         },
       };
       entityManager = entityManagerLoader({ strapi });

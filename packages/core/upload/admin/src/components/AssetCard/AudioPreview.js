@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
-
-import { Box } from '@strapi/design-system';
 import PropTypes from 'prop-types';
+import { Box } from '@strapi/design-system';
 
 export const AudioPreview = ({ url, alt }) => {
   return (

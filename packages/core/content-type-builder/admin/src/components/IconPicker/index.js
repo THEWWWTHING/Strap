@@ -1,26 +1,24 @@
-import React, { useEffect, useRef, useState } from 'react';
-
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Box,
-  Field,
-  FieldInput,
-  FieldLabel,
   Flex,
   Icon,
+  Typography,
+  Searchbar,
   IconButton,
   inputFocusStyle,
-  Searchbar,
-  Tooltip,
-  Typography,
   VisuallyHidden,
+  Field,
+  FieldLabel,
+  FieldInput,
+  Tooltip,
 } from '@strapi/design-system';
-import { Search, Trash } from '@strapi/icons';
-import PropTypes from 'prop-types';
+import { Trash, Search } from '@strapi/icons';
 import { useIntl } from 'react-intl';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import { getTrad } from '../../utils';
-
 import { COMPONENT_ICONS } from './constants';
 
 const IconPickerWrapper = styled(Flex)`

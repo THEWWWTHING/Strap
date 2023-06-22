@@ -1,12 +1,9 @@
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, waitFor, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
-
-import ProtectedSettingsPage from '../index';
-
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
 import server from './utils/server';
+import ProtectedSettingsPage from '../index';
 
 jest.mock('@strapi/helper-plugin', () => ({
   ...jest.requireActual('@strapi/helper-plugin'),

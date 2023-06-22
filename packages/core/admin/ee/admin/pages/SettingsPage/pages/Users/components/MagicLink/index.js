@@ -1,8 +1,6 @@
 import React from 'react';
-
-import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-
+import PropTypes from 'prop-types';
 import basename from '../../../../../../../../admin/src/core/utils/basename';
 import MagicLinkWrapper from '../../../../../../../../admin/src/pages/SettingsPage/pages/Users/components/MagicLink/MagicLinkWrapper';
 

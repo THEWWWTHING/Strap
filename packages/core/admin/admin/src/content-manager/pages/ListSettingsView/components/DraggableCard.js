@@ -1,15 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
-
-import { Box, Flex, Typography } from '@strapi/design-system';
-import { Cross, Drag, Pencil } from '@strapi/icons';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useDrag, useDrop } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import { useIntl } from 'react-intl';
-import styled from 'styled-components';
+import { Flex, Box, Typography } from '@strapi/design-system';
+import { Pencil, Cross, Drag } from '@strapi/icons';
 
-import { getTrad, ItemTypes } from '../../../utils';
 import { CardDragPreview } from '../../App/components/CardDragPreview';
+import { getTrad, ItemTypes } from '../../../utils';
 
 const ActionButton = styled.button`
   display: flex;

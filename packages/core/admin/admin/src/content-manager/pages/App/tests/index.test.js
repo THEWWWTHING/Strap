@@ -1,19 +1,17 @@
 /* eslint-disable no-irregular-whitespace */
 import React from 'react';
-
-import { darkTheme, lightTheme } from '@strapi/design-system';
-import { act, render, screen } from '@testing-library/react';
+import { createStore, combineReducers } from 'redux';
+import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
+import { Provider } from 'react-redux';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { act, render, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
-import { Provider } from 'react-redux';
-import { Router } from 'react-router-dom';
-import { combineReducers, createStore } from 'redux';
-
-import { App as ContentManagerApp } from '..';
+import { lightTheme, darkTheme } from '@strapi/design-system';
 import Theme from '../../../../components/Theme';
 import ThemeToggleProvider from '../../../../components/ThemeToggleProvider';
+import { App as ContentManagerApp } from '..';
 import cmReducers from '../../../../reducers';
 import useContentManagerInitData from '../useContentManagerInitData';
 

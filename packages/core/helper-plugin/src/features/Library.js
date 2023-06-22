@@ -45,4 +45,4 @@ LibraryProvider.propTypes = {
  */
 const useLibrary = () => React.useContext(LibraryContext);
 
-export { LibraryContext, LibraryProvider, useLibrary };
+export { LibraryProvider, useLibrary, LibraryContext };

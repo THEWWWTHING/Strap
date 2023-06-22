@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
-
-import { useNotification } from '@strapi/helper-plugin';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
+import { useNotification } from '@strapi/helper-plugin';
 
-import { AssetDefinition } from '../../constants';
-import getAllowedFiles from '../../utils/getAllowedFiles';
-import getTrad from '../../utils/getTrad';
 import { AssetDialog } from '../AssetDialog';
+import { AssetDefinition } from '../../constants';
+import { CarouselAssets } from './Carousel/CarouselAssets';
 import { EditFolderDialog } from '../EditFolderDialog';
 import { UploadAssetDialog } from '../UploadAssetDialog/UploadAssetDialog';
-
-import { CarouselAssets } from './Carousel/CarouselAssets';
+import getAllowedFiles from '../../utils/getAllowedFiles';
+import getTrad from '../../utils/getTrad';
 
 const STEPS = {
   AssetSelect: 'SelectAsset',

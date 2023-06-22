@@ -5,12 +5,11 @@
  */
 
 import React from 'react';
-
-import { lightTheme, ThemeProvider } from '@strapi/design-system';
-import { NotificationsProvider } from '@strapi/helper-plugin';
 import { render } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
-import { MemoryRouter, Route, Switch } from 'react-router-dom';
+import { MemoryRouter, Switch, Route } from 'react-router-dom';
+import { ThemeProvider, lightTheme } from '@strapi/design-system';
+import { NotificationsProvider } from '@strapi/helper-plugin';
 
 import { CreatePage } from '../index';
 

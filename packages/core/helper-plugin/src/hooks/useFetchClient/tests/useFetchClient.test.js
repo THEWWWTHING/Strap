@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-
-import { useFetchClient } from '@strapi/helper-plugin';
 import { render } from '@testing-library/react';
+import { useFetchClient } from '@strapi/helper-plugin';
 
 jest.mock('@strapi/helper-plugin', () => ({
   ...jest.requireActual('@strapi/helper-plugin'),

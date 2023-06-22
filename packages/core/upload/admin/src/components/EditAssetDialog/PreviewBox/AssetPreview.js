@@ -1,12 +1,10 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { forwardRef } from 'react';
-
-import { Flex } from '@strapi/design-system';
-import { usePersistentState } from '@strapi/helper-plugin';
-import { File, FilePdf } from '@strapi/icons';
 import PropTypes from 'prop-types';
+import { File, FilePdf } from '@strapi/icons';
+import { Flex } from '@strapi/design-system';
 import styled from 'styled-components';
-
+import { usePersistentState } from '@strapi/helper-plugin';
 import { AssetType } from '../../../constants';
 
 const CardAsset = styled(Flex)`
