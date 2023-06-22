@@ -1,0 +1,62 @@
+{
+  "name": "@strapi/plugin-color-picker",
+  "version": "4.11.1",
+  "description": "Strapi maintained Custom Fields",
+  "strapi": {
+    "name": "color-picker",
+    "description": "Color picker custom field",
+    "kind": "plugin",
+    "displayName": "Color Picker"
+  },
+  "dependencies": {
+    "@strapi/design-system": "1.8.0",
+    "@strapi/helper-plugin": "4.11.1",
+    "@strapi/icons": "1.8.0",
+    "prop-types": "^15.8.1",
+    "react-colorful": "5.6.1",
+    "react-intl": "6.4.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "5.3.4",
+    "styled-components": "5.3.3"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": "^4.4.0",
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0",
+    "react-router-dom": "5.3.4",
+    "styled-components": "5.3.3"
+  },
+  "scripts": {
+    "test:front": "run -T cross-env IS_EE=true jest --config ./jest.config.front.js",
+    "test:front:watch": "run -T cross-env IS_EE=true jest --config ./jest.config.front.js --watchAll",
+    "test:front:ce": "run -T cross-env IS_EE=false jest --config ./jest.config.front.js",
+    "test:front:watch:ce": "run -T cross-env IS_EE=false jest --config ./jest.config.front.js --watchAll",
+    "lint": "run -T eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strapi/strapi.git",
+    "directory": "packages/plugins/color-picker"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "Strapi Solutions SAS",
+    "email": "hi@strapi.io",
+    "url": "https://strapi.io"
+  },
+  "maintainers": [
+    {
+      "name": "Strapi Solutions SAS",
+      "email": "hi@strapi.io",
+      "url": "https://strapi.io"
+    }
+  ],
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  }
+}
